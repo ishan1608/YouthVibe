@@ -1,31 +1,47 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<AbsoluteLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/gback1" >
-    <Gallery
-        android:id="@+id/gallery_scroll_view"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content" 
-        android:layout_below="@+id/gallery_image_holder"
-        android:layout_alignParentBottom="true"
-        
-        />
-     <ImageView 
-          android:id="@+id/titlepic"
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:layout_centerHorizontal="true"
-          android:layout_alignParentTop="true"
-          android:src="@drawable/baselogo"></ImageView>
-<ImageView
-	    android:id="@+id/gallery_image_holder"
-	    android:layout_width="wrap_content"
-	    android:layout_height="wrap_content"
-	    android:layout_below="@id/titlepic"
-	    android:paddingLeft="@dimen/activity_horizontal_margin"
-       android:paddingRight="@dimen/activity_horizontal_margin"
-       android:layout_centerHorizontal="true"	    
-       android:src="@drawable/uvg1"
-	     />
-        
-</RelativeLayout>
+    tools:context="com.gallery.MainActivity"
+    tools:ignore="MergeRootFrame">
+   <ScrollView 
+     android:layout_height="wrap_content"
+     android:layout_width="match_parent">
+     <RelativeLayout 
+         android:layout_height="wrap_content"
+         android:layout_width="match_parent">
+         <!-- <RelativeLayout 
+            android:id="@+id/relsec1"
+            android:layout_height="match_parent"
+            android:layout_width="160sp"
+            android:layout_alignParentLeft="true" 
+            android:background="#ffffff"></RelativeLayout>
+         <RelativeLayout 
+              android:id="@+id/relsec2"
+             android:layout_height="match_parent"
+             android:layout_width="160sp"
+             android:layout_alignParentRight="true"
+             android:layout_toRightOf="@id/relsec1"
+             android:background="#000000"></RelativeLayout>
+          -->
+          <LinearLayout 
+              android:orientation="vertical"
+            android:id="@+id/relsec1"
+            android:layout_height="match_parent"
+            android:layout_width="160sp"
+            android:layout_alignParentLeft="true" 
+            android:background="#ffffff"></LinearLayout>
+         <LinearLayout 
+             android:orientation="vertical"
+              android:id="@+id/relsec2"
+             android:layout_height="match_parent"
+             android:layout_width="160sp"
+             android:layout_alignParentRight="true"
+             android:layout_toRightOf="@id/relsec1"
+             android:background="#000000"></LinearLayout>
+     </RelativeLayout>
+     </ScrollView>
+</AbsoluteLayout>
+

@@ -1,95 +1,90 @@
 package com.bist.youthvibe2014;
-
 import android.app.Fragment;
-import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.AdapterView.OnItemClickListener;
-import android.widget.BaseAdapter;
-import android.widget.Gallery;
+import android.view.View.OnClickListener;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.Toast;
 
 @SuppressWarnings("deprecation")
 public class GalleryFragment extends Fragment	  
 {
-	private Integer[] galleryImageIds = {
-            R.drawable.uvg1,
-            R.drawable.uv2,
-            R.drawable.uv3,
-            R.drawable.uv4,
-            R.drawable.uv5,
-            R.drawable.uv6,
-            R.drawable.uv7,
-            R.drawable.uv8,
-            R.drawable.uv9,
-            R.drawable.uv10,
-            R.drawable.uv11,
-            R.drawable.uv12,
-            R.drawable.uv13,
-            R.drawable.uv14,
-            R.drawable.uv15,
-            R.drawable.uv16,
-            R.drawable.uv17,
-            R.drawable.uv18,
-            R.drawable.uv19
-            };
+	LinearLayout relsec1;
+	LinearLayout relsec2;
+	int id;
+	ImageView imgv;
+	String imgval="";
 	View rootView;
 	@Override public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
 	{
 		rootView  = inflater .inflate(R.layout.gallery_fragment, container, false);
 		
-		Gallery galleryView;
-    	final ImageView galleryImageHolder;
-    		
-		galleryView = (Gallery) rootView.findViewById(R.id.gallery_scroll_view);
-		galleryView.setSpacing(1);
-		galleryImageHolder = (ImageView) rootView.findViewById(R.id.gallery_image_holder);
-		galleryView.setAdapter(new galleryAdapter(getActivity()));
-		
-		galleryView.setOnItemClickListener(new OnItemClickListener() {
-
-			@Override
-			public void onItemClick(AdapterView<?> parentView, View view, int position, long id) {
-				galleryImageHolder.setImageResource(galleryImageIds[position]);
-			}
-		});
-		
+		relsec1 = (LinearLayout)rootView.findViewById(R.id.relsec1);
+		relsec2 = (LinearLayout)rootView.findViewById(R.id.relsec2);
+		String imageItems []= new String [12];
+		imageItems[0]="srkdance";
+		imageItems[1]="classical1";
+		imageItems[2]="classical2";
+		imageItems[3]="groupfootbaal";
+		imageItems[4]="fashionshow";
+		imageItems[5]="lpushowcase";
+		imageItems[6]="ranbir";
+		imageItems[7]="girlfootball";
+		imageItems[8]="roadshow";
+		imageItems[9]="northeast";
+		imageItems[10]="roadshow2";
+		imageItems[11]="srkdeepika";
+		//imageItems[12]="folkclass";
+		double  height= 187 * 0.36;
+		double  width = 160;
+		for(int i=0; i<imageItems.length; i++) {
+			id = getResources().getIdentifier(imageItems[i], "drawable", getActivity().getPackageName());
+			imgv = new ImageView(getActivity());	
+	        imgv.setMaxHeight((int)height);
+	        imgv.setMaxWidth((int)width);
+	        imgv.setImageDrawable(getResources().getDrawable(id));
+	        if(i%2 == 0) {
+	        	relsec1.addView(imgv);
+	        	imgval=""+i;
+		        final String val= imgval.toString();
+	        	imgv.setOnClickListener(new OnClickListener() {
+					
+					@Override
+					public void onClick(View arg0) {
+						// TODO Auto-generated method stub
+						Toast.makeText(getActivity(), "toast toast toast",Toast.LENGTH_SHORT).show();	
+						Bundle toImage=new Bundle();
+						toImage.putString("key1",val);
+							Intent intent=new Intent(getActivity(),ImageActivity.class);
+							intent.putExtras(toImage);
+							startActivity(intent);	
+					}
+				});
+	        } else {
+	        	relsec2.addView(imgv);
+	        	imgval=""+i;
+		        final String val= imgval.toString();
+	        	imgv.setOnClickListener(new OnClickListener() {
+					
+					@Override
+					public void onClick(View arg0) {
+						// TODO Auto-generated method stub
+						Bundle toImage=new Bundle();
+						toImage.putString("key1",val);
+						Intent intent=new Intent(getActivity(),ImageActivity.class);
+						intent.putExtras(toImage);
+						startActivity(intent);
+						Toast.makeText(getActivity(), "toast toast toast",Toast.LENGTH_SHORT).show();	
+					}
+				});
+	        } }
+	    	imgv.invalidate();
 		return rootView;
+		
 	}
-	
-	private class galleryAdapter extends BaseAdapter
-	{
-		 Context context;
-		 
-		 galleryAdapter(Context thisContext) {
-			 context = thisContext;
-		 }
-
-		@Override
-		public int getCount() {
-			return 19;
-		}
-
-		@Override
-		public Object getItem(int position) {
-			return position;
-		}
-
-		@Override
-		public long getItemId(int position) {
-			return position;
-		}
-
-		@Override
-		public View getView(int index, View view, ViewGroup viewGroup) {
-			ImageView newView = new ImageView(context);
-			newView.setImageResource(galleryImageIds[index]);
-			newView.setLayoutParams(new Gallery.LayoutParams(150,150));
-			newView.setScaleType(ImageView.ScaleType.FIT_XY);
-			return newView;
-		}
-	}	
+		
 }

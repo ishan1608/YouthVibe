@@ -165,8 +165,8 @@ private void updateDisplay(int position) {
 
  @Override
  public boolean onOptionsItemSelected(MenuItem item) {
-  // toggle nav drawer on selecting action bar app icon/title
-          if (mDrawerToggle.onOptionsItemSelected(item)) {
+	 		// toggle nav drawer on selecting action bar app icon/title
+          	if (mDrawerToggle.onOptionsItemSelected(item)) {
                      return true;
               }
              // Handle action bar actions click
@@ -174,6 +174,9 @@ private void updateDisplay(int position) {
                     case R.id.action_settings:
                     	   // Toast.makeText(MainActivity.this, "This application has been developed by\nThe Inspirations\nAndroid Developers Lab.", Toast.LENGTH_LONG).show();
                           return true;
+                    /*case R.id.mute_button:
+                    	// Need a reference to the music player
+                    	return true;*/
                     default :
                                  return super.onOptionsItemSelected(item);
                 }

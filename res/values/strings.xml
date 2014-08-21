@@ -60,7 +60,7 @@
     </string-array>
 
     <string name="title_activity_splash">Youth Vibe 2014</string>
-    <string name="title_activity_gallery_fragment">Gallery</string>
+    <string name="title_activity_gallery">Gallery</string>
     <string name="title_activity_main">Youth Vibe 2014</string>
 
 </resources>

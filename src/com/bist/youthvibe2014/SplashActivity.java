@@ -28,6 +28,7 @@ public class SplashActivity extends Activity {
 		        
 		//vp=(ViewFlipper)findViewById(R.id.viewFlipper1);
 		final MediaPlayer media=MediaPlayer.create(SplashActivity.this, R.raw.y);
+		
 		media.start(); 
 		
         new Handler().postDelayed(new Runnable() {
