@@ -124,7 +124,7 @@ private void updateDisplay(int position) {
                    fragment = new ContactCallFragment();
                    break;
                case 5:
-                   fragment = new MapFragment();
+                   fragment = new GoogleMapsFrag();
                    break;
                case 6:
                    fragment = new LikeFragment();
