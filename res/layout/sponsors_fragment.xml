@@ -1,0 +1,361 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/myrelative1"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/backn3" >
+     
+    <ImageView 
+          android:id="@+id/titlepic"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_centerHorizontal="true"
+          android:layout_alignParentTop="true"
+          android:src="@drawable/baselogo"></ImageView> 
+    <ImageView 
+    android:layout_width="fill_parent"
+   android:layout_height="fill_parent" 
+   android:id="@+id/sponsors_background_image">
+    </ImageView>
+    
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:text="OUR SPONSORS"
+        android:textColor="#ffffff"
+        android:layout_marginTop="80dp"
+        android:textSize="40sp"
+        android:textStyle="bold" />
+
+   <ViewFlipper
+    android:id="@+id/flip1"
+    android:layout_centerHorizontal="true"
+    android:layout_centerVertical="true"
+    android:layout_marginTop="5dp"
+    android:layout_below="@id/textView1"
+    android:layout_height="wrap_content"
+    android:layout_width="wrap_content"
+    >
+    
+       
+     <RelativeLayout 
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_gravity="center_horizontal">
+         
+         <TextView 
+             android:id="@+id/tv1"
+             android:layout_height="wrap_content"
+             android:layout_width="wrap_content"
+             android:layout_centerHorizontal="true"
+             android:textColor="#ffffff"
+             android:textSize="20sp"
+             android:text="Title Sponsors">
+             
+         </TextView>
+         
+         <ImageView
+             android:id="@+id/imf1"
+             android:layout_height="wrap_content"
+             android:layout_width="wrap_content"     
+             android:layout_below="@id/tv1"
+             android:src="@drawable/cola">
+             
+         </ImageView>
+         
+             </RelativeLayout>
+             
+  <RelativeLayout 
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_gravity="center_horizontal">
+         
+         <TextView 
+             android:id="@+id/tv2"
+             android:layout_height="wrap_content"
+             android:layout_width="wrap_content"
+             android:layout_centerHorizontal="true"
+             android:textColor="#ffffff"
+             android:textSize="20sp"
+             android:text="Co-Sponsors">
+             
+         </TextView>
+         
+         <ImageView
+             android:id="@+id/imf2"
+             android:layout_height="wrap_content"
+             android:layout_width="wrap_content"     
+             android:layout_below="@id/tv2"
+             android:src="@drawable/voda">
+             
+         </ImageView>
+         
+             </RelativeLayout>
+             
+     <RelativeLayout 
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content">
+         
+         <TextView 
+             android:id="@+id/tv3"
+             android:layout_height="wrap_content"
+             android:layout_width="wrap_content"
+             android:layout_centerHorizontal="true"
+                android:textColor="#ffffff"
+             android:textSize="20sp"
+             android:text="Co-Sponsors">
+             
+         </TextView>
+         
+         <ImageView
+             android:id="@+id/imf3"
+             android:layout_height="wrap_content"
+             android:layout_width="wrap_content"     
+             android:layout_below="@id/tv3"
+             android:src="@drawable/idea">
+             
+         </ImageView>
+         
+             </RelativeLayout>
+             
+       <RelativeLayout 
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content">
+         
+         <TextView 
+             android:id="@+id/tv4"
+             android:layout_height="wrap_content"
+             android:layout_width="wrap_content"
+             android:layout_centerHorizontal="true"
+                android:textColor="#ffffff"
+             android:textSize="20sp"
+             android:text="Other Sponsors">
+             
+         </TextView>
+         
+         <ImageView
+             android:id="@+id/imf4"
+             android:layout_height="wrap_content"
+             android:layout_width="wrap_content"     
+             android:layout_below="@id/tv4"
+             android:src="@drawable/videocon">
+             
+         </ImageView>
+         
+             </RelativeLayout>
+             
+    <RelativeLayout 
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content">  
+          
+          <TextView 
+             android:id="@+id/tv5"
+             android:layout_height="wrap_content"
+             android:layout_width="wrap_content"
+             android:layout_centerHorizontal="true"
+                android:textColor="#ffffff"
+             android:textSize="20sp"
+             android:text="Other Sponsors">
+             </TextView>
+             
+             <ImageView
+                android:id="@+id/imf5"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                 android:layout_below="@id/tv5"
+                android:src="@drawable/bookmyshow">
+                   </ImageView>
+                   
+                   </RelativeLayout>
+                   
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal">
+                   
+                
+              <TextView 
+             android:id="@+id/tv6"
+             android:layout_height="wrap_content"
+             android:layout_width="wrap_content"
+             android:layout_centerHorizontal="true"
+                android:textColor="#ffffff"
+             android:textSize="20sp"
+             android:text="Other Sponsors">
+             </TextView>
+             
+               <ImageView
+                android:id="@+id/imf6"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                 android:layout_below="@id/tv6"
+                android:src="@drawable/cafe">
+           </ImageView>
+           
+               </RelativeLayout>
+               
+    <RelativeLayout
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content" >
+     
+            <TextView 
+             android:id="@+id/tv7"
+             android:layout_height="wrap_content"
+             android:layout_width="wrap_content"
+             android:layout_centerHorizontal="true"
+                android:textColor="#ffffff"
+             android:textSize="20sp"
+             android:text="Other Sponsors">
+             </TextView>
+             
+              <ImageView
+              android:id="@+id/imf7"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+               android:layout_below="@id/tv7"
+              android:src="@drawable/hero"/>
+         
+             </RelativeLayout>
+             
+    
+<!--     <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        >
+               <TextView 
+             android:id="@+id/tv8"
+             android:layout_height="wrap_content"
+             android:layout_width="wrap_content"
+             android:layout_centerHorizontal="true"
+             android:textColor="#ff0eef"
+             android:textSize="16sp"
+             android:text="Other Sponsors">
+             </TextView>
+             
+              <ImageView
+              android:id="@+id/imf8"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:src="@drawable/logo">
+             </ImageView>
+             
+             </RelativeLayout>--> 
+             
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal" >
+              
+            <TextView 
+                android:id="@+id/tv9"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                   android:textColor="#ffffff"
+             android:textSize="20sp"
+                android:text="Other Sponsors"/>
+            <ImageView 
+                android:id="@+id/imf9"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                 android:layout_below="@id/tv9"
+                android:src="@drawable/cad"/>
+              </RelativeLayout>
+              
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" >
+          <TextView
+              android:id="@+id/tv10"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+             android:layout_centerHorizontal="true"
+                android:textColor="#ffffff"
+             android:textSize="20sp"
+             android:text="Other Sponsors">
+             </TextView>
+           <ImageView 
+               android:id="@+id/imf10"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"  
+                android:layout_below="@id/tv10"
+               android:src="@drawable/pet"/>
+        </RelativeLayout>
+         </ViewFlipper>
+    
+  <TextView
+      android:id="@+id/tvv"
+      android:layout_height="wrap_content"
+      android:layout_width="wrap_content"
+      android:layout_below="@id/flip1"
+      android:textSize="20sp"
+      android:textColor="#ffffff"
+      android:layout_marginTop="15dp"
+      android:layout_centerHorizontal="true"
+      android:text="For SponsorShip Contact:"
+      android:paddingBottom="@dimen/activity_horizontal_margin"
+     >
+      
+  </TextView>
+      
+
+    <ImageView
+        android:id="@+id/imageView12"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="62dp"
+        android:src="@drawable/swet" />
+
+    <ImageView
+        android:id="@+id/imageView11"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/imageView12"
+        android:layout_marginRight="16dp"
+        android:layout_toLeftOf="@+id/imageView12"
+        android:src="@drawable/bikram" />
+
+    <ImageView
+        android:id="@+id/imageView10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/imageView12"
+        android:layout_marginLeft="20dp"
+        android:layout_toRightOf="@+id/imageView12"
+        android:src="@drawable/vivek" />
+    
+   <TextView
+        android:id="@+id/textView9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/textView8"
+        android:layout_alignBottom="@+id/textView8"
+        android:layout_alignRight="@+id/imageView11"
+        android:textColor="#ffffff"
+        android:text="Bikram Sharma" />
+   
+    <TextView
+        android:id="@+id/textView8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/imageView12"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="21dp"
+        android:text="Swetank Setu"
+         android:textColor="#ffffff"
+         />
+
+    <TextView
+        android:id="@+id/textView18"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/textView8"
+        android:layout_alignBottom="@+id/textView8"
+        android:layout_alignLeft="@+id/imageView10"
+         android:textColor="#ffffff"
+        android:text="Vivek Ranjan" />
+    </RelativeLayout>

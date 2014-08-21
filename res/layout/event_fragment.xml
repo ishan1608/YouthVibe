@@ -1,0 +1,179 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/events_fragment"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/homescroll"
+    tools:context=".MainActivity"
+     >
+     
+ 
+ 
+<ImageView 
+          android:id="@+id/titlepic"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_centerHorizontal="true"
+          android:layout_alignParentTop="true"
+       
+        android:src="@drawable/baselogo"/>
+<ScrollView
+    android:id="@+id/sv1"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    android:layout_below="@id/titlepic"
+    >
+    <RelativeLayout
+        android:layout_width="wrap_content"
+             android:layout_height="wrap_content" >
+         <RelativeLayout
+             android:id="@+id/relcheck1"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:padding="9dp" >
+             
+ 
+ 
+        <ImageView
+            android:id="@+id/imagevcheck"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true" 
+          android:src="@drawable/folkdance" />
+        <RelativeLayout 
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/imagevcheck"
+            android:background="#ffffff">
+        </RelativeLayout>
+        </RelativeLayout>
+        <RelativeLayout
+             android:id="@+id/relbtn2"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:layout_alignParentRight="true"
+             android:layout_alignParentTop="true"
+             android:layout_toRightOf="@id/relcheck1"
+             android:padding="9dp" >
+        
+ 
+ 
+        <ImageView
+            android:id="@+id/imagev2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true" 
+             android:src="@drawable/indianfolkdance" />
+         </RelativeLayout>
+<RelativeLayout
+             android:id="@+id/relbtn3"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:layout_alignParentLeft="true"
+             android:layout_below="@id/relcheck1"
+             android:padding="9dp" >
+
+ 
+        <ImageView
+            android:id="@+id/imagev3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true" 
+            android:src="@drawable/indowesterm" />
+        </RelativeLayout>
+        <RelativeLayout
+             android:id="@+id/relbtn4"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:layout_alignParentRight="true"
+             android:layout_toRightOf="@id/relbtn3"
+             android:layout_below="@id/relbtn2"
+             android:padding="9dp" >
+        
+   
+        <ImageView
+            android:id="@+id/imagev4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true" 
+      android:src="@drawable/justduet2"  />
+        </RelativeLayout>
+<RelativeLayout
+             android:id="@+id/relbtn5"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:layout_alignParentLeft="true"
+             android:layout_below="@id/relbtn3"
+             android:padding="9dp" >
+ 
+        <ImageView
+            android:id="@+id/imagev5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true" 
+        android:src="@drawable/justduet"  />
+        </RelativeLayout>
+          <RelativeLayout
+             android:id="@+id/relbtn6"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:layout_alignParentRight="true"
+             android:layout_toRightOf="@id/relbtn5"
+             android:layout_below="@id/relbtn4"
+             android:padding="9dp" >
+        
+     
+        <ImageView
+            android:id="@+id/imagev6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"  
+        android:src="@drawable/nrithya"  />
+         </RelativeLayout>
+        
+  <!--         <ImageButton 
+            android:id="@+id/imageButton7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@id/imageButton5"
+            android:src="@drawable/cr1"/>
+         <ImageButton 
+            android:id="@+id/imageButton8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/imageButton7"
+            android:layout_below="@id/imageButton6"
+            android:src="@drawable/cvy1" /> -->
+           <RelativeLayout
+             android:id="@+id/relbtn7"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:layout_alignParentLeft="true"
+             android:layout_below="@id/relbtn5"
+             android:padding="9dp" >
+        
+    
+        <ImageView
+            android:id="@+id/imagev7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true" 
+           android:src="@drawable/yalgar"  />
+            </RelativeLayout>
+             
+            </RelativeLayout>
+
+  
+    </ScrollView>
+
+
+</RelativeLayout>

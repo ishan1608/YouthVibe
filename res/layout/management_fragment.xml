@@ -1,0 +1,200 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/events_fragment"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+     >
+
+<ImageView 
+    android:layout_width="fill_parent"
+   android:layout_height="fill_parent" 
+   android:id="@+id/event_image">
+   </ImageView>
+   
+
+    
+     <ImageView 
+          android:id="@+id/titlepic"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_centerHorizontal="true"
+          android:layout_alignParentTop="true"
+          android:src="@drawable/baselogo" />
+<ScrollView
+    android:id="@+id/sv1"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    android:layout_below="@id/titlepic"
+    >
+    <RelativeLayout
+        android:layout_width="wrap_content"
+             android:layout_height="wrap_content" >
+         <RelativeLayout
+             android:id="@+id/relcheck1"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:padding="9dp" >
+             
+
+        <ImageView
+            android:id="@+id/imagevcheck"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+         android:src="@drawable/strategy1" /> 
+        <TextView 
+            android:id="@+id/tvcheck"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/imagevcheck"
+            android:layout_centerHorizontal="true"
+            android:text="Buisness Strategy"
+            android:textColor="#dddddd"
+            />
+        </RelativeLayout>
+        <RelativeLayout
+             android:id="@+id/relbtn2"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:layout_alignParentRight="true"
+             android:layout_alignParentTop="true"
+             android:layout_toRightOf="@id/relcheck1"
+             android:padding="9dp" >
+
+        <ImageView
+            android:id="@+id/imagev2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+          android:src="@drawable/bplan"/> 
+        <TextView 
+            android:id="@+id/tvcheck2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/imagev2"
+            android:layout_centerHorizontal="true"
+            android:text="B-Plan Competetion"
+            android:textColor="#dddddd"
+            />
+        </RelativeLayout>
+<RelativeLayout
+             android:id="@+id/relbtn3"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:layout_alignParentLeft="true"
+             android:layout_below="@id/relcheck1"
+             android:padding="9dp" >
+
+        <ImageView
+            android:id="@+id/imagev3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true" 
+           android:src="@drawable/victoria" /> 
+        <TextView 
+            android:id="@+id/tvcheck3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/imagev3"
+            android:layout_centerHorizontal="true"
+            android:text="Biz Victoria"
+            android:textColor="#dddddd"
+            />
+        </RelativeLayout>
+        <RelativeLayout
+             android:id="@+id/relbtn4"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:layout_alignParentRight="true"
+             android:layout_toRightOf="@id/relbtn3"
+             android:layout_below="@id/relbtn2"
+             android:padding="9dp" >
+   
+ 
+        <ImageView
+            android:id="@+id/imagev4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"  
+          android:src="@drawable/casedevelopment"  />
+      
+        <TextView 
+            android:id="@+id/tvcheck4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/imagev4"
+            android:layout_centerHorizontal="true"
+            android:text="Case Development"
+            android:textColor="#dddddd"
+            />
+        </RelativeLayout>
+
+
+            <RelativeLayout
+             android:id="@+id/relbtn5"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:layout_alignParentLeft="true"
+             android:layout_below="@id/relbtn3"
+             android:padding="9dp" >
+    
+             
+        <ImageView
+            android:id="@+id/imagev5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+          android:src="@drawable/strategy" />
+        <TextView 
+            android:id="@+id/tvcheck5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/imagev5"
+            android:layout_centerHorizontal="true"
+            android:text="Strategic evaluation"
+            android:textColor="#dddddd"
+            /></RelativeLayout>
+          <RelativeLayout
+             android:id="@+id/relbtn6"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:layout_alignParentRight="true"
+             android:layout_toRightOf="@id/relbtn5"
+             android:layout_below="@id/relbtn4"
+             android:padding="9dp" >
+  
+        <ImageView
+            android:id="@+id/imagev6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+      android:src="@drawable/simulationgame" />
+        <TextView 
+            android:id="@+id/tvcheck4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/imagev6"
+            android:layout_centerHorizontal="true"
+            android:text="Simulation Game"
+            android:textColor="#dddddd"
+            />
+        </RelativeLayout>
+        
+
+             
+   </RelativeLayout>
+
+  
+    </ScrollView>
+
+
+</RelativeLayout>
+

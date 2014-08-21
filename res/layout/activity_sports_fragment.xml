@@ -1,0 +1,102 @@
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:id="@+id/categories_fragment" >
+
+<ImageView 
+    android:layout_width="fill_parent"
+   android:layout_height="fill_parent" 
+   android:id="@+id/event_image">
+</ImageView>
+     <ImageView 
+          android:id="@+id/titlepic"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_centerHorizontal="true"
+          android:layout_alignParentTop="true"
+          
+          android:src="@drawable/baselogo"></ImageView>
+<ScrollView
+    android:id="@+id/sv1"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    android:layout_below="@id/titlepic">
+        <RelativeLayout
+        android:layout_width="wrap_content"
+             android:layout_height="wrap_content" >
+         <RelativeLayout
+             android:id="@+id/relcheck1"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:padding="9dp" >
+        <ImageView
+            android:id="@+id/imagevcheck"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:src="@drawable/football1" />
+        </RelativeLayout>
+        <RelativeLayout
+             android:id="@+id/relbtn2"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:layout_alignParentRight="true"
+             android:layout_alignParentTop="true"
+             android:layout_toRightOf="@id/relcheck1"
+             android:padding="9dp" >
+        <ImageView
+            android:id="@+id/imagev2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:src="@drawable/cricket1" />
+        </RelativeLayout>
+        <RelativeLayout
+             android:id="@+id/relbtn3"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:layout_alignParentLeft="true"
+             android:layout_below="@id/relcheck1"
+             android:padding="9dp" >
+        <ImageView
+            android:id="@+id/imagev3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:src="@drawable/volleyball" />
+        </RelativeLayout>
+        <RelativeLayout
+             android:id="@+id/relbtn4"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:layout_alignParentRight="true"
+             android:layout_toRightOf="@id/relbtn3"
+             android:layout_below="@id/relbtn2"
+             android:padding="9dp" >
+        <ImageView
+            android:id="@+id/imagev4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:src="@drawable/basketball" />
+       
+        </RelativeLayout>
+
+     
+             
+    </RelativeLayout>
+
+  
+    </ScrollView>
+
+
+</RelativeLayout>
+
+

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Youth Vibe 2014</string>
+    <string name="action_settings">Developer</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="imgdesc">imgdesc</string>
+    <string name="google_maps_button">Get Directions</string>
+   
+    <string-array name="titles">
+        <item>Home</item>
+        <item>About Us</item>
+        <item>Events</item>
+          
+         <item>Gallery</item>
+         <item>Events Home </item>
+          <item>Contact</item>
+          <item>Map</item>
+          <item>Like Us</item>
+          <item>Sponsors</item>
+                    
+    </string-array>
+
+    <array name="icons">
+        <item>@drawable/home</item>
+        <item>@drawable/aboutus</item>
+        <item>@drawable/event</item>
+        <item>@drawable/gallery</item>
+        <item>@drawable/e</item>
+        <item>@drawable/contact</item>
+        <item>@drawable/map</item>
+        <item>@drawable/facebook</item>
+        <item>@drawable/sponsor</item>
+        
+    </array>
+    
+    <!-- Names -->
+    <string-array name="contact_member_names">
+        <item>Vivek Rajan</item>
+        <item>Swetank Setu</item>
+        <item>Bikram Sarmah</item>
+        <item>Revia Singh</item>
+        <item>Ajay Kumar</item>
+        <item>Peeyush Sharma</item>
+        <item>Aman Srivastva</item>
+    </string-array>
+
+    <!-- Pictures -->
+    <array name="contact_profile_pics">
+        <item>@drawable/vivek</item>
+        <item>@drawable/swet</item>
+        <item>@drawable/bikram</item>
+        <item>@drawable/person4</item>
+        <item>@drawable/person5</item>
+        <item>@drawable/person6</item>
+        <item>@drawable/person7</item>
+    </array>
+
+
+    <!-- contact type -->
+    <string-array name="contact_contact_type">
+        <item>Mobile</item>
+        <item>Mobile</item>
+        <item>Mobile</item>
+        <item>Moble</item>
+        <item>Mobile</item>
+        <item>Mobile</item>
+        <item>Mobile</item>
+    </string-array>
+
+    <string name="title_activity_splash">Youth Vibe 2014</string>
+    <string name="title_activity_gallery_fragment">Gallery</string>
+    
+    <string name="title_activity_main">Youth Vibe 2014</string>
+
+</resources>
