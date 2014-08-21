@@ -8,7 +8,6 @@ import android.app.Fragment;
 import android.app.FragmentManager;
 import android.content.res.Configuration;
 import android.content.res.TypedArray;
-import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.support.v4.app.ActionBarDrawerToggle;
 import android.support.v4.widget.DrawerLayout;
@@ -17,7 +16,6 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
-// import android.widget.Toast;
 import android.widget.ListView;
 
 
@@ -43,13 +41,6 @@ public class MainActivity extends Activity {
 	
   super.onCreate(savedInstanceState);
   setContentView(R.layout.activity_main);
-  
-  /*// A simple hack to continue the song which gets interrupted after the splash
-  // I still have to test it
-  final MediaPlayer media=MediaPlayer.create(this, R.raw.y);
-  media.start();
-  media.seekTo(5000);*/
-  
 
   mTitle = mDrawerTitle = getTitle();
 
@@ -123,25 +114,22 @@ private void updateDisplay(int position) {
                    // Toast.makeText(getApplicationContext(), "About us toast from main", Toast.LENGTH_SHORT).show();
                     break;               
                case 2:
-                    fragment = new EventsFragment();
-                    break;
-               case 3:
                    fragment = new GalleryFragment();
                    break;
-               case 4:
+               case 3:
                    fragment = new EventsHomeFragment();
                   break;
-               case 5:
+               case 4:
             	   // Toast.makeText(getApplicationContext(), "Contact called", Toast.LENGTH_SHORT).show();
                    fragment = new ContactCallFragment();
                    break;
-               case 6:
+               case 5:
                    fragment = new MapFragment();
                    break;
-               case 7:
+               case 6:
                    fragment = new LikeFragment();
                    break;
-               case 8:
+               case 7:
                    fragment = new Sponsors_Fragment();
                    break;
                   default:

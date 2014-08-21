@@ -293,12 +293,10 @@ public final class R {
     public static final class string {
         public static final int action_settings=0x7f060001;
         public static final int app_name=0x7f060000;
-        public static final int google_maps_button=0x7f060004;
-        public static final int hello_world=0x7f060002;
-        public static final int imgdesc=0x7f060003;
-        public static final int title_activity_gallery_fragment=0x7f060006;
-        public static final int title_activity_main=0x7f060007;
-        public static final int title_activity_splash=0x7f060005;
+        public static final int google_maps_button=0x7f060002;
+        public static final int title_activity_gallery_fragment=0x7f060004;
+        public static final int title_activity_main=0x7f060005;
+        public static final int title_activity_splash=0x7f060003;
     }
     public static final class style {
         /** 
