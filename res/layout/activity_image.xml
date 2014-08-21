@@ -1,0 +1,28 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.gallery.ImageActivity"
+    tools:ignore="MergeRootFrame">
+ <!--    <LinearLayout 
+        android:orientation="vertical"
+        android:id="@+id/linear1"
+        android:layout_width="match_parent"
+        android:layout_height="550sp"></LinearLayout>
+    <Button 
+        android:id="@+id/gallerybtn1"
+        android:layout_width="match_parent"
+        android:layout_height="50sp"
+        android:text="gallery"
+        android:layout_alignParentBottom="true"
+        android:layout_gravity="center_horizontal"
+        android:onClick="finishDialog"></Button> -->
+ <android.support.v4.view.ViewPager
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/pager"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" />
+</RelativeLayout>
+
+
