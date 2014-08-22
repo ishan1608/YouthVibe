@@ -3,11 +3,9 @@
     android:id="@+id/events_fragment"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/homescroll"
+    android:background="@drawable/lightyback"
     tools:context=".MainActivity"
      >
-     
- 
  
 <ImageView 
           android:id="@+id/titlepic"
@@ -138,20 +136,6 @@
         android:src="@drawable/nrithya"  />
          </RelativeLayout>
         
-  <!--         <ImageButton 
-            android:id="@+id/imageButton7"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_below="@id/imageButton5"
-            android:src="@drawable/cr1"/>
-         <ImageButton 
-            android:id="@+id/imageButton8"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_toRightOf="@id/imageButton7"
-            android:layout_below="@id/imageButton6"
-            android:src="@drawable/cvy1" /> -->
            <RelativeLayout
              android:id="@+id/relbtn7"
              android:layout_width="wrap_content"

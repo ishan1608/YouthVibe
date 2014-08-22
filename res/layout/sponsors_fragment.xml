@@ -2,7 +2,7 @@
     android:id="@+id/myrelative1"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:background="@drawable/backn3" >
+    android:background="@drawable/lightyback" >
      
     <ImageView 
           android:id="@+id/titlepic"

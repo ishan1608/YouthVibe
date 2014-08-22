@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     android:layout_width="match_parent"
     tools:context=".MainActivity" 
-    android:background="@drawable/homescroll">
+    android:background="@drawable/lightyback">
    <!--   <ImageView 
     android:layout_width="fill_parent"
    android:layout_height="fill_parent" 

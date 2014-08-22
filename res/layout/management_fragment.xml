@@ -4,15 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity"
-     >
-
-<ImageView 
-    android:layout_width="fill_parent"
-   android:layout_height="fill_parent" 
-   android:id="@+id/event_image">
-   </ImageView>
-   
-
+    android:background="@drawable/lightyback" >
     
      <ImageView 
           android:id="@+id/titlepic"

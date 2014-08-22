@@ -29,11 +29,11 @@ public class CulturalFragment extends Fragment {
 	  @Override public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
 	      {
 			  rootView  = inflater .inflate(R.layout.cultural_fragment, container, false);
-			  ImageView i = (ImageView)rootView.findViewById(R.id.event_image);
+			  /*ImageView i = (ImageView)rootView.findViewById(R.id.event_image);
 			  i.setBackgroundResource(R.drawable.gif);
 	
 			  AnimationDrawable pro = (AnimationDrawable)i.getBackground();
-			  pro.start();
+			  pro.start();*/
 			// Library settings
 				/*DisplayImageOptions defaultOptions = new DisplayImageOptions.Builder().cacheInMemory(true).cacheOnDisk(true).build();
 				ImageLoaderConfiguration config = new ImageLoaderConfiguration.Builder(getApplicationContext()).defaultDisplayImageOptions(defaultOptions).build();

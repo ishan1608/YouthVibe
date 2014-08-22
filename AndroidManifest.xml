@@ -52,6 +52,16 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.bist.youthvibe2014.MainActivity" />
         </activity>
+        <activity
+            android:name="com.bist.youthvibe2014.DialogActivity"
+            android:label="Developers"
+            android:theme="@android:style/Theme.Dialog"
+            android:parentActivityName="com.bist.youthvibe2014.MainActivity"
+            android:screenOrientation="portrait" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.bist.youthvibe2014.MainActivity" />
+        </activity>
         <meta-data 
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version"/>

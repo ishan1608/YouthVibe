@@ -15,12 +15,12 @@ public class SportsFragment extends Fragment {
 	   
 	  @Override public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
 	      {
-			    rootView  = inflater .inflate(R.layout.activity_sports_fragment, container, false);
-				  ImageView i = (ImageView)rootView.findViewById(R.id.event_image);
+			    rootView  = inflater .inflate(R.layout.sports_fragment, container, false);
+				  /*ImageView i = (ImageView)rootView.findViewById(R.id.event_image);
 				  i.setBackgroundResource(R.drawable.gif);
 		
 				  AnimationDrawable pro = (AnimationDrawable)i.getBackground();
-				  pro.start();
+				  pro.start();*/
 			    
 		   return rootView;
 }}
