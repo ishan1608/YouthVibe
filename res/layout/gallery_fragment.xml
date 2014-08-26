@@ -1,47 +1,33 @@
-<AbsoluteLayout
+<ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/container"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     tools:context="com.gallery.MainActivity"
     tools:ignore="MergeRootFrame">
-   <ScrollView 
-     android:layout_height="wrap_content"
-     android:layout_width="match_parent">
-     <RelativeLayout 
+    
+    <LinearLayout 
          android:layout_height="wrap_content"
-         android:layout_width="match_parent">
-         <!-- <RelativeLayout 
-            android:id="@+id/relsec1"
-            android:layout_height="match_parent"
-            android:layout_width="160sp"
-            android:layout_alignParentLeft="true" 
-            android:background="#ffffff"></RelativeLayout>
-         <RelativeLayout 
-              android:id="@+id/relsec2"
-             android:layout_height="match_parent"
-             android:layout_width="160sp"
-             android:layout_alignParentRight="true"
-             android:layout_toRightOf="@id/relsec1"
-             android:background="#000000"></RelativeLayout>
-          -->
+         android:layout_width="match_parent"
+         android:baselineAligned="false">
+         
           <LinearLayout 
               android:orientation="vertical"
             android:id="@+id/relsec1"
             android:layout_height="match_parent"
-            android:layout_width="160sp"
-            android:layout_alignParentLeft="true" 
-            android:background="#ffffff"></LinearLayout>
+            android:layout_width="0dp"
+            android:layout_weight="1" 
+            android:background="#ffffff" />
+         
          <LinearLayout 
              android:orientation="vertical"
               android:id="@+id/relsec2"
              android:layout_height="match_parent"
-             android:layout_width="160sp"
-             android:layout_alignParentRight="true"
-             android:layout_toRightOf="@id/relsec1"
-             android:background="#000000"></LinearLayout>
-     </RelativeLayout>
-     </ScrollView>
-</AbsoluteLayout>
-
+             android:layout_width="0dp"
+             android:layout_weight="1"
+             android:background="#000000" />
+         
+	</LinearLayout>
+	
+</ScrollView>

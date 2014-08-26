@@ -1,9 +1,10 @@
 package com.bist.youthvibe2014;
 
-import android.app.Fragment;
-import android.content.Context;
+import com.nostra13.universalimageloader.core.DisplayImageOptions;
+import com.nostra13.universalimageloader.core.ImageLoader;
+import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
 
-import android.graphics.drawable.AnimationDrawable;
+import android.app.Fragment;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,16 +13,8 @@ import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 
-
-import com.nostra13.universalimageloader.core.DisplayImageOptions;
-import com.nostra13.universalimageloader.core.ImageLoader;
-import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
-// import android.widget.Toast;
-
-
-
-
    public class EventsFragment extends Fragment {
+	   
 
 	   View rootView;
 	   // ImageButton imb1;
@@ -29,33 +22,29 @@ import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
 	   View relbtn1;
 	   View relbtn2;
 	   
+	   private String images[] = {"folkdance", "indianfolkdance", "indowesterm", "justduet2", "justduet", "nrithya", "yalgar"};
+	   private String imageViews[] = {"imagev1", "imagev2", "imagev3", "imagev4", "imagev5", "imagev6", "imagev7"};
+	   private ImageView[] imageHolder = new ImageView[8];
+	   private int viewId;
+	   
   @Override public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
       {
 	   rootView  = inflater .inflate(R.layout.event_fragment, container, false);
 	   
-	// Library settings
-		/*	DisplayImageOptions defaultOptions = new DisplayImageOptions.Builder().cacheInMemory(true).cacheOnDisk(true).build();
-			ImageLoaderConfiguration config = new ImageLoaderConfiguration.Builder(getApplicationContext()).defaultDisplayImageOptions(defaultOptions).build();
-	        ImageLoader.getInstance().init(config);
-	        
-	        // Code to use the library provided here https://github.com/nostra13/Android-Universal-Image-Loader
-	     	ImageView permanentImageView8 = (ImageView) findViewById(R.id.titlepic);
-	        ImageLoader.getInstance().displayImage("http://youthvibe2014server.herokuapp.com/public/baselogo.jpg", permanentImageView8);
-	        ImageView permanentImageView9 = (ImageView) findViewById(R.id.imagevcheck);
-	        ImageLoader.getInstance().displayImage("http://youthvibe2014server.herokuapp.com/public/folkdance.jpg", permanentImageView9);
-	        ImageView permanentImageView10 = (ImageView) findViewById(R.id.imagev2);
-	        ImageLoader.getInstance().displayImage("http://youthvibe2014server.herokuapp.com/public/indiafolkdance.jpg", permanentImageView10);
-	        ImageView permanentImageView11 = (ImageView) findViewById(R.id.titlepic);
-	        ImageLoader.getInstance().displayImage("http://youthvibe2014server.herokuapp.com/public/indowesterm.jpg", permanentImageView11);
-	        ImageView permanentImageView12 = (ImageView) findViewById(R.id.titlepic);
-	        ImageLoader.getInstance().displayImage("http://youthvibe2014server.herokuapp.com/public/justduet2.jpg", permanentImageView12);
-	        ImageView permanentImageView13 = (ImageView) findViewById(R.id.titlepic);
-	        ImageLoader.getInstance().displayImage("http://youthvibe2014server.herokuapp.com/public/justduet.jpg", permanentImageView13);
-	        ImageView permanentImageView14 = (ImageView) findViewById(R.id.titlepic);
-	        ImageLoader.getInstance().displayImage("http://youthvibe2014server.herokuapp.com/public/nritya.jpg", permanentImageView14);
-	        ImageView permanentImageView15 = (ImageView) findViewById(R.id.titlepic);
-	        ImageLoader.getInstance().displayImage("http://youthvibe2014server.herokuapp.com/public/yalgar.jpg", permanentImageView15);
-	        */
+		// Downloading Library settings
+		DisplayImageOptions defaultOptions = new DisplayImageOptions.Builder().cacheInMemory(true).cacheOnDisk(true).build();
+		ImageLoaderConfiguration config = new ImageLoaderConfiguration.Builder(getActivity().getApplicationContext()).defaultDisplayImageOptions(defaultOptions).build();
+	    ImageLoader.getInstance().init(config);
+	    
+	    // Code to use the library provided here https://github.com/nostra13/Android-Universal-Image-Loader
+        for(int i=0; i<images.length; i++) {
+        	viewId = getResources().getIdentifier(imageViews[i], "id", getActivity().getPackageName());
+	        // Log.d("ViewId : ", ""+id);
+	        imageHolder[i] = (ImageView) rootView.findViewById(viewId);
+	        ImageLoader.getInstance().displayImage("http://youthvibe2014server.herokuapp.com/public/" + images[i] + ".png", imageHolder[i]);
+        }
+	   
+	   
 	   
 	   // imb1=(ImageButton)rootView.findViewById(R.id.imageButton1);
 	   
@@ -119,15 +108,4 @@ import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
 	   return rootView;
 	   
       }
-
-private Context getApplicationContext() {
-	// TODO Auto-generated method stub
-	return null;
-}
-
-private ImageView findViewById(int titlepic) {
-	// TODO Auto-generated method stub
-	return null;
-}
-
  }

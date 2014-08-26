@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:facebook="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/com_facebook_usersettingsfragment_background_gradient">
+    
+    <LinearLayout 
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+	    android:orientation="vertical" >
+	
+        <com.facebook.widget.ProfilePictureView
+	        android:id="@+id/selection_profile_pic"
+	        android:layout_height="wrap_content"
+	        android:layout_width="wrap_content"
+	        android:layout_gravity="center"
+	        android:gravity="center_horizontal"
+	        android:layout_marginTop="25dp"
+	        facebook:preset_size="large" />
+	    
+	    <TextView
+	        android:id="@+id/welcomeMessage"
+	        android:text="Fetching User Info...."
+	        android:layout_width="fill_parent"
+	        android:layout_height="100dp"
+	        android:lines="2"
+	        android:textSize="24sp"
+	        android:textStyle="bold"
+	        android:layout_marginTop="25dp"
+	        android:gravity="center"
+	        android:textColor="@color/com_facebook_usersettingsfragment_connected_text_color" />
+	    
+	    
+	    <Button
+	        android:id="@+id/continueButton"
+	        style="@style/com_facebook_loginview_silver_style"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_marginTop="10dp"
+	        android:layout_marginBottom="10dp"
+	        android:layout_gravity="center"
+	        android:text="Wait..."
+	        android:clickable="false" />
+	
+	</LinearLayout>
+    
+</ScrollView>

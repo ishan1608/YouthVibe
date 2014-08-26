@@ -24,14 +24,14 @@
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
             tools:ignore="ContentDescription" 
-           android:src="@drawable/z" />       
+           android:src="@drawable/progress_circle" />       
                 
                 <ImageView
             android:id="@+id/imageView3"
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
             tools:ignore="ContentDescription" 
-              android:src="@drawable/y" />
+              android:src="@drawable/progress_circle" />
             
     
  
@@ -40,7 +40,7 @@
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
             tools:ignore="ContentDescription" 
-                android:src="@drawable/x" />
+                android:src="@drawable/progress_circle" />
    
  
             <ImageView
@@ -48,7 +48,7 @@
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
             tools:ignore="ContentDescription"
-         android:src="@drawable/w"   />   
+         android:src="@drawable/progress_circle"   />   
                 
     </ViewFlipper>
       </RelativeLayout>

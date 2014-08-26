@@ -1,8 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 	<string name="app_name">Youth Vibe 2014</string>
-	<string name="action_settings">Developer</string>
+	<string name="action_settings">Logout</string>
 	<string name="google_maps_button">Get Directions</string>
+	<string name="get_started">To get started, log in using Facebook</string>
+	<string name="action_developer">Developer</string>
+	<string name="app_id">274977912691477</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="title_activity_login">LoginActivity</string>
+    <string name="welcome_message">Welcome</string>
 	
 	<string-array name="titles">
 		<item>Home</item>

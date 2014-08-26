@@ -19,16 +19,16 @@ limitations under the License.
     android:layout_width="255dp"
     android:layout_height="200dp"
     android:background="@color/dark_yellow"
-    android:padding="12dip"
-    >
+    android:padding="12dip" >
     
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content" >
         <ImageView
+            android:id="@+id/inspirations_logo"
 	        android:layout_width="wrap_content"
 	        android:layout_height="wrap_content"
-	        android:src="@drawable/inslogo"
+	        android:src="@drawable/progress_circle"
 	        android:layout_centerInParent="true" />
     </RelativeLayout>
 

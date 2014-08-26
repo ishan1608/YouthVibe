@@ -30,12 +30,12 @@
              android:padding="9dp" >
     
         <ImageView
-            android:id="@+id/imagevcheck"
+            android:id="@+id/imagev1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
             android:layout_alignParentTop="true"
-            android:src="@drawable/music"/>
+            android:src="@drawable/progress_circle"/>
             
         </RelativeLayout>
         <RelativeLayout
@@ -54,7 +54,7 @@
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
-           android:src="@drawable/dance" /> 
+           android:src="@drawable/progress_circle" /> 
         </RelativeLayout>
         <RelativeLayout
              android:id="@+id/relbtn3"
@@ -71,7 +71,7 @@
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
-           android:src="@drawable/theatre" /> 
+           android:src="@drawable/progress_circle" /> 
         </RelativeLayout>
         <RelativeLayout
              android:id="@+id/relbtn4"
@@ -89,7 +89,7 @@
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
-              android:src="@drawable/literary" /> 
+              android:src="@drawable/progress_circle" /> 
        
         </RelativeLayout>
 <RelativeLayout
@@ -107,7 +107,7 @@
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
-            android:src="@drawable/quiz" />
+            android:src="@drawable/progress_circle" />
         </RelativeLayout>
           <RelativeLayout
              android:id="@+id/relbtn6"
@@ -124,7 +124,7 @@
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"  
-            android:src="@drawable/lifestyle" /> 
+            android:src="@drawable/progress_circle" /> 
         </RelativeLayout>
         <RelativeLayout
              android:id="@+id/relbtn7"
@@ -140,7 +140,7 @@
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true" 
-           android:src="@drawable/finearts" /> 
+           android:src="@drawable/progress_circle" /> 
         <TextView 
             android:id="@+id/tvcheck7"
             android:layout_width="wrap_content"
@@ -164,7 +164,7 @@
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true" 
-       android:src="@drawable/photographyandflimproduction"/>
+       android:src="@drawable/progress_circle"/>
         
         </RelativeLayout>
              

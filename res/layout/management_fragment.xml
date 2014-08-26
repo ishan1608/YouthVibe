@@ -30,12 +30,12 @@
              
 
         <ImageView
-            android:id="@+id/imagevcheck"
+            android:id="@+id/imagev1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
             android:layout_alignParentTop="true"
-         android:src="@drawable/strategy1" /> 
+         android:src="@drawable/progress_circle" /> 
         <TextView 
             android:id="@+id/tvcheck"
             android:layout_width="wrap_content"
@@ -62,7 +62,7 @@
             
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
-          android:src="@drawable/bplan"/> 
+          android:src="@drawable/progress_circle"/> 
         <TextView 
             android:id="@+id/tvcheck2"
             android:layout_width="wrap_content"
@@ -87,7 +87,7 @@
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true" 
-           android:src="@drawable/victoria" /> 
+           android:src="@drawable/progress_circle" /> 
         <TextView 
             android:id="@+id/tvcheck3"
             android:layout_width="wrap_content"
@@ -114,7 +114,7 @@
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"  
-          android:src="@drawable/casedevelopment"  />
+          android:src="@drawable/progress_circle"  />
       
         <TextView 
             android:id="@+id/tvcheck4"
@@ -143,7 +143,7 @@
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
-          android:src="@drawable/strategy" />
+          android:src="@drawable/progress_circle" />
         <TextView 
             android:id="@+id/tvcheck5"
             android:layout_width="wrap_content"
@@ -168,7 +168,7 @@
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
-      android:src="@drawable/simulationgame" />
+      android:src="@drawable/progress_circle" />
         <TextView 
             android:id="@+id/tvcheck4"
             android:layout_width="wrap_content"

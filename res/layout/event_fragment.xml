@@ -33,16 +33,16 @@
  
  
         <ImageView
-            android:id="@+id/imagevcheck"
+            android:id="@+id/imagev1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
             android:layout_alignParentTop="true" 
-          android:src="@drawable/folkdance" />
+          android:src="@drawable/progress_circle" />
         <RelativeLayout 
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/imagevcheck"
+            android:layout_below="@id/imagev1"
             android:background="#ffffff">
         </RelativeLayout>
         </RelativeLayout>
@@ -64,7 +64,7 @@
             
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true" 
-             android:src="@drawable/indianfolkdance" />
+             android:src="@drawable/progress_circle" />
          </RelativeLayout>
 <RelativeLayout
              android:id="@+id/relbtn3"
@@ -81,7 +81,7 @@
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true" 
-            android:src="@drawable/indowesterm" />
+            android:src="@drawable/progress_circle" />
         </RelativeLayout>
         <RelativeLayout
              android:id="@+id/relbtn4"
@@ -99,7 +99,7 @@
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true" 
-      android:src="@drawable/justduet2"  />
+      android:src="@drawable/progress_circle"  />
         </RelativeLayout>
 <RelativeLayout
              android:id="@+id/relbtn5"
@@ -115,7 +115,7 @@
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true" 
-        android:src="@drawable/justduet"  />
+        android:src="@drawable/progress_circle"  />
         </RelativeLayout>
           <RelativeLayout
              android:id="@+id/relbtn6"
@@ -133,7 +133,7 @@
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"  
-        android:src="@drawable/nrithya"  />
+        android:src="@drawable/progress_circle"  />
          </RelativeLayout>
         
            <RelativeLayout
@@ -151,7 +151,7 @@
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true" 
-           android:src="@drawable/yalgar"  />
+           android:src="@drawable/progress_circle"  />
             </RelativeLayout>
              
             </RelativeLayout>

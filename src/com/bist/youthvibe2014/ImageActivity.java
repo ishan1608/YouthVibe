@@ -1,4 +1,7 @@
 package com.bist.youthvibe2014;
+
+import com.nostra13.universalimageloader.core.ImageLoader;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -11,16 +14,14 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
-import android.webkit.WebView.FindListener;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.RelativeLayout.LayoutParams;
 
 public class ImageActivity extends  FragmentActivity  {
 	SectionsPagerAdapter mSectionsPagerAdapter;
-
     ViewPager mViewPager;
+    
     protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
@@ -98,13 +99,17 @@ public class ImageActivity extends  FragmentActivity  {
  
  class PlaceholderFragment extends Fragment {
      private static final String ARG_SECTION_NUMBER = "section_number";
-   int id;
- 	ImageView imgv;
+     // int id;
+     // ImageView imgv;
  // Your Old Code
  	// LinearLayout linear1;
  	RelativeLayout imageViewRelative;
  	// static int section;
  	int section;
+ 	
+ 	private ImageView[] imageHolder = new ImageView[12];
+	// private int viewId;
+	private int progressId;
 
      /*public static PlaceholderFragment newInstance(int sectionNumber) {
          PlaceholderFragment fragment = new PlaceholderFragment();
@@ -164,13 +169,22 @@ public class ImageActivity extends  FragmentActivity  {
  		final String rcvstr1=sentBundle.getString("key1");
  		   Integer i = Integer.parseInt(rcvstr1);*/
  		  // Toast.makeText(getApplicationContext(), "value"+i, Toast.LENGTH_SHORT).show();
- 			id = getResources().getIdentifier(imageItems[section], "drawable", getActivity().getPackageName());
- 			imgv = new ImageView(getActivity());	
- 			imgv.setMaxHeight((int)height);
- 	        imgv.setMaxWidth((int)width);
- 	        imgv.setPadding(5,5,5,5);
+ 			// id = getResources().getIdentifier(imageItems[section], "drawable", getActivity().getPackageName());
+ 			progressId = getResources().getIdentifier("progress_circle", "drawable", getActivity().getPackageName());
+ 			// imgv = new ImageView(getActivity());
+ 			imageHolder[section] = new ImageView(getActivity());
+ 			// imgv.setMaxHeight((int)height);
+ 			imageHolder[section].setMaxHeight((int)height);
+ 	        // imgv.setMaxWidth((int)width);
+ 			imageHolder[section].setMaxWidth((int)width);
+ 	        // imgv.setPadding(5,5,5,5);
+ 			imageHolder[section].setPadding(5,5,5,5);
  	       
- 	        imgv.setImageDrawable(getResources().getDrawable(id));
+ 	        // imgv.setImageDrawable(getResources().getDrawable(id));
+ 			// Showing the progress_circle
+ 			imageHolder[section].setImageDrawable(getResources().getDrawable(progressId));
+ 			// Downloading the image now
+ 			ImageLoader.getInstance().displayImage("http://youthvibe2014server.herokuapp.com/public/" + imageItems[section] + ".png", imageHolder[section]);
  	        // Your Old Code
  	        // linear1.addView(imgv);
  	       
@@ -178,9 +192,12 @@ public class ImageActivity extends  FragmentActivity  {
  	       RelativeLayout.LayoutParams params1 = new RelativeLayout.LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT);
  	      params1.addRule(RelativeLayout.CENTER_HORIZONTAL);
  	      params1.addRule(RelativeLayout.CENTER_VERTICAL);
- 	      imgv.setLayoutParams(params1);
- 	        imageViewRelative.addView(imgv);
- 	        imgv.invalidate();
+ 	      // imgv.setLayoutParams(params1);
+ 	     imageHolder[section].setLayoutParams(params1);
+ 	        // imageViewRelative.addView(imgv);
+ 	    imageViewRelative.addView(imageHolder[section]);
+ 	    	// Not invalidating
+ 	        // imgv.invalidate();
  	    // Your Old Code
  		// linear1.invalidate();
  	        

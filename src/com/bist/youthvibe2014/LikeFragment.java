@@ -14,9 +14,6 @@ public class LikeFragment extends Fragment
 {
 	 View rootView;
 	 WebView wv;
-
-
-
 	   
 @Override
 public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)

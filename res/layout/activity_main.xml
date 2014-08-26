@@ -26,6 +26,23 @@
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
 			android:text="Open Siseme" /> -->
+			
+		<!-- <ImageView
+			android:id="@+id/coverImage"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content" />
+		
+		<ImageView
+			android:id="@+id/userImage"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content" />
+		
+		<TextView
+            android:id="@+id/user_info_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="User Info"
+            android:textColor="#fff" /> -->
 	
 	    <com.slidinglayer.SlidingLayer
 	        xmlns:slidingLayer="http://schemas.android.com/apk/res-auto"
@@ -42,7 +59,7 @@
 				android:layout_width="match_parent"
 				android:layout_height="match_parent"
 				android:orientation="vertical"
-				android:background="#fff" >
+				android:background="@drawable/list_background" >
 				
 	            <RelativeLayout
 	                android:layout_width="match_parent"
@@ -55,7 +72,8 @@
 	                android:text="Notifications"
 	                android:textAppearance="?android:attr/textAppearanceLarge"
 	                android:textStyle="bold"
-	                android:layout_centerHorizontal="true" />
+	                android:layout_centerHorizontal="true"
+	                android:textColor="@color/com_facebook_usersettingsfragment_not_connected_text_color" />
 	            </RelativeLayout>
 		        
 	            <!-- The notifications List -->
@@ -74,7 +92,7 @@
                     android:layout_height="wrap_content"
                     android:text="Old Notifications"
                     android:textAppearance="?android:attr/textAppearanceLarge" /> -->
-		        
+                    
 	        </LinearLayout>
 	        
 	    </com.slidinglayer.SlidingLayer>

@@ -29,12 +29,12 @@
              android:layout_height="wrap_content"
              android:padding="9dp" >
         <ImageView
-            android:id="@+id/imagevcheck"
+            android:id="@+id/imagev1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
             android:layout_alignParentTop="true"
-            android:src="@drawable/football1" />
+            android:src="@drawable/progress_circle" />
         </RelativeLayout>
         <RelativeLayout
              android:id="@+id/relbtn2"
@@ -50,7 +50,7 @@
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
-            android:src="@drawable/cricket1" />
+            android:src="@drawable/progress_circle" />
         </RelativeLayout>
         <RelativeLayout
              android:id="@+id/relbtn3"
@@ -65,7 +65,7 @@
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
-            android:src="@drawable/volleyball" />
+            android:src="@drawable/progress_circle" />
         </RelativeLayout>
         <RelativeLayout
              android:id="@+id/relbtn4"
@@ -81,7 +81,7 @@
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
-            android:src="@drawable/basketball" />
+            android:src="@drawable/progress_circle" />
        
         </RelativeLayout>
 

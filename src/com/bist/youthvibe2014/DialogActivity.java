@@ -1,32 +1,53 @@
-/*
- * Copyright (C) 2012 The Android Open Source Project
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
 package com.bist.youthvibe2014;
+
+import com.nostra13.universalimageloader.core.DisplayImageOptions;
+import com.nostra13.universalimageloader.core.ImageLoader;
+import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
 
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.Window;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.widget.ImageView;
 
 public class DialogActivity extends Activity {
+	ImageView inspirationsLogo;
+	Animation rotation;
+	
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_dialog);
+        
+		 // Downloading Library settings
+		DisplayImageOptions defaultOptions = new DisplayImageOptions.Builder().cacheInMemory(true).cacheOnDisk(true).build();
+		ImageLoaderConfiguration config = new ImageLoaderConfiguration.Builder(getApplicationContext()).defaultDisplayImageOptions(defaultOptions).build();
+		ImageLoader.getInstance().init(config);
+		
+		inspirationsLogo = (ImageView) findViewById(R.id.inspirations_logo);		
+		ImageLoader.getInstance().displayImage("http://youthvibe2014server.herokuapp.com/public/" + "inslogo" + ".png", inspirationsLogo);
+        
+        rotation = AnimationUtils.loadAnimation(this, R.anim.rotation);
+        
+        inspirationsLogo.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View arg0) {
+				rotation.setRepeatCount(0);
+				inspirationsLogo.startAnimation(rotation);
+			}
+		});
+        inspirationsLogo.setOnLongClickListener(new View.OnLongClickListener() {
+			@Override
+			public boolean onLongClick(View v) {
+				rotation.setRepeatCount(Animation.INFINITE);
+				inspirationsLogo.startAnimation(rotation);
+				return true;
+			}
+		});
     }
 
     /**

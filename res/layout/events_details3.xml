@@ -50,7 +50,7 @@
         android:paddingLeft="@dimen/activity_horizontal_margin"
         android:paddingRight="@dimen/activity_horizontal_margin"
         android:paddingTop="@dimen/activity_vertical_margin"
-        android:src="@drawable/indianfolk" />
+        android:src="@drawable/progress_circle" />
      
           <TextView
         android:id="@+id/textView2"
@@ -97,8 +97,7 @@ NOTE: Students from a particular state are free to perform the dance of any stat
         android:paddingBottom="@dimen/activity_vertical_margin"
         android:paddingTop="@dimen/activity_vertical_margin"
          android:textSize="20sp"
-        android:text="Rules And Rgulations:      
-01. A maximum of 8 minutes performance time is provided including setup and clearance.\n
+        android:text="Rules And Rgulations:\n01. A maximum of 8 minutes performance time is provided including setup and clearance.\n
 02. Auditions: An audition shall be conducted. The mode of audition is mentioned in the general guidelines.\n 
 03. Participants are allowed to perform either on pre-recorded music tracks or live music.\n
 04. Vulgarity or provocative acts will not be tolerated.\n
@@ -113,7 +112,7 @@ android:textColor="#ffffff"></TextView>
         android:layout_below="@id/textView5"
         android:paddingBottom="@dimen/activity_vertical_margin"
          android:textSize="20sp"
-        android:text="Judging Criteria:
+        android:text="Judging Criteria:\n
 01. Choreography\n
 02. Energy\n 
 03. Synchronization\n

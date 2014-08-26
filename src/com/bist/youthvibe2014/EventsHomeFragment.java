@@ -1,19 +1,19 @@
 package com.bist.youthvibe2014;
 
-import com.example.android.common.view.SlidingTabLayout;
+import android.app.ActionBar;
 import android.app.ActionBar.Tab;
 import android.app.Fragment;
-import android.app.ActionBar;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.os.Bundle;
+import android.support.v13.app.FragmentStatePagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-// import android.widget.Toast;
-import android.support.v13.app.FragmentStatePagerAdapter;
+
+import com.example.android.common.view.SlidingTabLayout;
 
 
 public class EventsHomeFragment extends Fragment implements ActionBar.TabListener{

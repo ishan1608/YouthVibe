@@ -1,18 +1,12 @@
 package com.bist.youthvibe2014;
 
-import android.media.MediaPlayer;
-
-import android.os.Bundle;
-import android.os.Handler;
 import android.app.Activity;
 import android.content.Intent;
+import android.media.MediaPlayer;
+import android.os.Bundle;
+import android.os.Handler;
 import android.view.Window;
 import android.view.WindowManager;
-import android.widget.ViewFlipper;
-
-import com.nostra13.universalimageloader.core.DisplayImageOptions;
-import com.nostra13.universalimageloader.core.ImageLoader;
-import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
 
 public class SplashActivity extends Activity {
 	private final int SPLASH_DISPLAY_LENGTH=5000;
@@ -29,13 +23,13 @@ public class SplashActivity extends Activity {
 		//vp=(ViewFlipper)findViewById(R.id.viewFlipper1);
 		final MediaPlayer media=MediaPlayer.create(SplashActivity.this, R.raw.y);
 		
-		media.start(); 
+		media.start();
 		
         new Handler().postDelayed(new Runnable() {
         	
 			@Override
 			public void run() {
-			Intent sid=new Intent(SplashActivity.this,MainActivity.class);
+			Intent sid=new Intent(SplashActivity.this, FacebookLoginActivity.class);
 			SplashActivity.this.startActivity(sid);
 			SplashActivity.this.finish();	
 			}

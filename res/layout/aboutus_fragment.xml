@@ -25,7 +25,7 @@
           android:id="@+id/img1"
           android:layout_width="match_parent"
           android:layout_height="match_parent"
-          android:src="@drawable/collag2"
+          android:src="@drawable/progress_circle"
         ></ImageView>
      <!--     <ProgressBar
         android:id="@+id/progressBar2"
@@ -37,7 +37,7 @@
           android:id="@+id/img2"
           android:layout_width="match_parent"
           android:layout_height="match_parent"
-          android:src="@drawable/collag1"
+          android:src="@drawable/progress_circle"
        ></ImageView>
              
        
@@ -52,7 +52,7 @@
           android:id="@+id/img3"
           android:layout_width="match_parent"
           android:layout_height="match_parent"
-          android:src="@drawable/collag3"
+          android:src="@drawable/progress_circle"
          ></ImageView>
     
           
