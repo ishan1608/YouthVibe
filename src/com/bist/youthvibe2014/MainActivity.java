@@ -86,86 +86,13 @@ public class MainActivity extends Activity {
 		userId = userInfo.getString("id");
 		userEmail = userInfo.getString("email");
 		accessToken = userInfo.getString("token");
-
-		// DrawerLayout part
-
-		mTitle = mDrawerTitle = getTitle();
-
-		menutitles = getResources().getStringArray(R.array.titles);
-		menuIcons = getResources().obtainTypedArray(R.array.icons);
-
-		mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
-		mDrawerList = (ListView) findViewById(R.id.slider_list);
-
-		// Navigation Header Part
-		LayoutInflater inflater = getLayoutInflater();
-
-		// Add header news title
-		ViewGroup nav_header = (ViewGroup)inflater.inflate(R.layout.navigation_header, mDrawerList, false);
-		mDrawerList.addHeaderView(nav_header, null, false);
-
-		// userInfoView = (TextView) findViewById(R.id.user_info_view);
-		userNameView = (TextView) nav_header.findViewById(R.id.user_name_view);
-		userNameView.setText(userName);
-
-		userEmailView = (TextView) nav_header.findViewById(R.id.user_email_view);
-		userEmailView.setText(userEmail);
-
-		// Library settings
+		
+		// Download Library settings
 		DisplayImageOptions defaultOptions = new DisplayImageOptions.Builder().cacheInMemory(true).cacheOnDisk(true).build();
 		ImageLoaderConfiguration config = new ImageLoaderConfiguration.Builder(getApplicationContext()).defaultDisplayImageOptions(defaultOptions).build();
 		ImageLoader.getInstance().init(config);
 
-		// Code to use the library provided here https://github.com/nostra13/Android-Universal-Image-Loader
-		ImageView userImageView = (ImageView) nav_header.findViewById(R.id.userImage);
-		String userPictureUrl = "https://graph.facebook.com/" + userId + "/picture?type=small";
-		ImageLoader.getInstance().displayImage(userPictureUrl, userImageView);
-
-		coverImageView = (ImageView) nav_header.findViewById(R.id.coverImage);
-		userFacebookGraphUrl = "https://graph.facebook.com/" + userId + "?fields=cover&access_token=" + accessToken;
-
-		Thread t = new Thread(){
-			public void run()
-			{
-				/*runOnUiThread(new Runnable() {
-				public void run() {
-				}*/
-				try {
-					// Downloading the Cover's URL
-					HttpClient client = new DefaultHttpClient();
-					HttpGet get = new HttpGet(userFacebookGraphUrl);
-					HttpResponse response = client.execute(get);
-					if (response.getStatusLine().getStatusCode() == HttpStatus.SC_OK) {
-						String result = EntityUtils.toString(response.getEntity());
-						JSONObject userGraphJSON = new JSONObject(result);
-						String userCoverUrl = userGraphJSON.getJSONObject("cover").getString("source");
-						Log.d("Cover", userCoverUrl);
-						// Downloading the image
-						coverImage = Drawable.createFromStream(((java.io.InputStream) new java.net.URL(userCoverUrl).getContent()), "cover");
-					} else {
-						coverImage = null;
-					}
-					runOnUiThread(new Runnable() {
-						public void run() {
-							coverImageView.setImageDrawable(coverImage);
-						}
-					});
-				} catch (ClientProtocolException e) {
-					Log.e("Cover", "ClientProtocolException");
-					e.printStackTrace();
-				} catch (IOException e) {
-					Log.e("Cover", "IOException");
-					e.printStackTrace();
-				} catch (JSONException e) {
-					Log.e("Cover", "JSONException");
-					e.printStackTrace();
-				}
-			}
-		};
-		t.start();
-
-		// ImageLoader.getInstance().displayImage(coverPictureUrl, coverImageView);
-
+		
 		//Notification Layer Part
 		notificationLayer = (SlidingLayer) findViewById(R.id.notification_sliding_layer);
 		notificationLayer.setShadowWidth(8);
@@ -250,8 +177,81 @@ public class MainActivity extends Activity {
 			}
 
 		});
+		
+		
+		
+		// DrawerLayout part
+		mTitle = mDrawerTitle = getTitle();
 
-		// Drawer Layout Part
+		menutitles = getResources().getStringArray(R.array.titles);
+		menuIcons = getResources().obtainTypedArray(R.array.icons);
+
+		mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
+		mDrawerList = (ListView) findViewById(R.id.slider_list);
+
+		// Navigation Header Part
+		LayoutInflater inflater = getLayoutInflater();
+
+		// Add header news title
+		ViewGroup nav_header = (ViewGroup)inflater.inflate(R.layout.navigation_header, mDrawerList, false);
+		mDrawerList.addHeaderView(nav_header, null, false);
+
+		// userInfoView = (TextView) findViewById(R.id.user_info_view);
+		userNameView = (TextView) nav_header.findViewById(R.id.user_name_view);
+		userNameView.setText(userName);
+
+		userEmailView = (TextView) nav_header.findViewById(R.id.user_email_view);
+		userEmailView.setText(userEmail);
+
+		// Code to use the library provided here https://github.com/nostra13/Android-Universal-Image-Loader
+		ImageView userImageView = (ImageView) nav_header.findViewById(R.id.userImage);
+		String userPictureUrl = "https://graph.facebook.com/" + userId + "/picture?type=small";
+		ImageLoader.getInstance().displayImage(userPictureUrl, userImageView);
+
+		coverImageView = (ImageView) nav_header.findViewById(R.id.coverImage);
+		userFacebookGraphUrl = "https://graph.facebook.com/" + userId + "?fields=cover&access_token=" + accessToken;
+
+		Thread t = new Thread(){
+			public void run()
+			{
+				/*runOnUiThread(new Runnable() {
+				public void run() {
+				}*/
+				try {
+					// Downloading the Cover's URL
+					HttpClient client = new DefaultHttpClient();
+					HttpGet get = new HttpGet(userFacebookGraphUrl);
+					HttpResponse response = client.execute(get);
+					if (response.getStatusLine().getStatusCode() == HttpStatus.SC_OK) {
+						String result = EntityUtils.toString(response.getEntity());
+						JSONObject userGraphJSON = new JSONObject(result);
+						String userCoverUrl = userGraphJSON.getJSONObject("cover").getString("source");
+						Log.d("Cover", userCoverUrl);
+						// Downloading the image
+						coverImage = Drawable.createFromStream(((java.io.InputStream) new java.net.URL(userCoverUrl).getContent()), "cover");
+					} else {
+						coverImage = null;
+					}
+					runOnUiThread(new Runnable() {
+						public void run() {
+							coverImageView.setImageDrawable(coverImage);
+						}
+					});
+				} catch (ClientProtocolException e) {
+					Log.e("Cover", "ClientProtocolException");
+					e.printStackTrace();
+				} catch (IOException e) {
+					Log.e("Cover", "IOException");
+					e.printStackTrace();
+				} catch (JSONException e) {
+					Log.e("Cover", "JSONException");
+					e.printStackTrace();
+				}
+			}
+		};
+		t.start();
+
+		// ImageLoader.getInstance().displayImage(coverPictureUrl, coverImageView);
 
 		rowItems = new ArrayList<RowItem>();
 

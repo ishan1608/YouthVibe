@@ -10,11 +10,11 @@ import android.widget.Spinner;
 
 public class RegistrationFragment extends Fragment{
 	View rootView;
-    Spinner spinner;
+	Spinner spinner;
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 		rootView  = inflater.inflate(R.layout.registration_form, container, false);
-		
+
 		Spinner dropdown = (Spinner)rootView.findViewById(R.id.spinner1);
 		String[] items = new String[]{"Folk Dance", "Indian Folk Dance", "Indo Western","Just Duet","Nritya","Yalgaar"};
 		ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_spinner_item, items);

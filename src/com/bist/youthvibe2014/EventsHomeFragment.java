@@ -17,17 +17,17 @@ import com.example.android.common.view.SlidingTabLayout;
 
 
 public class EventsHomeFragment extends Fragment implements ActionBar.TabListener{
-	
+
 	SectionsPagerAdapter mSectionsPagerAdapter;
 
-    ViewPager mViewPager;
-    View rootView;
-    
-    // ActionBar actionBar;
-    private SlidingTabLayout mSlidingTabLayout;
-    
-    String mainCategories[] = {"Cultural", "Concerts", "Technical", "Sports", "Management", "Social" };
-    
+	ViewPager mViewPager;
+	View rootView;
+
+	// ActionBar actionBar;
+	private SlidingTabLayout mSlidingTabLayout;
+
+	String mainCategories[] = {"Cultural", "Concerts", "Technical", "Sports", "Management", "Social" };
+
 	@Override
 	public void onResume() {
 		// Toast.makeText(getActivity(), "Events onresume called", Toast.LENGTH_SHORT).show();
@@ -38,33 +38,33 @@ public class EventsHomeFragment extends Fragment implements ActionBar.TabListene
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 		rootView  = inflater.inflate(R.layout.events_home_fragment, container, false);
-		
+
 		// Toast.makeText(getActivity(), "Events onCreateView", Toast.LENGTH_SHORT).show();
-		
+
 		super.onCreate(savedInstanceState);
-		
+
 		/* Old Code
 		// Set up the action bar.
         // final ActionBar actionBar = getActivity().getActionBar();
 		actionBar = getActivity().getActionBar();
         actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
-        */
-        
-        // Create the adapter that will return a fragment for each of the three
-        // primary sections of the activity.
-        mSectionsPagerAdapter = new SectionsPagerAdapter(getFragmentManager());
-        
-        // Set up the ViewPager with the sections adapter.
-        mViewPager = (ViewPager) rootView.findViewById(R.id.events_home_pager);
-        mViewPager.setAdapter(mSectionsPagerAdapter);
-        
-        // New Additions
-        // Give the SlidingTabLayout the ViewPager, this must be done AFTER the ViewPager has had
-        // it's PagerAdapter set.
-        mSlidingTabLayout = (SlidingTabLayout) rootView.findViewById(R.id.sliding_tabs);
-        mSlidingTabLayout.setViewPager(mViewPager);
-        
-        /*
+		 */
+
+		// Create the adapter that will return a fragment for each of the three
+		// primary sections of the activity.
+		mSectionsPagerAdapter = new SectionsPagerAdapter(getFragmentManager());
+
+		// Set up the ViewPager with the sections adapter.
+		mViewPager = (ViewPager) rootView.findViewById(R.id.events_home_pager);
+		mViewPager.setAdapter(mSectionsPagerAdapter);
+
+		// New Additions
+		// Give the SlidingTabLayout the ViewPager, this must be done AFTER the ViewPager has had
+		// it's PagerAdapter set.
+		mSlidingTabLayout = (SlidingTabLayout) rootView.findViewById(R.id.sliding_tabs);
+		mSlidingTabLayout.setViewPager(mViewPager);
+
+		/*
         // Old Code
         // When swiping between different sections, select the corresponding
         // tab. We can also use ActionBar.Tab#select() to do this if we have
@@ -75,9 +75,9 @@ public class EventsHomeFragment extends Fragment implements ActionBar.TabListene
                 actionBar.setSelectedNavigationItem(position);
             }
         });
-        */
-        
-        /*
+		 */
+
+		/*
         // Old Code
         // For each of the sections in the app, add a tab to the action bar.
         for (int i = 0; i < mSectionsPagerAdapter.getCount(); i++) {
@@ -90,10 +90,10 @@ public class EventsHomeFragment extends Fragment implements ActionBar.TabListene
                             .setText(mSectionsPagerAdapter.getPageTitle(i))
                             .setTabListener(this));
         }
-        */
+		 */
 		return rootView;
 	}
-	
+
 	/*
 	// New Code
 	@Override
@@ -101,13 +101,13 @@ public class EventsHomeFragment extends Fragment implements ActionBar.TabListene
         // Get the ViewPager and set it's PagerAdapter so that it can display items
         mViewPager = (ViewPager) view.findViewById(R.id.viewpager);
         mViewPager.setAdapter(new SamplePagerAdapter());
- 
+
         // Give the SlidingTabLayout the ViewPager, this must be done AFTER the ViewPager has had
         // it's PagerAdapter set.
         mSlidingTabLayout = (SlidingTabLayout) view.findViewById(R.id.sliding_tabs);
         mSlidingTabLayout.setViewPager(mViewPager);
     }
-	*/
+	 */
 
 	@Override
 	public void onDestroyView() {
@@ -118,31 +118,31 @@ public class EventsHomeFragment extends Fragment implements ActionBar.TabListene
 	}
 
 	@Override
-    public void onTabReselected(Tab tab, FragmentTransaction fragmentTransaction) {
-    }
-	
+	public void onTabReselected(Tab tab, FragmentTransaction fragmentTransaction) {
+	}
+
 	@Override
 	public void onTabSelected(Tab tab, FragmentTransaction fragmentTransaction) {
 		// When the given tab is selected, switch to the corresponding page in
-        // the ViewPager.
+		// the ViewPager.
 		mViewPager.setCurrentItem(tab.getPosition());
 	}
 
 	@Override
 	public void onTabUnselected(Tab tab, FragmentTransaction fragmentTransaction) {
 	}
-	
+
 	// My SectionsPagerAdapter which destroys my fragment objects which it shouldn't
 	public class SectionsPagerAdapter extends FragmentStatePagerAdapter {
 
-        public SectionsPagerAdapter(FragmentManager fm) {
-            super(fm);
-        }
+		public SectionsPagerAdapter(FragmentManager fm) {
+			super(fm);
+		}
 
-        // No results till now using the following two methods
-        @Override
+		// No results till now using the following two methods
+		@Override
 		public void destroyItem(ViewGroup container, int position, Object object) {
-        	// Toast.makeText(getActivity(), "destroyItem called for "+position, Toast.LENGTH_SHORT).show();
+			// Toast.makeText(getActivity(), "destroyItem called for "+position, Toast.LENGTH_SHORT).show();
 			super.destroyItem(container, position, object);
 		}
 
@@ -153,39 +153,39 @@ public class EventsHomeFragment extends Fragment implements ActionBar.TabListene
 		}
 
 		@Override
-        public Fragment getItem(int position) {
-        	// Toast.makeText(getActivity(), "getItem called "+position, Toast.LENGTH_SHORT).show();
-            // getItem is called to instantiate the fragment for the given page.
-            // Return a PlaceholderFragment (defined as a static inner class below).
-        	Fragment currentFragment = null;
-        	switch(position) {
-        	case 0:
-        		currentFragment = new CulturalFragment();
-        	break;
-        	case 3:
-        		currentFragment = new SportsFragment();
-        		break;
-        	case 4:
-        		currentFragment = new ManagementFragment();
-        	break;
-        	default:
-        		currentFragment = PlaceholderFragment.newInstance(position + 1);
-        		break;
-        	}
+		public Fragment getItem(int position) {
+			// Toast.makeText(getActivity(), "getItem called "+position, Toast.LENGTH_SHORT).show();
+			// getItem is called to instantiate the fragment for the given page.
+			// Return a PlaceholderFragment (defined as a static inner class below).
+			Fragment currentFragment = null;
+			switch(position) {
+			case 0:
+				currentFragment = new CulturalFragment();
+				break;
+			case 3:
+				currentFragment = new SportsFragment();
+				break;
+			case 4:
+				currentFragment = new ManagementFragment();
+				break;
+			default:
+				currentFragment = PlaceholderFragment.newInstance(position + 1);
+				break;
+			}
 			return currentFragment;
-        }
+		}
 
-        @Override
-        public int getCount() {
-            // Show 6 total pages.
-            // return 6;
-        	return mainCategories.length;
-        }
+		@Override
+		public int getCount() {
+			// Show 6 total pages.
+			// return 6;
+			return mainCategories.length;
+		}
 
-        @Override
-        public CharSequence getPageTitle(int position) {
-            // Locale l = Locale.getDefault();
-            /*switch (position) {
+		@Override
+		public CharSequence getPageTitle(int position) {
+			// Locale l = Locale.getDefault();
+			/*switch (position) {
                 case 0:
                     // return getString(R.string.title_section1).toUpperCase(l);
                 	return "Section 1";
@@ -198,32 +198,32 @@ public class EventsHomeFragment extends Fragment implements ActionBar.TabListene
                 default:
                 	return "Section " + (position + 1);
             }*/
-            // return null;
-        	return mainCategories[position];
-        }
-    }
+			// return null;
+			return mainCategories[position];
+		}
+	}
 
-    public static class PlaceholderFragment extends Fragment {
-        private static final String ARG_SECTION_NUMBER = "section_number";
-        public static PlaceholderFragment newInstance(int sectionNumber) {
-            PlaceholderFragment fragment = new PlaceholderFragment();
-            Bundle args = new Bundle();
-            args.putInt(ARG_SECTION_NUMBER, sectionNumber);
-            fragment.setArguments(args);
-            return fragment;
-        }
+	public static class PlaceholderFragment extends Fragment {
+		private static final String ARG_SECTION_NUMBER = "section_number";
+		public static PlaceholderFragment newInstance(int sectionNumber) {
+			PlaceholderFragment fragment = new PlaceholderFragment();
+			Bundle args = new Bundle();
+			args.putInt(ARG_SECTION_NUMBER, sectionNumber);
+			fragment.setArguments(args);
+			return fragment;
+		}
 
-        public PlaceholderFragment() {
-        }
+		public PlaceholderFragment() {
+		}
 
-        @Override
-        public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                Bundle savedInstanceState) {
-            View rootView = inflater.inflate(R.layout.events_home_fragment_frag, container, false);
-            TextView textView = (TextView) rootView.findViewById(R.id.section_label);
-            textView.setText(Integer.toString(getArguments().getInt(ARG_SECTION_NUMBER)));
-            
-            return rootView;
-        }
-    }
+		@Override
+		public View onCreateView(LayoutInflater inflater, ViewGroup container,
+				Bundle savedInstanceState) {
+			View rootView = inflater.inflate(R.layout.events_home_fragment_frag, container, false);
+			TextView textView = (TextView) rootView.findViewById(R.id.section_label);
+			textView.setText(Integer.toString(getArguments().getInt(ARG_SECTION_NUMBER)));
+
+			return rootView;
+		}
+	}
 }

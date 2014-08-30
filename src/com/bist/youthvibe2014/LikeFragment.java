@@ -12,27 +12,27 @@ import android.webkit.WebView;
 @SuppressLint("SetJavaScriptEnabled")
 public class LikeFragment extends Fragment
 {
-	 View rootView;
-	 WebView wv;
-	   
-@Override
-public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
-{
-	rootView  = inflater .inflate(R.layout.like_fragment, container, false);
-	wv=(WebView)rootView.findViewById(R.id.webView1);
+	View rootView;
+	WebView wv;
 
-			try
-			{
+	@Override
+	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
+	{
+		rootView  = inflater .inflate(R.layout.like_fragment, container, false);
+		wv=(WebView)rootView.findViewById(R.id.webView1);
+
+		try
+		{
 			wv.getSettings().setJavaScriptEnabled(true);//XSS
 			wv.getSettings().setLoadWithOverviewMode(true);
 			wv.getSettings().setUseWideViewPort(true);
 			wv.setWebViewClient(new ourWebViewClient());
 			wv.loadUrl("https://m.facebook.com/YouthVibe");
-			}
-			catch(Exception e)
-			{
-				e.printStackTrace();
-			}
-			return rootView; 		
+		}
+		catch(Exception e)
+		{
+			e.printStackTrace();
+		}
+		return rootView; 		
 	}
 }

@@ -13,24 +13,24 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
 public class GoogleMapsFrag extends Fragment {
-	 View rootView;
-	   
-	  @Override public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
-	      {
-		   rootView  = inflater.inflate(R.layout.map_fragment, container, false);
+	View rootView;
+
+	@Override public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
+	{
+		rootView  = inflater.inflate(R.layout.map_fragment, container, false);
 		// Get a handle to the Map Fragment
-	        // GoogleMap map = ((MapFragment) getFragmentManager().findFragmentById(R.id.map)).getMap();
-		   GoogleMap map = ((MapFragment) getFragmentManager().findFragmentById(R.id.map)).getMap();
+		// GoogleMap map = ((MapFragment) getFragmentManager().findFragmentById(R.id.map)).getMap();
+		GoogleMap map = ((MapFragment) getFragmentManager().findFragmentById(R.id.map)).getMap();
 
-	        LatLng lovely = new LatLng(31.2536, 75.7037);
+		LatLng lovely = new LatLng(31.2536, 75.7037);
 
-	        map.setMyLocationEnabled(true);
-	        map.moveCamera(CameraUpdateFactory.newLatLngZoom(lovely, 17));
+		map.setMyLocationEnabled(true);
+		map.moveCamera(CameraUpdateFactory.newLatLngZoom(lovely, 17));
 
-	        map.addMarker(new MarkerOptions()
-	                .title("Lovely Professional University")
-	                .snippet("The land of unexpected.")
-	                .position(lovely));
-		   return rootView;
-	      }
+		map.addMarker(new MarkerOptions()
+		.title("Lovely Professional University")
+		.snippet("The land of unexpected.")
+		.position(lovely));
+		return rootView;
+	}
 }
