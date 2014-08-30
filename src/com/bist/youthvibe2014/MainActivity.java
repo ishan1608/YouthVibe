@@ -56,14 +56,14 @@ public class MainActivity extends Activity {
 	private ActionBarDrawerToggle mDrawerToggle;
 
 	private List<RowItem> rowItems;
-	private CustomAdapter adapter;
+	private NotificationsAdapter adapter;
 
 	// Notification Layer part
 	SlidingLayer notificationLayer;
 	Menu menu;
 	MenuItem notificationMenu;
 	List<RowItem> notificationItems;
-	CustomAdapter notificationAdapter;
+	NotificationsAdapter notificationAdapter;
 
 	// User Info
 	private String userName, userId, userEmail, accessToken;
@@ -152,7 +152,7 @@ public class MainActivity extends Activity {
 			RowItem item = new RowItem(notificationList[i], R.drawable.notification);
 			notificationItems.add(item);
 		}
-		notificationAdapter = new CustomAdapter(getApplicationContext(), notificationItems);
+		notificationAdapter = new NotificationsAdapter(getApplicationContext(), notificationItems);
 		notificationPanelList.setAdapter(notificationAdapter);
 
 		// Listener for changing Icon
@@ -262,7 +262,7 @@ public class MainActivity extends Activity {
 
 		menuIcons.recycle();
 
-		adapter = new CustomAdapter(getApplicationContext(), rowItems);
+		adapter = new NotificationsAdapter(getApplicationContext(), rowItems);
 
 		mDrawerList.setAdapter(adapter);
 		mDrawerList.setOnItemClickListener(new SlideitemListener());

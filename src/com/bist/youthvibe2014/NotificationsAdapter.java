@@ -11,12 +11,12 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-public class CustomAdapter extends BaseAdapter {
+public class NotificationsAdapter extends BaseAdapter {
 
 	Context context;
 	List<RowItem> rowItem;
 
-	CustomAdapter(Context context, List<RowItem> rowItem) {
+	NotificationsAdapter(Context context, List<RowItem> rowItem) {
 		this.context = context;
 		this.rowItem = rowItem;
 	}
@@ -28,7 +28,7 @@ public class CustomAdapter extends BaseAdapter {
 		if (convertView == null) {
 			LayoutInflater mInflater = (LayoutInflater) context
 					.getSystemService(Activity.LAYOUT_INFLATER_SERVICE);
-			convertView = mInflater.inflate(R.layout.list_item, null);
+			convertView = mInflater.inflate(R.layout.notification_list_item, null);
 		}
 
 		ImageView imgIcon = (ImageView) convertView.findViewById(R.id.icon);
