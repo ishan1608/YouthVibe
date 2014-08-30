@@ -10,7 +10,7 @@
     <string name="title_activity_login">LoginActivity</string>
     <string name="welcome_message">Welcome</string>
 	
-	<string-array name="titles">
+	<string-array name="menu_items">
 		<item>Home</item>
 		<item>About Us</item>
 		<item>Gallery</item>
@@ -31,6 +31,15 @@
 		<item>@drawable/facebook</item>
 		<item>@drawable/sponsor</item>
 	</array>
+	
+	<string-array name="event_categories">
+		<item>Cultural</item>
+		<item>Concerts</item>
+		<item>Technical</item>
+		<item>Sports</item>
+		<item>Management</item>
+		<item>Social</item>
+	</string-array>
     
     <!-- Names -->
     <string-array name="contact_member_names">

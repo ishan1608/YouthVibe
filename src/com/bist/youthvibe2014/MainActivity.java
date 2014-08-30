@@ -31,6 +31,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.ExpandableListView;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.RelativeLayout.LayoutParams;
@@ -52,11 +53,13 @@ public class MainActivity extends Activity {
 	private CharSequence mTitle;
 
 	private DrawerLayout mDrawerLayout;
-	private ListView mDrawerList;
+	// private ListView mDrawerList;
+	private ExpandableListView mDrawerList;
 	private ActionBarDrawerToggle mDrawerToggle;
 
 	private List<RowItem> rowItems;
-	private NotificationsAdapter adapter;
+	// private NotificationsAdapter adapter;
+	private NavigationDrawerAdapter adapter;
 
 	// Notification Layer part
 	SlidingLayer notificationLayer;
@@ -183,11 +186,12 @@ public class MainActivity extends Activity {
 		// DrawerLayout part
 		mTitle = mDrawerTitle = getTitle();
 
-		menutitles = getResources().getStringArray(R.array.titles);
+		menutitles = getResources().getStringArray(R.array.menu_items);
 		menuIcons = getResources().obtainTypedArray(R.array.icons);
 
 		mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
-		mDrawerList = (ListView) findViewById(R.id.slider_list);
+		// mDrawerList = (ListView) findViewById(R.id.slider_list);
+		mDrawerList = (ExpandableListView) findViewById(R.id.slider_list);
 
 		// Navigation Header Part
 		LayoutInflater inflater = getLayoutInflater();
@@ -262,7 +266,8 @@ public class MainActivity extends Activity {
 
 		menuIcons.recycle();
 
-		adapter = new NotificationsAdapter(getApplicationContext(), rowItems);
+		// adapter = new NotificationsAdapter(getApplicationContext(), rowItems);
+		adapter = new NavigationDrawerAdapter(getApplicationContext());
 
 		mDrawerList.setAdapter(adapter);
 		mDrawerList.setOnItemClickListener(new SlideitemListener());

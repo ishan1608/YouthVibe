@@ -26,7 +26,8 @@ public class EventsHomeFragment extends Fragment implements ActionBar.TabListene
 	// ActionBar actionBar;
 	private SlidingTabLayout mSlidingTabLayout;
 
-	String mainCategories[] = {"Cultural", "Concerts", "Technical", "Sports", "Management", "Social" };
+	// String mainCategories[] = {"Cultural", "Concerts", "Technical", "Sports", "Management", "Social" };
+	String[] mainCategories = getActivity().getResources().getStringArray(R.array.event_categories);
 
 	@Override
 	public void onResume() {
