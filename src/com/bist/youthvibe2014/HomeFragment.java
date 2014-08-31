@@ -21,7 +21,7 @@ public class HomeFragment extends Fragment {
 			homeWebView.getSettings().setLoadWithOverviewMode(true);
 			homeWebView.getSettings().setUseWideViewPort(true);
 			homeWebView.setWebViewClient(new ourWebViewClient());
-			homeWebView.loadUrl("file:///android_asset/about_us.html");
+			homeWebView.loadUrl("file:///android_asset/home.html");
 		}
 		catch(Exception e)
 		{
