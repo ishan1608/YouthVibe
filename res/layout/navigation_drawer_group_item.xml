@@ -1,13 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical" >
+    android:layout_height="wrap_content"
+    android:padding="5dp" >
+        
+    <ImageView 
+         android:id="@+id/groupIcon"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:src="@drawable/home"
+         android:layout_marginTop="10dp"
+         android:layout_marginLeft="5dp"
+         android:contentDescription="The Main menu icon."/>
     
     <TextView
+        android:id="@+id/groupTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Group Item"
-        android:textColor="#484856" />
+        android:textSize="16sp"
+        android:textStyle="normal" 
+        android:textColor="@color/com_facebook_usersettingsfragment_not_connected_text_color"
+        android:layout_toRightOf="@id/groupIcon"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="10dp"
+        android:text="Group Title" />
     
-</LinearLayout>
+</RelativeLayout>

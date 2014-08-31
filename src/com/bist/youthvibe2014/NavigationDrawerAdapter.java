@@ -4,10 +4,12 @@ import java.util.ArrayList;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.res.TypedArray;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseExpandableListAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 // @SuppressWarnings("unchecked")
@@ -20,6 +22,7 @@ public class NavigationDrawerAdapter extends BaseExpandableListAdapter {
 	private final Context context;
 	private ArrayList<String> menuItems;
 	private ArrayList<String> eventItems;
+	private TypedArray menuIcons;
 	
 	public NavigationDrawerAdapter(Context context) {
 		this.context = context;
@@ -42,6 +45,8 @@ public class NavigationDrawerAdapter extends BaseExpandableListAdapter {
 		}
 		this.ChildItem = eventItems;
 		
+		// Initializing Icons
+		menuIcons = context.getResources().obtainTypedArray(R.array.icons);
 	}
 
 	/*public NavigationDrawerAdapter(Context context,ArrayList<String> grList, ArrayList<Object> childItem) {
@@ -73,11 +78,16 @@ public class NavigationDrawerAdapter extends BaseExpandableListAdapter {
 			// I don't think there is a need for this
 			tempChild = ChildItem;
 			
+			// Initializing the view
 			if (convertView == null)
 	        {
 	            LayoutInflater layoutInflater = (LayoutInflater)context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 	            convertView = layoutInflater.inflate(R.layout.navigation_drawer_child_item,parent,false);
 	        }
+			
+			// Setting the text
+			TextView txt = (TextView) convertView.findViewById(R.id.childTitle);
+			txt.setText(ChildItem.get(childPosition));
 		} else {
 			// I don't think there is a need for this
 			tempChild = null;
@@ -151,6 +161,13 @@ public class NavigationDrawerAdapter extends BaseExpandableListAdapter {
             convertView = layoutInflater.inflate(R.layout.navigation_drawer_group_item,parent,false);
         }
 		
+		ImageView imgIcon = (ImageView) convertView.findViewById(R.id.groupIcon);
+		TextView txtTitle = (TextView) convertView.findViewById(R.id.groupTitle);
+		
+		imgIcon.setImageResource(menuIcons.getResourceId(groupPosition, -1));
+		txtTitle.setText(groupItem.get(groupPosition).toString());
+		menuIcons.recycle();
+		
 		// ((TextView) convertView).setText(groupItem.get(groupPosition));
         // convertView.setTag(groupItem.get(groupPosition));
 		
@@ -164,7 +181,6 @@ public class NavigationDrawerAdapter extends BaseExpandableListAdapter {
 
 	@Override
 	public boolean isChildSelectable(int groupPosition, int childPosition) {
-		return false;
+		return true;
 	}
-
 }

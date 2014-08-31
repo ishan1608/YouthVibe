@@ -26,8 +26,9 @@ public class EventsHomeFragment extends Fragment implements ActionBar.TabListene
 	// ActionBar actionBar;
 	private SlidingTabLayout mSlidingTabLayout;
 
-	// String mainCategories[] = {"Cultural", "Concerts", "Technical", "Sports", "Management", "Social" };
-	String[] mainCategories = getActivity().getResources().getStringArray(R.array.event_categories);
+	String mainCategories[] = {"Cultural", "Concerts", "Technical", "Sports", "Management", "Social" };
+	// Have to make use of the below line instead of the above line.
+	// String[] mainCategories = getResources().getStringArray(R.array.event_categories);
 
 	@Override
 	public void onResume() {
@@ -58,6 +59,15 @@ public class EventsHomeFragment extends Fragment implements ActionBar.TabListene
 		// Set up the ViewPager with the sections adapter.
 		mViewPager = (ViewPager) rootView.findViewById(R.id.events_home_pager);
 		mViewPager.setAdapter(mSectionsPagerAdapter);
+		
+		
+		// Shifting to a specific tab on starting
+		Bundle sentBundle = getArguments();
+		final String catPos = sentBundle.getString("category_position");
+		Integer categoryPosition = Integer.parseInt(catPos);
+		
+		mViewPager.setCurrentItem(categoryPosition);
+		
 
 		// New Additions
 		// Give the SlidingTabLayout the ViewPager, this must be done AFTER the ViewPager has had

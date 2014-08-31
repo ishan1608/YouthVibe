@@ -2,12 +2,16 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical" >
-    
+    android:orientation="horizontal" >
+
     <TextView
-        android:layout_width="wrap_content"
+        android:id="@+id/childTitle"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Child Item"
-        android:textColor="#784856" />
+        android:textSize="16sp"
+        android:textStyle="normal" 
+        android:textColor="@color/com_facebook_usersettingsfragment_not_connected_text_color"
+        android:layout_marginLeft="55dp"
+        android:text="Child Title" />
     
 </LinearLayout>

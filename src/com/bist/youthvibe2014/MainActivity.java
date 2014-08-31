@@ -30,7 +30,6 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.ExpandableListView;
 import android.widget.ImageView;
 import android.widget.ListView;
@@ -270,7 +269,13 @@ public class MainActivity extends Activity {
 		adapter = new NavigationDrawerAdapter(getApplicationContext());
 
 		mDrawerList.setAdapter(adapter);
-		mDrawerList.setOnItemClickListener(new SlideitemListener());
+		// mDrawerList.setOnItemClickListener(new SlideitemListener());
+		
+		// Setting the Group Listener for Application Menu
+		mDrawerList.setOnGroupClickListener(new GroupItemListener());
+		
+		//Setting the Child Listener for Events
+		mDrawerList.setOnChildClickListener(new ChildItemListener());
 
 		// enabling action bar app icon and behaving it as toggle button
 		getActionBar().setDisplayHomeAsUpEnabled(true);
@@ -301,7 +306,7 @@ public class MainActivity extends Activity {
 	}
 
 
-	class SlideitemListener implements ListView.OnItemClickListener {
+	/*class SlideitemListener implements ListView.OnItemClickListener {
 		@Override
 		public void onItemClick(AdapterView<?> parent, View view, int position, long id)
 		{
@@ -309,13 +314,31 @@ public class MainActivity extends Activity {
 			updateDisplay(position);
 		}
 
+	}*/
+	
+	class GroupItemListener implements ExpandableListView.OnGroupClickListener {
+		@Override
+		public boolean onGroupClick(ExpandableListView parent, View v,
+				int groupPosition, long id) {
+			updateDisplay(groupPosition + 1);
+			return false;
+		}
+	}
+	
+	class ChildItemListener implements ExpandableListView.OnChildClickListener {
+		@Override
+		public boolean onChildClick(ExpandableListView parent, View v,
+				int groupPosition, int childPosition, long id) {
+			// Toast.makeText(getApplicationContext(), groupPosition + " > " + childPosition, Toast.LENGTH_SHORT).show();
+			updateEventsDisplay(childPosition);
+			return false;
+		}
 	}
 
 
 	private void updateDisplay(int position) {
 		Fragment fragment = null;
 		switch (position) {
-
 		case 1:
 			fragment = new HomeFragment();
 			break;
@@ -326,9 +349,10 @@ public class MainActivity extends Activity {
 		case 3:
 			fragment = new GalleryFragment();
 			break;
-		case 4:
+			/*case 4:
 			fragment = new EventsHomeFragment();
 			break;
+			 */
 		case 5:
 			// Toast.makeText(getApplicationContext(), "Contact called", Toast.LENGTH_SHORT).show();
 			fragment = new ContactCallFragment();
@@ -354,11 +378,25 @@ public class MainActivity extends Activity {
 			mDrawerLayout.closeDrawer(mDrawerList);
 		} else {
 			// error in creating fragment
-			Log.e("MainActivity", "Error in creating fragment");
+			Log.e("MainActivity", "Error in creating fragment\nPosition : " + position);
 		}
 
 	}
-
+	
+	private void updateEventsDisplay(int position) {
+		Fragment fragment = new EventsHomeFragment();
+		Bundle eventsBundle = new Bundle();
+		eventsBundle.putString("category_position", "" + position);
+		fragment.setArguments(eventsBundle);
+		
+		if (fragment != null) {
+			FragmentManager fragmentManager = getFragmentManager();
+			fragmentManager.beginTransaction().replace(R.id.frame_container, fragment).commit();
+			// Display the title for events, then close the drawer
+			setTitle(menutitles[2]);
+			mDrawerLayout.closeDrawer(mDrawerList);
+		}
+	}
 
 	@Override
 	public void setTitle(CharSequence title) {
