@@ -190,7 +190,7 @@ main {
 	}
 
 /* Slide 1 */
-#slide-1 .bcg {background-image:url('../img/bcg_slide-1.jpg')}
+#slide-1 .bcg {background-image:url('http://youthvibe2014server.herokuapp.com/public/bcg_slide-1.jpg')}
 #slide-1 .hsContent {
     margin-left: -475px;
     top: auto;
@@ -198,7 +198,7 @@ main {
 }
 
 /* Slide 2 */
-#slide-2 .bcg {background-image:url('../img/bcg_slide-2.jpg')}
+#slide-2 .bcg {background-image:url('http://youthvibe2014server.herokuapp.com/public/bcg_slide-2.jpg')}
 #slide-2 .hsContent {
 	margin-left: -425px;
 	bottom: 100px;
@@ -214,7 +214,7 @@ main {
 	}
 
 /* Slide 3 */
-#slide-3 .bcg {background-image:url('../img/bcg_slide-3.jpg')}
+#slide-3 .bcg {background-image:url('http://youthvibe2014server.herokuapp.com/public/bcg_slide-3.jpg')}
 #slide-3 .hsContent {
 	margin-left: -400px;
     bottom: auto;
@@ -232,7 +232,7 @@ main {
 	}
 
 /* Slide 4 */
-#slide-4 .bcg {background-image:url('../img/bcg_slide-4.jpg')}
+#slide-4 .bcg {background-image:url('http://youthvibe2014server.herokuapp.com/public/bcg_slide-4.jpg')}
 #slide-4 .hsContent {
 	margin-left: -450px;
     top: auto;
