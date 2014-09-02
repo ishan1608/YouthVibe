@@ -17,10 +17,12 @@ import org.json.JSONObject;
 import android.app.Activity;
 import android.app.Fragment;
 import android.app.FragmentManager;
+import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.content.res.TypedArray;
 import android.graphics.drawable.Drawable;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.ActionBarDrawerToggle;
 import android.support.v4.widget.DrawerLayout;
@@ -361,7 +363,16 @@ public class MainActivity extends Activity {
 			fragment = new GoogleMapsFrag();
 			break;
 		case 7:
-			fragment = new LikeFragment();
+			// fragment = new LikeFragment();
+			try {
+			      //try to open page in facebook native app.
+			      String faceboobCustomUri = "fb://page/216517068538564";    //Cutsom URL
+			      Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(faceboobCustomUri));
+			      startActivity(intent);
+			}catch (ActivityNotFoundException ex){
+				//facebook native app isn't available, use fragment
+				fragment = new LikeFragment();
+			}
 			break;
 		case 8:
 			fragment = new Sponsors_Fragment();
