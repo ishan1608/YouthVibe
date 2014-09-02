@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical" >
+    android:orientation="vertical"
+    tools:ignore="all" >
     
     <ImageView
 		android:id="@+id/coverImage"
@@ -33,7 +35,7 @@
 		android:layout_height="wrap_content"
 		android:layout_marginTop="20dp"
 		android:layout_marginLeft="10dp"
-		android:textColor="@color/com_facebook_usersettingsfragment_connected_text_color"
+		android:textColor="#EEEEEE"
 		android:textStyle="bold" />
 	
     </LinearLayout>
@@ -44,6 +46,6 @@
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_below="@+id/userInfoHeader"
-        android:textColor="@color/com_facebook_usersettingsfragment_connected_text_color" />
+        android:textColor="#EEEEEE" />
 
 </RelativeLayout>
