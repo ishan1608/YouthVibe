@@ -366,7 +366,7 @@ public class MainActivity extends Activity {
 			// fragment = new LikeFragment();
 			try {
 			      //try to open page in facebook native app.
-			      String faceboobCustomUri = "fb://page/216517068538564";    //Cutsom URL
+			      String faceboobCustomUri = "fb://page/216517068538564";    //Facebook Id for youthvibe page 216517068538564
 			      Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(faceboobCustomUri));
 			      startActivity(intent);
 			}catch (ActivityNotFoundException ex){
