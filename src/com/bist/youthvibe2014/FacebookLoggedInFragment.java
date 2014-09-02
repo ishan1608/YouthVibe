@@ -27,6 +27,7 @@ public class FacebookLoggedInFragment extends Fragment {
 	private String userName,userId, userEmail, accessToken;
 
 	private Button continueButton;
+	private Button logoutButton;
 
 	private static final int REAUTH_ACTIVITY_CODE = 100;
 
@@ -68,6 +69,16 @@ public class FacebookLoggedInFragment extends Fragment {
 				userInfo.putString("name", userName);
 				nextScreen.putExtras(userInfo);
 				startActivity(nextScreen);
+			}
+		});
+		
+		// The logout button
+		logoutButton = (Button) view.findViewById(R.id.logOutButton);
+		logoutButton.setOnClickListener(new View.OnClickListener() {
+
+			@Override
+			public void onClick(View v) {
+				((FacebookLoginActivity)getActivity()).showFragment(((FacebookLoginActivity)getActivity()).SETTINGS, true);
 			}
 		});
 

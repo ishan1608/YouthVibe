@@ -197,7 +197,7 @@ public class MainActivity extends Activity {
 		// Navigation Header Part
 		LayoutInflater inflater = getLayoutInflater();
 
-		// Add header news title
+		// Add header title
 		ViewGroup nav_header = (ViewGroup)inflater.inflate(R.layout.navigation_header, mDrawerList, false);
 		mDrawerList.addHeaderView(nav_header, null, false);
 

@@ -23,7 +23,7 @@ public class FacebookLoginActivity extends FragmentActivity {
 	// Facebook Scrumptious  Tutorial
 	private static final int SPLASH = 0;
 	private static final int SELECTION = 1;
-	private static final int SETTINGS = 2;
+	public static final int SETTINGS = 2;
 	private static final int FRAGMENT_COUNT = SETTINGS +1;
 	private boolean isResumed = false;
 	private Fragment[] fragments = new Fragment[FRAGMENT_COUNT];
@@ -137,7 +137,7 @@ public class FacebookLoginActivity extends FragmentActivity {
 		}
 	}
 
-	private void showFragment(int fragmentIndex, boolean addToBackStack) {
+	public void showFragment(int fragmentIndex, boolean addToBackStack) {
 		FragmentManager fm = getSupportFragmentManager();
 		FragmentTransaction transaction = fm.beginTransaction();
 		for (int i = 0; i < fragments.length; i++) {
@@ -204,7 +204,7 @@ public class FacebookLoginActivity extends FragmentActivity {
 	@Override
 	public boolean onPrepareOptionsMenu(Menu menu) {
 		// only add the menu when the selection fragment is showing
-		if (fragments[SELECTION].isVisible()) {
+		/*if (fragments[SELECTION].isVisible()) {
 			if (menu.size() == 0) {
 				settings = menu.add(R.string.action_settings);
 			}
@@ -212,16 +212,16 @@ public class FacebookLoginActivity extends FragmentActivity {
 		} else {
 			menu.clear();
 			settings = null;
-		}
+		}*/
 		return false;
 	}
 
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
-		if (item.equals(settings)) {
+		/*if (item.equals(settings)) {
 			showFragment(SETTINGS, true);
 			return true;
-		}
+		}*/
 		return false;
 	}
 
