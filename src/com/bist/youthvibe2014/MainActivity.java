@@ -34,6 +34,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ExpandableListView;
 import android.widget.ImageView;
+import android.widget.ImageView.ScaleType;
 import android.widget.ListView;
 import android.widget.RelativeLayout.LayoutParams;
 import android.widget.TextView;
@@ -82,14 +83,25 @@ public class MainActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
+		
+		/*// Will need this when I shift the notification intent to Main Activity
+		// Clearing the notification if any
+		String notManagerName = Context.NOTIFICATION_SERVICE;
+        NotificationManager notificationManager = (NotificationManager) getSystemService(notManagerName);
+        notificationManager.cancel(GcmIntentService.NOTIFICATION_ID);*/
 
-		// User Info from previous Activity
-		callingIntent = getIntent();
-		userInfo = callingIntent.getExtras();
-		userName = userInfo.getString("name");
-		userId = userInfo.getString("id");
-		userEmail = userInfo.getString("email");
-		accessToken = userInfo.getString("token");
+		try{
+			// User Info from previous Activity
+			callingIntent = getIntent();
+			userInfo = callingIntent.getExtras();
+			userName = userInfo.getString("name");
+			userId = userInfo.getString("id");
+			userEmail = userInfo.getString("email");
+			accessToken = userInfo.getString("token");
+		} catch(Exception e) {
+			// Toast.makeText(getApplicationContext(), "Error getting the info from the previous activity.", Toast.LENGTH_SHORT).show();
+			Log.e("IntentInfo", "Error getting the info from previous Activity.");
+		}
 		
 		// Download Library settings
 		DisplayImageOptions defaultOptions = new DisplayImageOptions.Builder().cacheInMemory(true).cacheOnDisk(true).build();
@@ -214,6 +226,8 @@ public class MainActivity extends Activity {
 		ImageLoader.getInstance().displayImage(userPictureUrl, userImageView);
 
 		coverImageView = (ImageView) nav_header.findViewById(R.id.coverImage);
+		// Setting the image as ScaleType.CENTER_CROP so that it takes up all the space assigned to it and not more.
+		coverImageView.setScaleType(ScaleType.CENTER_CROP);
 		userFacebookGraphUrl = "https://graph.facebook.com/" + userId + "?fields=cover&access_token=" + accessToken;
 
 		Thread t = new Thread(){

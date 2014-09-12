@@ -1,11 +1,14 @@
 package com.bist.youthvibe2014;
 
+import android.app.NotificationManager;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
@@ -29,7 +32,7 @@ public class FacebookLoginActivity extends FragmentActivity {
 	private Fragment[] fragments = new Fragment[FRAGMENT_COUNT];
 	private UiLifecycleHelper uiHelper;
 
-	private MenuItem settings;
+	// private MenuItem settings;
 
 	private Session.StatusCallback callback = 
 			new Session.StatusCallback() {
@@ -43,6 +46,15 @@ public class FacebookLoginActivity extends FragmentActivity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.facebook_login_activity);
+		
+		try {
+			// Clearing the notification if any
+			String notManagerName = Context.NOTIFICATION_SERVICE;
+	        NotificationManager notificationManager = (NotificationManager) getSystemService(notManagerName);
+	        notificationManager.cancel(GcmIntentService.NOTIFICATION_ID);
+		} catch(Exception e) {
+			Log.i("FacebookLoginActivity", "There are no notifications to clear.");
+		}
 
 		// Facebook Scrumptious  Tutorial
 		uiHelper = new UiLifecycleHelper(this, callback);
@@ -114,7 +126,6 @@ public class FacebookLoginActivity extends FragmentActivity {
 	}
 
 	// Facebook Scrumptious  Tutorial
-
 	private void onSessionStateChange(Session session, SessionState state, Exception exception) {
 		// Only make changes if the activity is visible
 		if (isResumed) {
