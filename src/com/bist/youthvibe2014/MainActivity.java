@@ -100,7 +100,7 @@ public class MainActivity extends Activity {
 		//Notification Layer Part
 		notificationLayer = (SlidingLayer) findViewById(R.id.notification_sliding_layer);
 		notificationLayer.setShadowWidth(8);
-		notificationLayer.setOffsetWidth(25);
+		notificationLayer.setOffsetWidth(8);
 		notificationLayer.setShadowDrawable(R.drawable.sidebar_shadow);
 		notificationLayer.setStickTo(SlidingLayer.STICK_TO_RIGHT);
 		notificationLayer.setCloseOnTapEnabled(true);
