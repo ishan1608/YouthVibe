@@ -229,6 +229,8 @@ main {
         width: 260px;
         margin-left: -60px;
         margin-top: 50px;
+        color: #d2d2d2;
+        background-color: rgba(0,0,0,0.50);
 	}
 
 /* Slide 4 */
