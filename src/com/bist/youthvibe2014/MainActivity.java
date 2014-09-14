@@ -38,11 +38,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ExpandableListView;
 import android.widget.ImageView;
-import android.widget.Toast;
 import android.widget.ImageView.ScaleType;
 import android.widget.ListView;
 import android.widget.RelativeLayout.LayoutParams;
 import android.widget.TextView;
+// import android.widget.Toast;
 
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
@@ -69,11 +69,13 @@ public class MainActivity extends Activity {
 	private NavigationDrawerAdapter adapter;
 
 	// Notification Layer part
-	SlidingLayer notificationLayer;
-	Menu menu;
-	MenuItem notificationMenu;
-	List<RowItem> notificationItems;
-	NotificationsAdapter notificationAdapter;
+	private SlidingLayer notificationLayer;
+	// private Menu menu;
+	private MenuItem notificationMenu;
+	private List<RowItem> notificationItems;
+	private NotificationsAdapter notificationAdapter;
+	
+	private String newNotices;
 
 	// User Info
 	private String userName, userId, userEmail, accessToken;
@@ -100,38 +102,39 @@ public class MainActivity extends Activity {
         SharedPreferences settings = this.getSharedPreferences(MainActivity.class.getSimpleName(), Context.MODE_PRIVATE);
         // SharedPreferences.Editor editor = settings.edit();
         Set<String> notificationsSet = settings.getStringSet("Notifications", new HashSet<String>());
-        String[] notifications = notificationsSet.toArray(new String[notificationsSet.size()]);
+        String[] notificationList = notificationsSet.toArray(new String[notificationsSet.size()]);
 
         try{
             // newNotices Info from previous Activity
             Intent callingIntent = getIntent();
             Bundle noticeInfo = callingIntent.getExtras();
-            String newNotices = noticeInfo.getString("newNotices");
+            newNotices = noticeInfo.getString("newNotices");
             // mDisplay.append("Value : " + newNotices + "\n");
-            Toast.makeText(getApplicationContext(), "Value : " + newNotices + "\n", Toast.LENGTH_SHORT).show();
-            if(newNotices.equalsIgnoreCase("YES")) {
+            // Toast.makeText(getApplicationContext(), "Value : " + newNotices + "\n", Toast.LENGTH_SHORT).show();
+            /*if(newNotices.equalsIgnoreCase("YES")) {
                 // mDisplay.append("New notices available\n");
             	Toast.makeText(getApplicationContext(), "New notices available\n", Toast.LENGTH_SHORT).show();
             } else {
                 // mDisplay.append("No new notices available\n");
             	Toast.makeText(getApplicationContext(), "No new notices available\n", Toast.LENGTH_SHORT).show();
-            }
+            }*/
         } catch(Exception e) {
             // mDisplay.append("Calling intent doesn't have information about newNotices.\n");
-            Toast.makeText(getApplicationContext(), "Calling intent doesn't have information about newNotices.\n", Toast.LENGTH_SHORT).show();
-            Log.e("IntentInfo", "Error getting the info from previous Activity.");
+            // Toast.makeText(getApplicationContext(), "Calling intent doesn't have information about newNotices.\n", Toast.LENGTH_SHORT).show();
+            Log.e("noticesMainIntent", "Error getting the info from previous Activity.");
         }
 
+        /*// This will be used for notifications list
         // mDisplay.append("Total messages : " + notifications.length + "\n");
-        Toast.makeText(getApplicationContext(), "Total messages : " + notifications.length + "\n", Toast.LENGTH_SHORT).show();
-        for(int i=0; i<notifications.length; i++) {
+        Toast.makeText(getApplicationContext(), "Total messages : " + notificationList.length + "\n", Toast.LENGTH_SHORT).show();
+        for(int i=0; i<notificationList.length; i++) {
             // mDisplay.append(notifications[i] + "\n");
-            Toast.makeText(getApplicationContext(), notifications[i] + "\n", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), notificationList[i] + "\n", Toast.LENGTH_SHORT).show();
         }
-        if(notifications.length == 0) {
+        if(notificationList.length == 0) {
             // mDisplay.append("No Notifications till yet");
             Toast.makeText(getApplicationContext(), "No Notifications till yet", Toast.LENGTH_SHORT).show();
-        }
+        }*/
 
 		try{
 			// User Info from previous Activity
@@ -189,7 +192,7 @@ public class MainActivity extends Activity {
 				if(notificationLayer.isOpened()) {
 					// notification_icon.setIcon(R.drawable.withnotification);
 					// item.setIcon(getResources().getDrawable(R.drawable.withnotification));
-					notificationMenu.setIcon(R.drawable.withnotification);
+					// notificationMenu.setIcon(R.drawable.withnotification);
 					notificationLayer.closeLayer(true);
 				} else {
 					// notification_icon.setIcon(R.drawable.nonotifacation);
@@ -202,10 +205,20 @@ public class MainActivity extends Activity {
 
 		// List inside the Notification Panel
 		ListView notificationPanelList = (ListView) findViewById(R.id.notification_list);
-		String notificationList[] = {"Notification 1", "Notification 2", "Notification 3", "Notification 4", "Notification 5", "Notification 6"};
-
+		// Have to create this list dynamically
+		// String notificationList[] = {"Notification 1", "Notification 2", "Notification 3", "Notification 4", "Notification 5", "Notification 6"};
 		// An adapter for simple text List
 		// notificationPanelList.setAdapter(new ArrayAdapter<String>(this, R.layout.notification_layer_list_item, notificationList));
+		// Reversing the array I got from the storage.
+		// I don't know why but I have to reverse device
+		int notificationListLength = notificationList.length;
+		String reversedNotificationList[] = new String[notificationListLength];
+		for(int i=0; i<notificationListLength; i++) {
+			reversedNotificationList[i] = notificationList[notificationListLength - 1 - i];
+		}
+		for(int i=0; i<notificationListLength; i++) {
+			notificationList[i] = reversedNotificationList[notificationListLength - 1 - i];
+		}
 		notificationItems = new ArrayList<RowItem>();
 		for(int i=0; i < notificationList.length; i++) {
 			RowItem item = new RowItem(notificationList[i], R.drawable.notification);
@@ -224,7 +237,7 @@ public class MainActivity extends Activity {
 
 			@Override
 			public void onClosed() {
-				notificationMenu.setIcon(getResources().getDrawable(R.drawable.withnotification));
+				// notificationMenu.setIcon(getResources().getDrawable(R.drawable.withnotification));
 			}
 
 			@Override
@@ -475,9 +488,15 @@ public class MainActivity extends Activity {
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		getMenuInflater().inflate(R.menu.main, menu);
-		this.menu = menu;
+		// this.menu = menu;
 		// settingsMenu = menu.add(R.string.action_settings);
 		notificationMenu = menu.findItem(R.id.notification_action_icon);
+		if(this.newNotices != null) {
+			// Toast.makeText(getApplicationContext(), "newNotices is not null : " + newNotices, Toast.LENGTH_SHORT).show();
+			notificationMenu.setIcon(getResources().getDrawable(R.drawable.withnotification));
+		} else {
+			notificationMenu.setIcon(getResources().getDrawable(R.drawable.nonotifacation));
+		}
 		return true;
 	}
 
