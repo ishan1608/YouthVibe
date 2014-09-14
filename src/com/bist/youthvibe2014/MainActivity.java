@@ -2,7 +2,9 @@ package com.bist.youthvibe2014;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import org.apache.http.HttpResponse;
 import org.apache.http.HttpStatus;
@@ -18,7 +20,9 @@ import android.app.Activity;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.content.ActivityNotFoundException;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.content.res.TypedArray;
 import android.graphics.drawable.Drawable;
@@ -34,6 +38,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ExpandableListView;
 import android.widget.ImageView;
+import android.widget.Toast;
 import android.widget.ImageView.ScaleType;
 import android.widget.ListView;
 import android.widget.RelativeLayout.LayoutParams;
@@ -89,6 +94,44 @@ public class MainActivity extends Activity {
 		String notManagerName = Context.NOTIFICATION_SERVICE;
         NotificationManager notificationManager = (NotificationManager) getSystemService(notManagerName);
         notificationManager.cancel(GcmIntentService.NOTIFICATION_ID);*/
+		
+		// Get messages
+        // Get the current list.
+        SharedPreferences settings = this.getSharedPreferences(MainActivity.class.getSimpleName(), Context.MODE_PRIVATE);
+        // SharedPreferences.Editor editor = settings.edit();
+        Set<String> notificationsSet = settings.getStringSet("Notifications", new HashSet<String>());
+        String[] notifications = notificationsSet.toArray(new String[notificationsSet.size()]);
+
+        try{
+            // newNotices Info from previous Activity
+            Intent callingIntent = getIntent();
+            Bundle noticeInfo = callingIntent.getExtras();
+            String newNotices = noticeInfo.getString("newNotices");
+            // mDisplay.append("Value : " + newNotices + "\n");
+            Toast.makeText(getApplicationContext(), "Value : " + newNotices + "\n", Toast.LENGTH_SHORT).show();
+            if(newNotices.equalsIgnoreCase("YES")) {
+                // mDisplay.append("New notices available\n");
+            	Toast.makeText(getApplicationContext(), "New notices available\n", Toast.LENGTH_SHORT).show();
+            } else {
+                // mDisplay.append("No new notices available\n");
+            	Toast.makeText(getApplicationContext(), "No new notices available\n", Toast.LENGTH_SHORT).show();
+            }
+        } catch(Exception e) {
+            // mDisplay.append("Calling intent doesn't have information about newNotices.\n");
+            Toast.makeText(getApplicationContext(), "Calling intent doesn't have information about newNotices.\n", Toast.LENGTH_SHORT).show();
+            Log.e("IntentInfo", "Error getting the info from previous Activity.");
+        }
+
+        // mDisplay.append("Total messages : " + notifications.length + "\n");
+        Toast.makeText(getApplicationContext(), "Total messages : " + notifications.length + "\n", Toast.LENGTH_SHORT).show();
+        for(int i=0; i<notifications.length; i++) {
+            // mDisplay.append(notifications[i] + "\n");
+            Toast.makeText(getApplicationContext(), notifications[i] + "\n", Toast.LENGTH_SHORT).show();
+        }
+        if(notifications.length == 0) {
+            // mDisplay.append("No Notifications till yet");
+            Toast.makeText(getApplicationContext(), "No Notifications till yet", Toast.LENGTH_SHORT).show();
+        }
 
 		try{
 			// User Info from previous Activity

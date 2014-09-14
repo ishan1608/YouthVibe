@@ -1,10 +1,14 @@
 package com.bist.youthvibe2014;
 
+import java.util.HashSet;
+import java.util.Set;
+
 import android.app.IntentService;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v4.app.NotificationCompat;
 import android.util.Log;
@@ -63,6 +67,25 @@ public class GcmIntentService extends IntentService {
                     }
                 }*/
                 // Log.i(TAG, "Completed work @ " + SystemClock.elapsedRealtime());
+            	
+            	// Storing the messsage first.
+                SharedPreferences settings = this.getSharedPreferences(MainActivity.class.getSimpleName(), Context.MODE_PRIVATE);
+                SharedPreferences.Editor editor = settings.edit();
+                // Get the list
+                Set<String> notifications = settings.getStringSet("Notifications", null);
+                Set<String> newNotifications = new HashSet<String>();
+                String newNotice = "Title : " + extras.getString("title") + "\nMessage : " + extras.getString("message");
+                if(newNotice != "") {
+                    if(notifications != null) {
+                        for(String notice: notifications) {
+                            newNotifications.add(notice);
+                        }
+                    }
+                    newNotifications.add(newNotice);
+                    editor.putStringSet("Notifications", newNotifications);
+                    editor.apply();
+                }
+            	
                 // Post notification of received message.
                 sendNotification("Title : " + extras.getString("title") + "\nMessage : " + extras.getString("message"));
                 // sendNotification("Received: " + extras.toString());
@@ -80,8 +103,15 @@ public class GcmIntentService extends IntentService {
         mNotificationManager = (NotificationManager)
                 this.getSystemService(Context.NOTIFICATION_SERVICE);
         // Have to change this to make the notifications go to MainActivity
-        PendingIntent contentIntent = PendingIntent.getActivity(getApplicationContext(), 0,
-        		new Intent(this, FacebookLoginActivity.class), 0);
+        Intent goingIntent = new Intent(this, FacebookLoginActivity.class);
+        Bundle noticeInfo = new Bundle();
+        noticeInfo.putString("newNotices", "YES");
+        goingIntent.putExtras(noticeInfo);
+
+        goingIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_SINGLE_TOP);
+
+        // PendingIntent contentIntent = PendingIntent.getActivity(this, 0, goingIntent, 0);
+        PendingIntent contentIntent = PendingIntent.getActivity(this, 0, goingIntent, PendingIntent.FLAG_CANCEL_CURRENT);
 
         NotificationCompat.Builder mBuilder =
                 new NotificationCompat.Builder(this)

@@ -105,6 +105,7 @@ public class FacebookLoggedInFragment extends Fragment {
 				userInfo.putString("email",  userEmail);
 				userInfo.putString("token", accessToken);
 				userInfo.putString("name", userName);
+				userInfo.putString("newNotices", ((FacebookLoginActivity) getActivity()).getNewNotices());
 				nextScreen.putExtras(userInfo);
 				startActivity(nextScreen);
 			}

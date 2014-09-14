@@ -11,6 +11,7 @@ import android.support.v4.app.FragmentTransaction;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import com.facebook.Session;
 import com.facebook.SessionState;
@@ -41,6 +42,8 @@ public class FacebookLoginActivity extends FragmentActivity {
 			onSessionStateChange(session, state, exception);
 		}
 	};
+	
+	private String newNotices;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -55,6 +58,26 @@ public class FacebookLoginActivity extends FragmentActivity {
 		} catch(Exception e) {
 			Log.i("FacebookLoginActivity", "There are no notifications to clear.");
 		}
+		
+		try{
+            // newNotices Info from previous Activity
+            Intent callingIntent = getIntent();
+            Bundle noticeInfo = callingIntent.getExtras();
+            newNotices = noticeInfo.getString("newNotices");
+            // mDisplay.append("Value : " + newNotices + "\n");
+            Toast.makeText(getApplicationContext(), "Value : " + newNotices + "\n", Toast.LENGTH_SHORT).show();
+            if(newNotices.equalsIgnoreCase("YES")) {
+                // mDisplay.append("New notices available\n");
+            	Toast.makeText(getApplicationContext(), "New notices available\n", Toast.LENGTH_SHORT).show();
+            } else {
+                // mDisplay.append("No new notices available\n");
+            	Toast.makeText(getApplicationContext(), "No new notices available\n", Toast.LENGTH_SHORT).show();
+            }
+        } catch(Exception e) {
+            // mDisplay.append("Calling intent doesn't have information about newNotices.\n");
+            Toast.makeText(getApplicationContext(), "Calling intent doesn't have information about newNotices.\n", Toast.LENGTH_SHORT).show();
+            Log.e("IntentInfo", "Error getting the info from previous Activity.");
+        }
 
 		// Facebook Scrumptious  Tutorial
 		uiHelper = new UiLifecycleHelper(this, callback);
@@ -234,6 +257,10 @@ public class FacebookLoginActivity extends FragmentActivity {
 			return true;
 		}*/
 		return false;
+	}
+
+	public String getNewNotices() {
+		return newNotices;
 	}
 
 	/*
