@@ -33,6 +33,6 @@ public class LikeFragment extends Fragment
 		{
 			e.printStackTrace();
 		}
-		return rootView; 		
+		return rootView;
 	}
 }
