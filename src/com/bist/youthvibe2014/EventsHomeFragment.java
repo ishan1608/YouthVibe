@@ -173,6 +173,9 @@ public class EventsHomeFragment extends Fragment implements ActionBar.TabListene
 			case 0:
 				currentFragment = new CulturalFragment();
 				break;
+			case 2:
+				currentFragment = new TechnicalFragment();
+				break;
 			case 3:
 				currentFragment = new SportsFragment();
 				break;

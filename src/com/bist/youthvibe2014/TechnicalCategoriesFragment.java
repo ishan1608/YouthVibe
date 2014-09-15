@@ -1,7 +1,6 @@
 package com.bist.youthvibe2014;
 
 import android.app.Fragment;
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,7 +14,7 @@ import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
 
-public class GalleryFragment extends Fragment	  
+public class TechnicalCategoriesFragment extends Fragment	  
 {
 	LinearLayout relsec1;
 	LinearLayout relsec2;
@@ -23,14 +22,51 @@ public class GalleryFragment extends Fragment
 	// ImageView imgv;
 	String imgval="";
 	View rootView;
+	
+	// int totalSections = 12;
 
-	private ImageView[] imageHolder = new ImageView[12];
+	// private ImageView[] imageHolder = new ImageView[totalSections];
+	private ImageView[] imageHolder;
 	// private int viewId;
 	private int progressId;
-
+	
+	private String[] imageItems;
+	private String[] mechatronixImages = {"techincal_mechatronix_the_battle_ship", "techincal_mechatronix_robo_wrestle_mania", 
+			"techincal_mechatronix_dark_horse", "techincal_mechatronix_gear_up", "techincal_mechatronix_aviator", 
+			"techincal_mechatronix_aqua_jet", "techincal_mechatronix_circuitiry"};
+	private String[] abacusImages = {"techincal_abacus_master_o_codes", "techincal_abacus_app_builder", "techincal_abacus_web_builder", 
+			"techincal_abacus_image_masher", "techincal_abacus_algo_designer", "techincal_abacus_tic_tac_toe", "techincal_abacus_just_in_a_sec"};
+	private String[] exhibitorImages = {"techincal_exhibitor_the_architect", "techincal_exhibitor_the_scientist", "techincal_exhibitor_the_stylish"};
+	private String[] presentorImages = {"techincal_presentor_paper_presentation", "techincal_presentor_project_presentation"};
+	
 	@Override public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
 	{
-		rootView  = inflater .inflate(R.layout.gallery_fragment, container, false);
+		rootView  = inflater.inflate(R.layout.main_category_fragment, container, false);
+		
+		Bundle categoryBundle = getArguments();
+		final String catPos=categoryBundle.getString("categoryPosition");
+		Integer categoryPosition = Integer.parseInt(catPos);
+		
+		switch(categoryPosition) {
+			case 0:
+				imageItems = mechatronixImages;
+			break;
+			case 1:
+				imageItems = abacusImages;
+			break;
+			case 2:
+				imageItems = exhibitorImages;
+			break;
+			case 3:
+				imageItems = presentorImages;
+			break;
+			default:
+				imageItems = null;
+			break;
+		}
+		
+		
+		imageHolder = new ImageView[imageItems.length];
 
 		// Downloading Library settings
 		DisplayImageOptions defaultOptions = new DisplayImageOptions.Builder().cacheInMemory(true).cacheOnDisk(true).build();
@@ -39,22 +75,7 @@ public class GalleryFragment extends Fragment
 
 		relsec1 = (LinearLayout)rootView.findViewById(R.id.relsec1);
 		relsec2 = (LinearLayout)rootView.findViewById(R.id.relsec2);
-		String imageItems []= new String [12];
-		imageItems[0]="srkdance";
-		imageItems[1]="classical1";
-		imageItems[2]="classical2";
-		imageItems[3]="groupfootbaal";
-		imageItems[4]="fashionshow";
-		imageItems[5]="lpushowcase";
-		imageItems[6]="ranbir";
-		imageItems[7]="girlfootball";
-		imageItems[8]="roadshow";
-		imageItems[9]="northeast";
-		imageItems[10]="roadshow2";
-		imageItems[11]="srkdeepika";
-		//imageItems[12]="folkclass";
-		// double  height= 187 * 0.36;
-		// double  width = 160;
+		
 		progressId = getResources().getIdentifier("progress_circle", "drawable", getActivity().getPackageName());
 		for(int i=0; i<imageItems.length; i++) {
 			// id = getResources().getIdentifier(imageItems[i], "drawable", getActivity().getPackageName());
@@ -64,7 +85,9 @@ public class GalleryFragment extends Fragment
 			// imgv.setMaxWidth((int)width);
 
 			// imgv.setLayoutParams(new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT));
-			imageHolder[i].setLayoutParams(new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT));
+			LayoutParams lp = new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
+			lp.setMargins(10, 15, 10, 15);
+			imageHolder[i].setLayoutParams(lp);
 			// imgv.setImageDrawable(getResources().getDrawable(id));
 			// Working but we have to download from the internet
 			// imageHolder[i].setImageDrawable(getResources().getDrawable(id));
@@ -84,11 +107,24 @@ public class GalleryFragment extends Fragment
 					@Override
 					public void onClick(View arg0) {
 						// Toast.makeText(getActivity(), "toast toast toast",Toast.LENGTH_SHORT).show();	
-						Bundle toImage=new Bundle();
+						/*Bundle toImage=new Bundle();
 						toImage.putString("key1",val);
 						Intent intent=new Intent(getActivity(),ImageActivity.class);
 						intent.putExtras(toImage);
-						startActivity(intent);	
+						startActivity(intent);*/
+						
+						/*// We are going to use this
+						Bundle categoryBundle = new Bundle();
+						categoryBundle.putString("categoryPosition", val);
+						
+						EventsFragment nextFragment = new EventsFragment();
+						
+						nextFragment.setArguments(categoryBundle);
+						
+						FragmentTransaction transaction = getFragmentManager().beginTransaction();
+						transaction.replace(R.id.categories_fragment, nextFragment);
+						transaction.addToBackStack(null);
+						transaction.commit();*/
 					}
 				});
 			} else {
@@ -101,11 +137,11 @@ public class GalleryFragment extends Fragment
 
 					@Override
 					public void onClick(View arg0) {
-						Bundle toImage=new Bundle();
+						/*Bundle toImage=new Bundle();
 						toImage.putString("key1",val);
 						Intent intent=new Intent(getActivity(),ImageActivity.class);
 						intent.putExtras(toImage);
-						startActivity(intent);
+						startActivity(intent);*/
 						// Toast.makeText(getActivity(), "toast toast toast",Toast.LENGTH_SHORT).show();	
 					}
 				});

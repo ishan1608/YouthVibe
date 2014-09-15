@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
@@ -20,7 +21,7 @@ public class CulturalFragment extends Fragment {
 
 	private String images[] = {"music", "dance", "theatre", "literary", "quiz", "lifestyle", "finearts", "photographyandflimproduction"};
 	private String imageViews[] = {"imagev1", "imagev2", "imagev3", "imagev4", "imagev5", "imagev6", "imagev7", "imagev8"};
-	private ImageView[] imageHolder = new ImageView[8];
+	private ImageView[] imageHolder = new ImageView[images.length];
 	private int viewId;
 
 
@@ -48,7 +49,7 @@ public class CulturalFragment extends Fragment {
 			public void onClick(View v) {
 				EventsFragment nextFragment = new EventsFragment();
 				FragmentTransaction transaction = getFragmentManager().beginTransaction();
-				transaction.replace(R.id.categories_fragment, nextFragment);
+				transaction.replace(R.id.cultural_fragment, nextFragment);
 				transaction.addToBackStack(null);
 				transaction.commit();
 			}
