@@ -67,14 +67,36 @@ public class TechnicalFragment extends Fragment
 			imageHolder[i].setImageDrawable(getResources().getDrawable(progressId));
 			// Downloading the image
 			ImageLoader.getInstance().displayImage("http://youthvibe2014server.herokuapp.com/public/" + imageItems[i] + ".png", imageHolder[i]);
+			
+			imgval=""+i;
+			final String val= imgval.toString();
+			imageHolder[i].setOnClickListener(new OnClickListener() {
+
+				@Override
+				public void onClick(View arg0) {
+					// We are going to use this
+					Bundle categoryBundle = new Bundle();
+					categoryBundle.putString("categoryPosition", val);
+					
+					TechnicalCategoriesFragment nextFragment = new TechnicalCategoriesFragment();
+					
+					nextFragment.setArguments(categoryBundle);
+					
+					FragmentTransaction transaction = getActivity().getFragmentManager().beginTransaction();
+					transaction.replace(R.id.main_categories_fragment_container, nextFragment);
+					transaction.addToBackStack(null);
+					// Toast.makeText(getActivity().getApplicationContext(), "onClickCalled", Toast.LENGTH_SHORT).show();
+					transaction.commit();
+				}
+			});
 
 			if(i%2 == 0) {
 				// relsec1.addView(imgv);
 				relsec1.addView(imageHolder[i]);
-				imgval=""+i;
-				final String val= imgval.toString();
+				/*imgval=""+i;
+				final String val= imgval.toString();*/
 				// imgv.setOnClickListener(new OnClickListener() {
-				imageHolder[i].setOnClickListener(new OnClickListener() {
+				/*imageHolder[i].setOnClickListener(new OnClickListener() {
 
 					@Override
 					public void onClick(View arg0) {
@@ -92,14 +114,14 @@ public class TechnicalFragment extends Fragment
 						// Toast.makeText(getActivity().getApplicationContext(), "onClickCalled", Toast.LENGTH_SHORT).show();
 						transaction.commit();
 					}
-				});
+				});*/
 			} else {
 				// relsec2.addView(imgv);
 				relsec2.addView(imageHolder[i]);
-				imgval=""+i;
-				final String val= imgval.toString();
+				/*imgval=""+i;
+				final String val= imgval.toString();*/
 				// imgv.setOnClickListener(new OnClickListener() {
-				imageHolder[i].setOnClickListener(new OnClickListener() {
+				/*imageHolder[i].setOnClickListener(new OnClickListener() {
 
 					@Override
 					public void onClick(View arg0) {
@@ -117,8 +139,9 @@ public class TechnicalFragment extends Fragment
 						// Toast.makeText(getActivity().getApplicationContext(), "onClickCalled", Toast.LENGTH_SHORT).show();
 						transaction.commit();
 					}
-				});
-			} }
+				});*/
+			}
+		}
 		// imgv.invalidate();
 		return rootView;
 	}

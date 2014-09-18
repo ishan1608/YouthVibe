@@ -1,6 +1,7 @@
 package com.bist.youthvibe2014;
 
 import android.app.Fragment;
+import android.app.FragmentTransaction;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -20,7 +21,7 @@ public class TechnicalCategoriesFragment extends Fragment
 	LinearLayout relsec2;
 	int id;
 	// ImageView imgv;
-	String imgval="";
+	// String imgval="";
 	View rootView;
 	
 	// int totalSections = 12;
@@ -39,13 +40,16 @@ public class TechnicalCategoriesFragment extends Fragment
 	private String[] exhibitorImages = {"techincal_exhibitor_the_architect", "techincal_exhibitor_the_scientist", "techincal_exhibitor_the_stylish"};
 	private String[] presentorImages = {"techincal_presentor_paper_presentation", "techincal_presentor_project_presentation"};
 	
-	@Override public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
+	private int categoryPosition, eventPosition;
+	
+	@Override
+	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
 	{
 		rootView  = inflater.inflate(R.layout.main_category_fragment, container, false);
 		
 		Bundle categoryBundle = getArguments();
 		final String catPos=categoryBundle.getString("categoryPosition");
-		Integer categoryPosition = Integer.parseInt(catPos);
+		categoryPosition = Integer.parseInt(catPos);
 		
 		switch(categoryPosition) {
 			case 0:
@@ -95,57 +99,36 @@ public class TechnicalCategoriesFragment extends Fragment
 			imageHolder[i].setImageDrawable(getResources().getDrawable(progressId));
 			// Downloading the image
 			ImageLoader.getInstance().displayImage("http://youthvibe2014server.herokuapp.com/public/" + imageItems[i] + ".png", imageHolder[i]);
+			
+			// Creating eventPos, catPos is already available 
+			eventPosition = i;
+			final String eventPos= "" + eventPosition;
+			imageHolder[i].setOnClickListener(new OnClickListener() {
+
+				@Override
+				public void onClick(View arg0) {
+					// We are going to use this
+					Bundle categoryBundle = new Bundle();
+					categoryBundle.putString("categoryPosition", catPos);
+					categoryBundle.putString("eventPosition", eventPos);
+					TechnicalDetailsFragment nextFragment = new TechnicalDetailsFragment();
+					
+					nextFragment.setArguments(categoryBundle);
+					
+					FragmentTransaction transaction = getActivity().getFragmentManager().beginTransaction();
+					transaction.replace(R.id.main_categories_fragment_container, nextFragment);
+					transaction.addToBackStack(null);
+					// Toast.makeText(getActivity().getApplicationContext(), "onClickCalled", Toast.LENGTH_SHORT).show();
+					transaction.commit();
+				}
+			});
 
 			if(i%2 == 0) {
-				// relsec1.addView(imgv);
 				relsec1.addView(imageHolder[i]);
-				imgval=""+i;
-				final String val= imgval.toString();
-				// imgv.setOnClickListener(new OnClickListener() {
-				imageHolder[i].setOnClickListener(new OnClickListener() {
-
-					@Override
-					public void onClick(View arg0) {
-						// Toast.makeText(getActivity(), "toast toast toast",Toast.LENGTH_SHORT).show();	
-						/*Bundle toImage=new Bundle();
-						toImage.putString("key1",val);
-						Intent intent=new Intent(getActivity(),ImageActivity.class);
-						intent.putExtras(toImage);
-						startActivity(intent);*/
-						
-						/*// We are going to use this
-						Bundle categoryBundle = new Bundle();
-						categoryBundle.putString("categoryPosition", val);
-						
-						EventsFragment nextFragment = new EventsFragment();
-						
-						nextFragment.setArguments(categoryBundle);
-						
-						FragmentTransaction transaction = getFragmentManager().beginTransaction();
-						transaction.replace(R.id.categories_fragment, nextFragment);
-						transaction.addToBackStack(null);
-						transaction.commit();*/
-					}
-				});
 			} else {
-				// relsec2.addView(imgv);
 				relsec2.addView(imageHolder[i]);
-				imgval=""+i;
-				final String val= imgval.toString();
-				// imgv.setOnClickListener(new OnClickListener() {
-				imageHolder[i].setOnClickListener(new OnClickListener() {
-
-					@Override
-					public void onClick(View arg0) {
-						/*Bundle toImage=new Bundle();
-						toImage.putString("key1",val);
-						Intent intent=new Intent(getActivity(),ImageActivity.class);
-						intent.putExtras(toImage);
-						startActivity(intent);*/
-						// Toast.makeText(getActivity(), "toast toast toast",Toast.LENGTH_SHORT).show();	
-					}
-				});
-			} }
+			}
+		}
 		// imgv.invalidate();
 		return rootView;
 	}
