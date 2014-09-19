@@ -1,5 +1,6 @@
 package com.bist.youthvibe2014;
 
+import android.annotation.SuppressLint;
 import android.app.Fragment;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -11,6 +12,7 @@ public class RegistrationFragment extends Fragment{
 	View rootView;
 	// Spinner spinner;
 	WebView wv;
+	@SuppressLint("SetJavaScriptEnabled")
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 		/*rootView  = inflater.inflate(R.layout.registration_form, container, false);
