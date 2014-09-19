@@ -3,6 +3,8 @@ package com.bist.youthvibe2014;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collection;
 import java.util.List;
 
 import org.apache.http.HttpEntity;
@@ -15,6 +17,8 @@ import org.apache.http.client.methods.HttpPost;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.message.BasicNameValuePair;
 import org.apache.http.util.EntityUtils;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import android.content.Context;
 import android.content.Intent;
@@ -29,8 +33,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.facebook.FacebookRequestError;
+import com.facebook.HttpMethod;
 import com.facebook.Request;
+import com.facebook.RequestAsyncTask;
 import com.facebook.Response;
 import com.facebook.Session;
 import com.facebook.SessionState;
@@ -49,6 +57,7 @@ public class FacebookLoggedInFragment extends Fragment {
 
 	private Button continueButton;
 	private Button logoutButton;
+	private Button shareButton;
 
 	private static final int REAUTH_ACTIVITY_CODE = 100;
 
@@ -77,6 +86,11 @@ public class FacebookLoggedInFragment extends Fragment {
      * from the API Console, as described in "Getting Started."
      */
     String SENDER_ID = "831370205433";
+    
+    // Facebook publish_actions requirements
+    private static final List<String> PERMISSIONS = Arrays.asList("publish_actions");
+    private static final String PENDING_PUBLISH_KEY = "pendingPublishReauthorization";
+    private boolean pendingPublishReauthorization = false;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -88,10 +102,10 @@ public class FacebookLoggedInFragment extends Fragment {
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 		super.onCreateView(inflater, container, savedInstanceState);
-		View view = inflater.inflate(R.layout.facebook_logged_in_fragment, container, false);
+		View rootView = inflater.inflate(R.layout.facebook_logged_in_fragment, container, false);
 
 		// The continue button
-		continueButton = (Button) view.findViewById(R.id.continueButton);
+		continueButton = (Button) rootView.findViewById(R.id.continueButton);
 		// Disabling the button
 		continueButton.setEnabled(false);
 		continueButton.setOnClickListener(new View.OnClickListener() {
@@ -112,7 +126,7 @@ public class FacebookLoggedInFragment extends Fragment {
 		});
 		
 		// The logout button
-		logoutButton = (Button) view.findViewById(R.id.logOutButton);
+		logoutButton = (Button) rootView.findViewById(R.id.logOutButton);
 		logoutButton.setOnClickListener(new View.OnClickListener() {
 
 			@Override
@@ -123,28 +137,48 @@ public class FacebookLoggedInFragment extends Fragment {
 		});
 
 		// Find the user's profile picture custom view
-		profilePictureView = (ProfilePictureView) view.findViewById(R.id.selection_profile_pic);
+		profilePictureView = (ProfilePictureView) rootView.findViewById(R.id.selection_profile_pic);
 		profilePictureView.setCropped(true);
 
 		// Find the user's name view
 		// userNameView = (TextView) view.findViewById(R.id.selection_user_name);
-		welcomeMessageView = (TextView) view.findViewById(R.id.welcomeMessage);
+		welcomeMessageView = (TextView) rootView.findViewById(R.id.welcomeMessage);
 
 		// Check for an open session
 		Session session = Session.getActiveSession();
 		if (session != null && session.isOpened()) {
-			// First try to get the userData from the preferences if their is no internet
+			// First try to get the userData from the preferences if there is no internet
 			// Get the user's data
 			makeMeRequest(session);
 		}
-
-		return view;
+		
+		// Facebook sharing saved instance test
+		if (savedInstanceState != null) {
+		    pendingPublishReauthorization = 
+		        savedInstanceState.getBoolean(PENDING_PUBLISH_KEY, false);
+		}
+		
+		// Share Button
+		shareButton = (Button) rootView.findViewById(R.id.shareButton);
+		shareButton.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				publishStory();
+			}
+		});
+		
+		return rootView;
 	}
 
 	private void onSessionStateChange(final Session session, SessionState state, Exception exception) {
 		if (session != null && session.isOpened()) {
 			// Get the user's data.
 			makeMeRequest(session);
+		}
+		if (pendingPublishReauthorization && 
+		        state.equals(SessionState.OPENED_TOKEN_UPDATED)) {
+		    pendingPublishReauthorization = false;
+		    publishStory();
 		}
 	}
 
@@ -225,6 +259,7 @@ public class FacebookLoggedInFragment extends Fragment {
 	@Override
 	public void onSaveInstanceState(Bundle bundle) {
 		super.onSaveInstanceState(bundle);
+		bundle.putBoolean(PENDING_PUBLISH_KEY, pendingPublishReauthorization);
 		uiHelper.onSaveInstanceState(bundle);
 	}
 
@@ -453,6 +488,76 @@ public class FacebookLoggedInFragment extends Fragment {
         editor.putString(PROPERTY_REG_ID, regId);
         editor.putInt(PROPERTY_APP_VERSION, appVersion);
         editor.commit();
+    }
+    
+    /*
+     * Method to post on facebook
+     */
+    private void publishStory() {
+        Session session = Session.getActiveSession();
+
+        if (session != null){
+        	
+        	// Check for publish permissions    
+            List<String> permissions = session.getPermissions();
+            if (!isSubsetOf(PERMISSIONS, permissions)) {
+                pendingPublishReauthorization = true;
+                Session.NewPermissionsRequest newPermissionsRequest = new Session
+                        .NewPermissionsRequest(this, PERMISSIONS);
+            session.requestNewPublishPermissions(newPermissionsRequest);
+                return;
+            }
+
+            Bundle postParams = new Bundle();
+            postParams.putString("name", "Facebook SDK for Android");
+            postParams.putString("caption", "Build great social apps and get more installs.");
+            postParams.putString("description", "The Facebook SDK for Android makes it easier and faster to develop Facebook integrated Android apps.");
+            postParams.putString("link", "https://developers.facebook.com/android");
+            postParams.putString("picture", "https://raw.github.com/fbsamples/ios-3.x-howtos/master/Images/iossdk_logo.png");
+
+            Request.Callback callback= new Request.Callback() {
+                public void onCompleted(Response response) {
+                    JSONObject graphResponse = response
+                                               .getGraphObject()
+                                               .getInnerJSONObject();
+                    String postId = null;
+                    try {
+                        postId = graphResponse.getString("id");
+                    } catch (JSONException e) {
+                        Log.i(TAG,
+                            "JSON error "+ e.getMessage());
+                    }
+                    FacebookRequestError error = response.getError();
+                    if (error != null) {
+                        Toast.makeText(getActivity()
+                             .getApplicationContext(),
+                             error.getErrorMessage(),
+                             Toast.LENGTH_SHORT).show();
+                        } else {
+                            Toast.makeText(getActivity()
+                                 .getApplicationContext(), 
+                                 postId,
+                                 Toast.LENGTH_LONG).show();
+                    }
+                }
+            };
+
+            Request request = new Request(session, "me/feed", postParams, 
+                                  HttpMethod.POST, callback);
+
+            RequestAsyncTask task = new RequestAsyncTask(request);
+            task.execute();
+        }
+
+    }
+    
+    private boolean isSubsetOf(Collection<String> subset, Collection<String> superset) {
+        for (String string : subset) {
+            if (!superset.contains(string)) {
+                return false;
+            }
+        }
+        return true;
     }
 
 }

@@ -45,11 +45,21 @@
 	        android:clickable="false" />
 	    
 	    <Button
+		    android:id="@+id/shareButton"
+		    style="@style/com_bist_facebook_share_style"
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+		    android:textStyle="bold"
+		    android:layout_gravity="center"
+		    android:layout_marginTop="15dp"
+		    android:text="Share" />
+	    
+	    <Button
 	        android:id="@+id/logOutButton"
 	        style="@style/com_bist_facebook_logout_style"
 	        android:layout_width="wrap_content"
 	        android:layout_height="wrap_content"
-	        android:layout_marginTop="15dp"
+	        android:layout_marginTop="30dp"
 	        android:layout_gravity="center"
 	        android:text="Logout"
 	        android:clickable="false" />

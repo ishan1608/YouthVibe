@@ -63,18 +63,7 @@ public class FacebookLoginActivity extends FragmentActivity {
             Intent callingIntent = getIntent();
             Bundle noticeInfo = callingIntent.getExtras();
             newNotices = noticeInfo.getString("newNotices");
-            // mDisplay.append("Value : " + newNotices + "\n");
-            // Toast.makeText(getApplicationContext(), "Value : " + newNotices + "\n", Toast.LENGTH_SHORT).show();
-            /*if(newNotices.equalsIgnoreCase("YES")) {
-                // mDisplay.append("New notices available\n");
-            	Toast.makeText(getApplicationContext(), "New notices available\n", Toast.LENGTH_SHORT).show();
-            } else {
-                // mDisplay.append("No new notices available\n");
-            	Toast.makeText(getApplicationContext(), "No new notices available\n", Toast.LENGTH_SHORT).show();
-            }*/
         } catch(Exception e) {
-            // mDisplay.append("Calling intent doesn't have information about newNotices.\n");
-            // Toast.makeText(getApplicationContext(), "Calling intent doesn't have information about newNotices.\n", Toast.LENGTH_SHORT).show();
             Log.e("NoticesFacebookIntent", "Error getting the info from previous Activity.");
         }
 
@@ -92,59 +81,7 @@ public class FacebookLoginActivity extends FragmentActivity {
 			transaction.hide(fragments[i]);
 		}
 		transaction.commit();
-
-		/*
-		// Only login with getting the user name
-		try {
-	        PackageInfo info = getPackageManager().getPackageInfo(
-	                "com.ishan.facebooklogintest", 
-	                PackageManager.GET_SIGNATURES);
-	        for (Signature signature : info.signatures) {
-	            MessageDigest md = MessageDigest.getInstance("SHA");
-	            md.update(signature.toByteArray());
-	            Log.d("KeyHash:", Base64.encodeToString(md.digest(), Base64.DEFAULT));
-	            }
-	    } catch (NameNotFoundException e) {
-
-	    } catch (NoSuchAlgorithmException e) {
-
-	    }
-		 */
-		/*
-		// App login and logout
-		permissions = Arrays.asList("user_status");
-
-		uiHelper = new UiLifecycleHelper(this, callback);
-		uiHelper.onCreate(savedInstanceState);
-
-		LoginButton authButton = (LoginButton) findViewById(R.id.authButton);
-		authButton.setReadPermissions(permissions);*/
-
-		/*
-		// Only login with getting the user name
-		// start Facebook Login
-	    Session.openActiveSession(this, true, new Session.StatusCallback() {
-
-	      // callback when session changes state
-	      @Override
-	      public void call(Session session, SessionState state, Exception exception) {
-	        if (session.isOpened()) {
-
-	          // make request to the /me API
-	          Request.newMeRequest(session, new Request.GraphUserCallback() {
-
-	            // callback after Graph API response with user object
-	            @Override
-	            public void onCompleted(GraphUser user, Response response) {
-	              if (user != null) {
-	                TextView welcome = (TextView) findViewById(R.id.welcome);
-	                welcome.setText("Hello " + user.getName() + "!");
-	              }
-	            }
-	          }).executeAsync();
-	        }
-	      }
-	    });*/
+		
 	}
 
 	// Facebook Scrumptious  Tutorial
@@ -261,71 +198,4 @@ public class FacebookLoginActivity extends FragmentActivity {
 	public String getNewNotices() {
 		return newNotices;
 	}
-
-	/*
-	  // Only login with getting the user name
-	  @Override
-	  public void onActivityResult(int requestCode, int resultCode, Intent data) {
-	      super.onActivityResult(requestCode, resultCode, data);
-	      Session.getActiveSession().onActivityResult(this, requestCode, resultCode, data);
-	  }*/
-
-	/*
-	  // App key hash error
-	  @Override
-	public void onResume() {
-		super.onResume();
-
-		// For scenarios where the main activity is launched and user
-	    // session is not null, the session state change notification
-	    // may not be triggered. Trigger it if it's open/closed.
-	    Session session = Session.getActiveSession();
-	    if (session != null &&
-	           (session.isOpened() || session.isClosed()) ) {
-	        onSessionStateChange(session, session.getState(), null);
-	    }
-
-		uiHelper.onResume();
-	}
-
-	@Override
-	public void onActivityResult(int requestCode, int resultCode, Intent data) {
-		super.onActivityResult(requestCode, resultCode, data);
-		uiHelper.onActivityResult(requestCode, resultCode, data);
-	}
-
-	@Override
-	public void onPause() {
-		super.onPause();
-		uiHelper.onPause();
-	}
-
-	@Override
-	public void onDestroy() {
-		super.onDestroy();
-		uiHelper.onDestroy();
-	}
-
-	@Override
-	public void onSaveInstanceState(Bundle outState) {
-		super.onSaveInstanceState(outState);
-		uiHelper.onSaveInstanceState(outState);
-	}
-
-	void onSessionStateChange(Session session, SessionState state,
-			Exception exception) {
-		if (state.isOpened()) {
-			Toast.makeText(getApplicationContext(), "Logged in...", Toast.LENGTH_SHORT).show();
-		} else if (state.isClosed()) {
-			Toast.makeText(getApplicationContext(), "Logged out...", Toast.LENGTH_SHORT).show();
-		}
-	}
-
-	Session.StatusCallback callback = new Session.StatusCallback() {
-		@Override
-		public void call(Session session, SessionState state,
-				Exception exception) {
-			onSessionStateChange(session, state, exception);
-		}
-	};*/
 }
