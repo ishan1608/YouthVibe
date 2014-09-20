@@ -71,6 +71,16 @@ public class GcmIntentService extends IntentService {
 						MainActivity.class.getSimpleName(),
 						Context.MODE_PRIVATE);
 				SharedPreferences.Editor editor = settings.edit();
+				
+				// New method
+				int totalNotifications = settings.getInt("totalNotifications", 0);
+				String newNotice = extras.getString("title") + "\n" + extras.getString("message");
+				editor.putString("Notification_" + totalNotifications, newNotice);
+				editor.putInt("totalNotifications", totalNotifications + 1);
+				editor.commit();
+				
+				/*
+				// Old method, doesn't maintains order
 				// Get the list
 				Set<String> notifications = settings.getStringSet(
 						"Notifications", null);
@@ -89,6 +99,7 @@ public class GcmIntentService extends IntentService {
 					editor.putStringSet("Notifications", newNotifications);
 					editor.commit();
 				}
+				*/
 
 				// Post notification of received message.
 				// sendNotification("Title : " + extras.getString("title") +
