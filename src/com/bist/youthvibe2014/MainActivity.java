@@ -44,6 +44,8 @@ import android.widget.RelativeLayout.LayoutParams;
 import android.widget.TextView;
 // import android.widget.Toast;
 
+
+import com.google.android.gms.drive.query.internal.NotFilter;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
@@ -75,7 +77,13 @@ public class MainActivity extends Activity {
 	private List<RowItem> notificationItems;
 	private NotificationsAdapter notificationAdapter;
 	
+	// Notifications New
+	SharedPreferences settings;
+	int totalNotifications;
+	String notificationList[];
 	private String newNotices;
+	
+	ListView notificationPanelList;
 
 	// User Info
 	private String userName, userId, userEmail, accessToken;
@@ -97,12 +105,7 @@ public class MainActivity extends Activity {
         NotificationManager notificationManager = (NotificationManager) getSystemService(notManagerName);
         notificationManager.cancel(GcmIntentService.NOTIFICATION_ID);*/
 		
-		// Get messages
-        // Get the current list.
-        SharedPreferences settings = this.getSharedPreferences(MainActivity.class.getSimpleName(), Context.MODE_PRIVATE);
-        // SharedPreferences.Editor editor = settings.edit();
-        Set<String> notificationsSet = settings.getStringSet("Notifications", new HashSet<String>());
-        String[] notificationList = notificationsSet.toArray(new String[notificationsSet.size()]);
+		getNotifications();
 
         try{
             // newNotices Info from previous Activity
@@ -203,29 +206,7 @@ public class MainActivity extends Activity {
 			}
 		});
 
-		// List inside the Notification Panel
-		ListView notificationPanelList = (ListView) findViewById(R.id.notification_list);
-		// Have to create this list dynamically
-		// String notificationList[] = {"Notification 1", "Notification 2", "Notification 3", "Notification 4", "Notification 5", "Notification 6"};
-		// An adapter for simple text List
-		// notificationPanelList.setAdapter(new ArrayAdapter<String>(this, R.layout.notification_layer_list_item, notificationList));
-		// Reversing the array I got from the storage.
-		// I don't know why but I have to reverse device
-		int notificationListLength = notificationList.length;
-		String reversedNotificationList[] = new String[notificationListLength];
-		for(int i=0; i<notificationListLength; i++) {
-			reversedNotificationList[i] = notificationList[notificationListLength - 1 - i];
-		}
-		for(int i=0; i<notificationListLength; i++) {
-			notificationList[i] = reversedNotificationList[notificationListLength - 1 - i];
-		}
-		notificationItems = new ArrayList<RowItem>();
-		for(int i=0; i < notificationList.length; i++) {
-			RowItem item = new RowItem(notificationList[i], R.drawable.notification);
-			notificationItems.add(item);
-		}
-		notificationAdapter = new NotificationsAdapter(getApplicationContext(), notificationItems);
-		notificationPanelList.setAdapter(notificationAdapter);
+		fillNotifications();
 
 		// Listener for changing Icon
 		notificationLayer.setOnInteractListener(new SlidingLayer.OnInteractListener() {
@@ -377,7 +358,55 @@ public class MainActivity extends Activity {
 		}
 	}
 
-
+	@Override
+	protected void onResume() {
+		getNotifications();
+		super.onResume();
+	}
+	
+	void getNotifications() {
+		// Get messages
+	    // Get the current list.
+	    settings = this.getSharedPreferences(MainActivity.class.getSimpleName(), Context.MODE_PRIVATE);
+	    // SharedPreferences.Editor editor = settings.edit();
+	    totalNotifications = settings.getInt("totalNotifications", 0);
+	    notificationList = new String[totalNotifications];
+	    for(int i=0; i< totalNotifications; i++) {
+	    	notificationList[i] = settings.getString("Notification_" + i, "Notice");
+	    }
+	    /*// Old method
+	    Set<String> notificationsSet = settings.getStringSet("Notifications", new HashSet<String>());
+	    String[] notificationList = notificationsSet.toArray(new String[notificationsSet.size()]);*/
+	}
+	
+	void fillNotifications() {
+		// List inside the Notification Panel
+		notificationPanelList = (ListView) findViewById(R.id.notification_list);
+		// Have to create this list dynamically
+		// String notificationList[] = {"Notification 1", "Notification 2", "Notification 3", "Notification 4", "Notification 5", "Notification 6"};
+		// An adapter for simple text List
+		// notificationPanelList.setAdapter(new ArrayAdapter<String>(this, R.layout.notification_layer_list_item, notificationList));
+		// Reversing the array I got from the storage.
+		// I don't know why but I have to reverse device
+		int notificationListLength = notificationList.length;
+		String reversedNotificationList[] = new String[notificationListLength];
+		for(int i=0; i<notificationListLength; i++) {
+			reversedNotificationList[i] = notificationList[notificationListLength - 1 - i];
+		}
+		// Old method was reversing twice without any effect, new method requires reversing only once
+		notificationList = reversedNotificationList;
+		/*for(int i=0; i<notificationListLength; i++) {
+			notificationList[i] = reversedNotificationList[notificationListLength - 1 - i];
+		}*/
+		notificationItems = new ArrayList<RowItem>();
+		for(int i=0; i < notificationList.length; i++) {
+			RowItem item = new RowItem(notificationList[i], R.drawable.notification);
+			notificationItems.add(item);
+		}
+		notificationAdapter = new NotificationsAdapter(getApplicationContext(), notificationItems);
+		notificationPanelList.setAdapter(notificationAdapter);
+	}
+    
 	/*class SlideitemListener implements ListView.OnItemClickListener {
 		@Override
 		public void onItemClick(AdapterView<?> parent, View view, int position, long id)
