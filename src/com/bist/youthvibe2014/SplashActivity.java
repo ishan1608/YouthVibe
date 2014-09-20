@@ -2,13 +2,14 @@ package com.bist.youthvibe2014;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.Window;
 import android.view.WindowManager;
 
 public class SplashActivity extends Activity {
-	private final int SPLASH_DISPLAY_LENGTH=500;
+	private final int SPLASH_DISPLAY_LENGTH=5000;
 
 	@Override
 	protected void onCreate(Bundle icicle) {
@@ -18,9 +19,9 @@ public class SplashActivity extends Activity {
 		setContentView(R.layout.activity_splash);
 
 
-		//vp=(ViewFlipper)findViewById(R.id.viewFlipper1);
-		// final MediaPlayer media=MediaPlayer.create(SplashActivity.this, R.raw.y);
-		// media.start();
+		// vp=(ViewFlipper)findViewById(R.id.viewFlipper1);
+		final MediaPlayer media = MediaPlayer.create(SplashActivity.this, R.raw.y);
+		media.start();
 
 		new Handler().postDelayed(new Runnable() {
 

@@ -25,8 +25,8 @@ public class ContactCallFragment extends Fragment {
 
 	List<ContactRowItem> rowItems;
 	ListView mylistview;
-
-
+	
+	Toast numberNotAvailableToast;
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
@@ -85,8 +85,12 @@ public class ContactCallFragment extends Fragment {
 					callIntent.setData(Uri.parse("tel:+91-950-183-4195"));	     
 					break;
 				default:
-					Toast.makeText(getActivity(), "Contact Number not available.\nTry contacting other persons in the list.", Toast.LENGTH_LONG).show();
 					callIntent.setData(Uri.parse("tel:"));
+					if(numberNotAvailableToast != null) {
+						numberNotAvailableToast.cancel();
+					}
+					numberNotAvailableToast = Toast.makeText(getActivity(), "Contact Number not available.\nTry contacting other persons in the list.", Toast.LENGTH_LONG);
+					numberNotAvailableToast.show();
 					break;
 
 				}
