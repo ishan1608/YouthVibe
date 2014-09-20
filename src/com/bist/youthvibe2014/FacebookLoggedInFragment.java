@@ -29,6 +29,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.facebook.Request;
 import com.facebook.Response;
@@ -50,6 +51,7 @@ public class FacebookLoggedInFragment extends Fragment {
 
 	private Button continueButton;
 	private Button logoutButton;
+	private Button shareButton;
 
 	private static final int REAUTH_ACTIVITY_CODE = 100;
 
@@ -140,15 +142,25 @@ public class FacebookLoggedInFragment extends Fragment {
 		}
 		
 		// Facebook Share button
-		Button shareButton = (Button) view.findViewById(R.id.shareButton);
+		shareButton = (Button) view.findViewById(R.id.shareButton);
 		shareButton.setOnClickListener(new View.OnClickListener() {
 			
 			@Override
 			public void onClick(View v) {
-				FacebookDialog shareDialog = new FacebookDialog.ShareDialogBuilder(getActivity())
-				        .setLink("https://developers.facebook.com/android")
-				        .build();
-				uiHelper.trackPendingDialogCall(shareDialog.present());
+				try {
+					FacebookDialog shareDialog = new FacebookDialog.ShareDialogBuilder(getActivity())
+							.setName("YouthVibe2014")
+							.setCaption("Spread word about us.")
+							.setDescription("Sharing YoutVibe on facebook")
+					        .setLink("https://www.facebook.com/YouthVibe")
+					        .setPicture("http://youthvibe2014server.herokuapp.com/public/blogo.png")
+					        .build();
+					uiHelper.trackPendingDialogCall(shareDialog.present());
+				} catch (Exception e) {
+					Toast.makeText(getActivity(), "Couldn't connect to facebook.\nPlease install Facebook to share", Toast.LENGTH_LONG).show();
+					shareButton.setText("Please install Facebook");
+					shareButton.setClickable(false);
+				}
 			}
 		});
 
