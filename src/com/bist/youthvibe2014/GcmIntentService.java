@@ -1,8 +1,5 @@
 package com.bist.youthvibe2014;
 
-import java.util.HashSet;
-import java.util.Set;
-
 import android.app.IntentService;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
