@@ -86,6 +86,7 @@ public class ContactCallFragment extends Fragment {
 					break;
 				default:
 					Toast.makeText(getActivity(), "Contact Number not available.\nTry contacting other persons in the list.", Toast.LENGTH_LONG).show();
+					callIntent.setData(Uri.parse("tel:"));
 					break;
 
 				}
