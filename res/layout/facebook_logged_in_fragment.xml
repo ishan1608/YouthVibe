@@ -53,6 +53,15 @@
 	        android:layout_gravity="center"
 	        android:text="Logout"
 	        android:clickable="false" />
+	    
+	    <Button
+	        android:id="@+id/shareButton"
+	        style="@style/com_bist_facebook_logout_style"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_marginTop="15dp"
+	        android:layout_gravity="center"
+	        android:text="Share" />
 	
 	</LinearLayout>
     

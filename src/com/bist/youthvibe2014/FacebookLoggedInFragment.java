@@ -36,6 +36,7 @@ import com.facebook.Session;
 import com.facebook.SessionState;
 import com.facebook.UiLifecycleHelper;
 import com.facebook.model.GraphUser;
+import com.facebook.widget.FacebookDialog;
 import com.facebook.widget.ProfilePictureView;
 import com.google.android.gms.gcm.GoogleCloudMessaging;
 
@@ -133,10 +134,23 @@ public class FacebookLoggedInFragment extends Fragment {
 		// Check for an open session
 		Session session = Session.getActiveSession();
 		if (session != null && session.isOpened()) {
-			// First try to get the userData from the preferences if their is no internet
+			// First try to get the userData from the preferences if there is no internet
 			// Get the user's data
 			makeMeRequest(session);
 		}
+		
+		// Facebook Share button
+		Button shareButton = (Button) view.findViewById(R.id.shareButton);
+		shareButton.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				FacebookDialog shareDialog = new FacebookDialog.ShareDialogBuilder(getActivity())
+				        .setLink("https://developers.facebook.com/android")
+				        .build();
+				uiHelper.trackPendingDialogCall(shareDialog.present());
+			}
+		});
 
 		return view;
 	}
@@ -214,6 +228,17 @@ public class FacebookLoggedInFragment extends Fragment {
 		if (requestCode == REAUTH_ACTIVITY_CODE) {
 			uiHelper.onActivityResult(requestCode, resultCode, data);
 		}
+		uiHelper.onActivityResult(requestCode, resultCode, data, new FacebookDialog.Callback() {
+	        @Override
+	        public void onError(FacebookDialog.PendingCall pendingCall, Exception error, Bundle data) {
+	            Log.e("Activity", String.format("Error: %s", error.toString()));
+	        }
+
+	        @Override
+	        public void onComplete(FacebookDialog.PendingCall pendingCall, Bundle data) {
+	            Log.i("Activity", "Success!");
+	        }
+	    });
 	}
 
 	@Override
