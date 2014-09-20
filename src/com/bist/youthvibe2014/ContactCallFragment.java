@@ -73,28 +73,19 @@ public class ContactCallFragment extends Fragment {
 				Intent callIntent = new Intent(Intent.ACTION_CALL);
 				switch(position){
 				case 0:
-					callIntent.setData(Uri.parse("tel:+978-016-4766"));	     
+					callIntent.setData(Uri.parse("tel:+91-978-016-4766"));	     
 					break;
 				case 1:
 					callIntent.setData(Uri.parse("tel:+91-730-779-5624"));	     
 					break;
 				case 2:
-					callIntent.setData(Uri.parse("tel:+91-964-605-6969"));	     
-					break;
-				case 3:
-					callIntent.setData(Uri.parse("tel:+91-8528314743"));	     
-					break;
-				case 4:
-					callIntent.setData(Uri.parse("tel:+91-7696490368"));	     
+					callIntent.setData(Uri.parse("tel:+91-946-405-6969"));	     
 					break;
 				case 5:
-					callIntent.setData(Uri.parse("tel:+91-8437185576"));	     
-					break;
-				case 6:
-					callIntent.setData(Uri.parse("tel:+91-9653909272"));	     
+					callIntent.setData(Uri.parse("tel:+91-950-183-4195"));	     
 					break;
 				default:
-					Toast.makeText(getActivity(), "Contact Number not available.\nTry Emailing the person.", Toast.LENGTH_LONG).show();
+					Toast.makeText(getActivity(), "Contact Number not available.\nTry contacting other persons in the list.", Toast.LENGTH_LONG).show();
 					break;
 
 				}
