@@ -29,6 +29,7 @@ public class RegistrationFragment extends Fragment{
 			wv.getSettings().setJavaScriptEnabled(true);//XSS
 			wv.getSettings().setLoadWithOverviewMode(true);
 			wv.getSettings().setUseWideViewPort(true);
+			wv.getSettings().setBuiltInZoomControls(true);
 			wv.setWebViewClient(new ourWebViewClient());
 			wv.loadUrl("http://www.youthvibe.in/Register/");
 		}

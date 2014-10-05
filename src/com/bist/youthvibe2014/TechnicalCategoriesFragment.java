@@ -35,9 +35,9 @@ public class TechnicalCategoriesFragment extends Fragment
 	private String[] mechatronixImages = {"techincal_mechatronix_the_battle_ship", "techincal_mechatronix_robo_wrestle_mania", 
 			"techincal_mechatronix_dark_horse", "techincal_mechatronix_gear_up", "techincal_mechatronix_aviator", 
 			"techincal_mechatronix_aqua_jet", "techincal_mechatronix_circuitiry"};
-	private String[] abacusImages = {"techincal_abacus_master_o_codes", "techincal_abacus_app_builder", "techincal_abacus_web_builder", 
-			"techincal_abacus_image_masher", "techincal_abacus_algo_designer", "techincal_abacus_tic_tac_toe", "techincal_abacus_just_in_a_sec"};
-	private String[] exhibitorImages = {"techincal_exhibitor_the_architect", "techincal_exhibitor_the_scientist", "techincal_exhibitor_the_stylish"};
+	private String[] abacusImages = {"techincal_abacus_web_builder",  "techincal_abacus_image_masher", "techincal_abacus_make_ur_own_network",
+			"techincal_abacus_algo_designer", "techincal_abacus_master_o_codes", "techincal_abacus_just_in_a_sec", "techincal_abacus_tic_tac_toe"};
+	// private String[] exhibitorImages = {"techincal_exhibitor_the_architect", "techincal_exhibitor_the_scientist", "techincal_exhibitor_the_stylish"};
 	private String[] presentorImages = {"techincal_presentor_paper_presentation", "techincal_presentor_project_presentation"};
 	
 	private int categoryPosition, eventPosition;
@@ -45,7 +45,7 @@ public class TechnicalCategoriesFragment extends Fragment
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
 	{
-		rootView  = inflater.inflate(R.layout.main_category_fragment, container, false);
+		rootView  = inflater.inflate(R.layout.technical_fragment, container, false);
 		
 		Bundle categoryBundle = getArguments();
 		final String catPos=categoryBundle.getString("categoryPosition");
@@ -58,10 +58,12 @@ public class TechnicalCategoriesFragment extends Fragment
 			case 1:
 				imageItems = abacusImages;
 			break;
+			/*
 			case 2:
 				imageItems = exhibitorImages;
 			break;
-			case 3:
+			*/
+			case 2:
 				imageItems = presentorImages;
 			break;
 			default:
@@ -116,7 +118,7 @@ public class TechnicalCategoriesFragment extends Fragment
 					nextFragment.setArguments(categoryBundle);
 					
 					FragmentTransaction transaction = getActivity().getFragmentManager().beginTransaction();
-					transaction.replace(R.id.main_categories_fragment_container, nextFragment);
+					transaction.replace(R.id.technical_categories_fragment_container, nextFragment);
 					transaction.addToBackStack(null);
 					// Toast.makeText(getActivity().getApplicationContext(), "onClickCalled", Toast.LENGTH_SHORT).show();
 					transaction.commit();

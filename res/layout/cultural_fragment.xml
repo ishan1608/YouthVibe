@@ -1,178 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity"
-    android:id="@+id/cultural_fragment"
+    android:id="@+id/cultural_categories_fragment_container"
     android:background="@drawable/lightyback" >
-
-
-
- <ImageView 
-          android:id="@+id/titlepic"
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:layout_centerHorizontal="true"
-          android:layout_alignParentTop="true"
-          android:src="@drawable/baselogo"/> 
-<ScrollView
-    android:id="@+id/sv1"
-    android:layout_height="match_parent"
-    android:layout_width="match_parent"
-    android:layout_below="@id/titlepic">
-        <RelativeLayout
-        android:layout_width="wrap_content"
-             android:layout_height="wrap_content" >
-         <RelativeLayout
-             android:id="@+id/relcheck1"
-             android:layout_width="wrap_content"
-             android:layout_height="wrap_content"
-             android:padding="9dp" >
     
-        <ImageView
-            android:id="@+id/imagev1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentTop="true"
-            android:src="@drawable/progress_circle"/>
-            
-        </RelativeLayout>
-        <RelativeLayout
-             android:id="@+id/relbtn2"
-             android:layout_width="wrap_content"
-             android:layout_height="wrap_content"
-             android:layout_alignParentRight="true"
-             android:layout_alignParentTop="true"
-             android:layout_toRightOf="@id/relcheck1"
-             android:padding="9dp" >
-
-        
-        <ImageView
-            android:id="@+id/imagev2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true"
-           android:src="@drawable/progress_circle" /> 
-        </RelativeLayout>
-        <RelativeLayout
-             android:id="@+id/relbtn3"
-             android:layout_width="wrap_content"
-             android:layout_height="wrap_content"
-             android:layout_alignParentLeft="true"
-             android:layout_below="@id/relcheck1"
-             android:padding="9dp" >
- 
-        
-        <ImageView
-            android:id="@+id/imagev3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true"
-           android:src="@drawable/progress_circle" /> 
-        </RelativeLayout>
-        <RelativeLayout
-             android:id="@+id/relbtn4"
-             android:layout_width="wrap_content"
-             android:layout_height="wrap_content"
-             android:layout_alignParentRight="true"
-             android:layout_toRightOf="@id/relbtn3"
-             android:layout_below="@id/relbtn2"
-             android:padding="9dp" >
-        
-  
-        <ImageView
-            android:id="@+id/imagev4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true"
-              android:src="@drawable/progress_circle" /> 
-       
-        </RelativeLayout>
-<RelativeLayout
-             android:id="@+id/relbtn5"
-             android:layout_width="wrap_content"
-             android:layout_height="wrap_content"
-             android:layout_alignParentLeft="true"
-             android:layout_below="@id/relbtn3"
-             android:padding="9dp" >
-        
-
-        <ImageView
-            android:id="@+id/imagev5"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true"
-            android:src="@drawable/progress_circle" />
-        </RelativeLayout>
-          <RelativeLayout
-             android:id="@+id/relbtn6"
-             android:layout_width="wrap_content"
-             android:layout_height="wrap_content"
-             android:layout_alignParentRight="true"
-             android:layout_toRightOf="@id/relbtn5"
-             android:layout_below="@id/relbtn4"
-             android:padding="9dp" >
-
-        <ImageView
-            android:id="@+id/imagev6"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true"  
-            android:src="@drawable/progress_circle" /> 
-        </RelativeLayout>
-        <RelativeLayout
-             android:id="@+id/relbtn7"
-             android:layout_width="wrap_content"
-             android:layout_height="wrap_content"
-             android:layout_alignParentLeft="true"
-             android:layout_below="@id/relbtn5"
-             android:padding="9dp" >
-
-        <ImageView
-            android:id="@+id/imagev7"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true" 
-           android:src="@drawable/progress_circle" /> 
-        <TextView 
-            android:id="@+id/tvcheck7"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/imagev7"
-            android:layout_centerHorizontal="true"
-            android:text="FINEARTS"
-            android:textColor="#dddddd"
-            /></RelativeLayout>
-        <RelativeLayout
-             android:id="@+id/relbtn8"
-             android:layout_width="wrap_content"
-             android:layout_height="wrap_content"
-             android:layout_alignParentRight="true"
-             android:layout_toRightOf="@id/relbtn7"
-             android:layout_below="@id/relbtn6"
-             android:padding="9dp" >
-   <ImageView
-            android:id="@+id/imagev8"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true" 
-       android:src="@drawable/progress_circle"/>
-        
-        </RelativeLayout>
-             
-    </RelativeLayout>
-
-  
-    </ScrollView>
-
-
+    <ScrollView
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+	    tools:context="com.gallery.MainActivity"
+	    tools:ignore="MergeRootFrame" >
+	    
+	    <LinearLayout
+	        android:orientation="vertical"
+	        android:layout_height="wrap_content"
+	        android:layout_width="match_parent" >
+	        
+	        <ImageView 
+	          android:id="@+id/titlepic"
+	          android:layout_width="wrap_content"
+	          android:layout_height="0dp"
+	          android:contentDescription="Logo at the top of the type of event"
+	          android:src="@drawable/baselogo"
+	          android:layout_weight="1"
+	          android:layout_gravity="center_horizontal" />
+	    
+		    <LinearLayout 
+		         android:layout_height="wrap_content"
+		         android:layout_width="match_parent"
+		         android:baselineAligned="false">
+		     
+		     	<LinearLayout
+		            android:orientation="vertical"
+		            android:id="@+id/relsec1"
+		            android:layout_height="match_parent"
+		            android:layout_width="0dp"
+		            android:layout_weight="1"  />
+		         
+		         <LinearLayout 
+		             android:orientation="vertical"
+		              android:id="@+id/relsec2"
+		             android:layout_height="match_parent"
+		             android:layout_width="0dp"
+		             android:layout_weight="1" />
+		         
+			</LinearLayout>
+	    </LinearLayout>
+		
+	</ScrollView>
+    
 </RelativeLayout>
-

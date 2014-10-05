@@ -34,10 +34,13 @@
 	
 	<string-array name="event_categories">
 		<item>Cultural</item>
-		<item>Concerts</item>
+		<item>Media Events</item>
 		<item>Technical</item>
+		<item>Life Style</item>
+		<item>Literary</item>
 		<item>Sports</item>
 		<item>Management</item>
+		<item>Photography</item>
 		<item>Social</item>
 	</string-array>
     

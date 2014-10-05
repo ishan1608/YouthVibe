@@ -15,7 +15,7 @@ import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
 
-public class TechnicalFragment extends Fragment	  
+public class LiteraryFragment extends Fragment	  
 {
 	LinearLayout relsec1;
 	LinearLayout relsec2;
@@ -31,12 +31,12 @@ public class TechnicalFragment extends Fragment
 	// private int viewId;
 	private int progressId;
 	
-	String[] imageItems = {"techincal_mechatronix", "techincal_abacus", "techincal_presentor"};
+	String[] imageItems = {"literary_yv_maha_quiz", "literary_bizwiz", "literary_sportsvilla", "literary_3e_quiz", "literary_thedebatechampionship", "literary_the_perspective", "literary_lordofthewords", "literary_turncoat", "literary_sansad_pratiyogita", "literary_race_of_rhyme"};
 	//imageItems[12]="folkclass";
 
 	@Override public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
 	{
-		rootView  = inflater .inflate(R.layout.technical_fragment, container, false);
+		rootView  = inflater .inflate(R.layout.literary_fragment, container, false);
 		
 		imageHolder = new ImageView[imageItems.length];
 
@@ -74,16 +74,19 @@ public class TechnicalFragment extends Fragment
 
 				@Override
 				public void onClick(View arg0) {
+					// We are going to use this
 					Bundle categoryBundle = new Bundle();
-					categoryBundle.putString("categoryPosition", val);
-					
-					TechnicalCategoriesFragment nextFragment = new TechnicalCategoriesFragment();
+					categoryBundle.putString("categoryPosition", "0");
+					categoryBundle.putString("eventPosition", val);
+					LiteraryDetailsFragment nextFragment = new LiteraryDetailsFragment();
+					// TechnicalDetailsFragment nextFragment = new TechnicalDetailsFragment();
 					
 					nextFragment.setArguments(categoryBundle);
 					
 					FragmentTransaction transaction = getActivity().getFragmentManager().beginTransaction();
-					transaction.replace(R.id.technical_categories_fragment_container, nextFragment);
+					transaction.replace(R.id.literary_categories_fragment_container, nextFragment);
 					transaction.addToBackStack(null);
+					// Toast.makeText(getActivity().getApplicationContext(), "onClickCalled", Toast.LENGTH_SHORT).show();
 					transaction.commit();
 				}
 			});

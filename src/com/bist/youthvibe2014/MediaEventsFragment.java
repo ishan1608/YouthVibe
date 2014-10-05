@@ -15,7 +15,7 @@ import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
 
-public class TechnicalFragment extends Fragment	  
+public class MediaEventsFragment extends Fragment	  
 {
 	LinearLayout relsec1;
 	LinearLayout relsec2;
@@ -31,13 +31,12 @@ public class TechnicalFragment extends Fragment
 	// private int viewId;
 	private int progressId;
 	
-	String[] imageItems = {"techincal_mechatronix", "techincal_abacus", "techincal_presentor"};
+	String[] imageItems = {};
 	//imageItems[12]="folkclass";
 
 	@Override public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
 	{
-		rootView  = inflater .inflate(R.layout.technical_fragment, container, false);
-		
+		rootView  = inflater .inflate(R.layout.media_events_fragment , container, false);
 		imageHolder = new ImageView[imageItems.length];
 
 		// Downloading Library settings
@@ -82,7 +81,7 @@ public class TechnicalFragment extends Fragment
 					nextFragment.setArguments(categoryBundle);
 					
 					FragmentTransaction transaction = getActivity().getFragmentManager().beginTransaction();
-					transaction.replace(R.id.technical_categories_fragment_container, nextFragment);
+					transaction.replace(R.id.media_events_fragment_container , nextFragment);
 					transaction.addToBackStack(null);
 					transaction.commit();
 				}

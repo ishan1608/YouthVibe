@@ -84,6 +84,27 @@ public class TechnicalDetailsFragment extends Fragment {
 			break;
 			case 1:
 				switch(eventPosition) {
+					case 0:
+						placeHolderEventDetails = techincal_abacus_web_builder.getInstance();
+					break;
+					case 1:
+						placeHolderEventDetails = techincal_abacus_image_masher.getInstance();
+					break;
+					case 2:
+						placeHolderEventDetails = techincal_abacus_make_ur_own_network.getInstance();
+					break;
+					case 3:
+						placeHolderEventDetails = techincal_abacus_algo_designer.getInstance();
+					break;
+					case 4:
+						placeHolderEventDetails = techincal_abacus_master_o_codes.getInstance();
+					break;
+					case 5:
+						placeHolderEventDetails = techincal_abacus_just_in_a_sec.getInstance();
+					break;
+					case 6:
+						placeHolderEventDetails = techincal_abacus_tic_tac_toe.getInstance();
+					break;
 					default:
 						placeHolderEventDetails = event_name.getInstance();
 					break;
@@ -91,13 +112,12 @@ public class TechnicalDetailsFragment extends Fragment {
 			break;
 			case 2:
 				switch(eventPosition) {
-					default:
-						placeHolderEventDetails = event_name.getInstance();
+					case 0:
+						placeHolderEventDetails = techincal_presentor_paper_presentation.getInstance();
 					break;
-				}
-			break;
-			case 3:
-				switch(eventPosition) {
+					case 1:
+						placeHolderEventDetails = techincal_presentor_project_presentation.getInstance();
+					break;
 					default:
 						placeHolderEventDetails = event_name.getInstance();
 					break;
@@ -516,5 +536,289 @@ class techincal_mechatronix_circuitiry extends EventDetails {
 	
 	public static techincal_mechatronix_circuitiry getInstance() {
 		return new techincal_mechatronix_circuitiry();
+	}
+}
+
+class techincal_abacus_web_builder extends EventDetails {
+	
+	public techincal_abacus_web_builder() {
+		description = "Participants have to develop a dynamic website using any of the below technologies:"
+						+ "\n1. PHP"
+						+ "\n2. JSP"
+						+ "\n3. ASP or ASP.Net"
+						+ "\n4. HTML5"
+						+ "\nTopic of the website will be given on the day of the event only."
+						+ "\n\nType of event: Team"
+						+ "\n\nTeam Size: 2";
+		
+		rules = "01. 1. Each team will comprise of 2 members."
+				+ "\n02. 2. The time for the development of application will be 3 hours only."
+				+ "\n03. 3. Computer Labs will be provided to the participants for the development."
+				+ "\n04. 4. Topic will be given on the day of event."
+				+ "\n\n** Note : Participants registering for this event must bring their own laptop with the required software (in case of any problem with computer labs).";
+		
+		specification = "";
+		
+		criteria = "01. Design of the webpage and also the concept used in building the webpage."
+					+ "\n02. In case of a tie, the teams that tie will be given a problem and the winner will be declared on the basis of time taken to solve that problem."
+					+ "\n03. Line of Codes in the program."
+					+ "\n04. Time complexity of the code i.e. execution time.";
+		
+		contact = "Mr. Bikram Sarmah"
+					+ "\n+91 9646056969";
+	}
+	
+	public static techincal_abacus_web_builder getInstance() {
+		return new techincal_abacus_web_builder();
+	}
+}
+
+class techincal_abacus_image_masher extends EventDetails {
+	
+	public techincal_abacus_image_masher() {
+		description = "It takes time,training and talent to learn...and to use properly..!!\" Participants have to use their creativity skills using Adobe Photoshop to improve an image."
+						+ "\n\nType of event: Individual";
+		
+		rules = "01. Participants have to bring their own laptop with Adobe Photoshop software preinstalled."
+				+ "\n02. It is an individual event."
+				+ "\n\n03. Image will be given on the spot only."
+				+ "\n04. This event will be of 60 minutes."
+				+ "\n05. Internet access is strictly restricted.";
+		
+		specification = "01. Innovation, creativity and design should be attractive."
+						+ "\n02. Use of all the methods and functions of the software."
+						+ "\n03. Image should resemble a message."
+						+ "\n04. Color combination should not be loud.";
+		
+		criteria = "";
+		
+		contact = "Mr. Bikram Sarmah"
+					+ "\n+91 9646056969";
+	}
+	
+	public static techincal_abacus_image_masher getInstance() {
+		return new techincal_abacus_image_masher();
+	}
+}
+
+class techincal_abacus_make_ur_own_network extends EventDetails {
+	
+	public techincal_abacus_make_ur_own_network() {
+		description = "Using Cisco Packet Tracer software design an effective working network and stimulate the network. By sending a message through different nodes and routers."
+						+ "\n\nType of event: Individual";
+		
+		rules = "01. Participants have to bring their own laptop with Cisco Packet Tracer software preinstalled."
+				+ "\n02. It is an individual event."
+				+ "\n03. Scenario will be given on the spot only."
+				+ "\n04. This event will be of 60 minutes."
+				+ "\n05. Internet access is strictly restricted."
+				+ "\n06. Use of Correct devices. ";
+		
+		specification = "01. Efficient used of devices."
+						+ "\n02. Number of devices used."
+						+ "\n03. Minimum time taken in completion of the given scenario."
+						+ "\n04. Types of wire and devices used according to the scenario.";
+		
+		criteria = "";
+		
+		contact = "Mr. Bikram Sarmah"
+					+ "\n+91 9646056969";
+	}
+	
+	public static techincal_abacus_make_ur_own_network getInstance() {
+		return new techincal_abacus_make_ur_own_network();
+	}
+}
+
+class techincal_abacus_algo_designer extends EventDetails {
+	
+	public techincal_abacus_algo_designer() {
+		description = "\"Experiment...Design....Analyze..and Implement..!!!\""
+					+ "\n\nType of event: Team"
+					+ "\n\nTeam Size: 2";
+		
+		rules = "01. Allocated Time for different Rounds are:"
+				+ "\n>> Round 1 - 20 Minutes"
+				+ "\n>> Round 2 - 30 Minutes"
+				+ "\n>> Round 3 - 90 Minutes"
+				+ "\n\n02. Participants have to bring their own laptop for level 3."
+				+ "\n03. Topic will be given on the day event.";
+		
+		specification = "";
+		
+		criteria = "01. Number of lines of algorithm"
+					+ "\n02. Complexity of the algorithm."
+					+ "\n03. Execution of the algorithm.";
+		
+		contact = "Mr. Bikram Sarmah"
+				+ "\n+91 9646056969";
+	}
+	
+	public static techincal_abacus_algo_designer getInstance() {
+		return new techincal_abacus_algo_designer();
+	}
+}
+
+class techincal_abacus_master_o_codes extends EventDetails {
+	
+	public techincal_abacus_master_o_codes() {
+		description = "It is a 3 hour coding contest. The teams will write codes for solving some of the trickiest numerical problems which can't usually be solved by using a calculator. Problems based on mathematical intricacies, statistical inferences, physics, seepage, real-life situations and other related stuff will be given on the day of the competition and the participants have to solve them and give the final answer (Participants will be asked for the codes used to solve the problem)."
+						+ "\n\nType of event: Team"
+						+ "\n\nTeam Size: 2";
+		
+		rules = "01. A team may contain 2 Members."
+				+ "\n02. 2. The allowed programming languages are:"
+				+ "\n\t1. C"
+				+ "\n\t2. C++"
+				+ "\n\t3. Java"
+				+ "\n\t4. Python"
+				+ "\n\t5. Perl"
+				+ "\n\n03. 3. Note that at any point of time, the latest information will be that which is on the site. The information provided in the pdf downloaded earlier may not be the latest. However, registered participants will be informed through mail about any such changes."
+				+ "\n04. 4. Participants have to bring their own laptops during the competition. ";
+		
+		specification = "";
+		
+		criteria = "01. The exact marking scheme will be disclosed later."
+					+ "\n02. 2. In case of a tie, the teams that tie will be given a problem and the winner will be declared on the basis of time taken to solve that problem."
+					+ "\n03. Line of Codes in the program."
+					+ "\n04. Time complexity of the code i.e. execution time.";
+		
+		contact = "Mr. Bikram Sarmah"
+				+ "\n+91 9646056969";
+	}
+	
+	public static techincal_abacus_master_o_codes getInstance() {
+		return new techincal_abacus_master_o_codes();
+	}
+}
+
+class techincal_abacus_just_in_a_sec extends EventDetails {
+	
+	public techincal_abacus_just_in_a_sec() {
+		description = "Do you feel your brain/'s rusty and needs a quick workout? Is your sharp brain the metaphorical equivalent of a six pack? Put it to the test. Fast and curious is the perfect battling ground for speed and skill. Solve problems as fast as you can. The fittest survives."
+						+ "\n\nType of event: Individual";
+		
+		rules = "01. This is an individual quizzing event."
+				+ "\n02. Engineering concepts are the domain of the questions."
+				+ "\n03. There will be 30 questions in each round."
+				+ "\nRound 1:"
+				+ "\nDifficulty level: Easy."
+				+ "\nTime limit is 45 minutes."
+				+ "\nEvery correctly answered question will be awarded 2 points."
+				+ "\nEvery wrong answered question will be awarded -1 point."
+				+ "\nRound 2: Difficulty level: Medium."
+				+ "\nTime limit is 40 minutes."
+				+ "\nEvery correctly answered question will be awarded 5 points."
+				+ "\nEvery wrong answered question will be awarded -3 points."
+				+ "\nRound 3:"
+				+ "\nDifficulty level: Hard."
+				+ "\nTime limit is 30 minutes."
+				+ "\nEvery correct answered question will be awarded 10 points."
+				+ "\nEvery wrong answered question will be awarded -5 points.";
+		
+		specification = "";
+		
+		criteria = "01. The participant with more points will be declared as the winner."
+					+ "\n02. Judges decision will be abiding and final.";
+		
+		contact = "Mr. Bikram Sarmah"
+				+ "\n+91 9646056969";
+	}
+	
+	public static techincal_abacus_just_in_a_sec getInstance() {
+		return new techincal_abacus_just_in_a_sec();
+	}
+}
+
+class techincal_abacus_tic_tac_toe extends EventDetails {
+	
+	public techincal_abacus_tic_tac_toe() {
+		description = "PROBLEM STATEMENT: "
+						+ "\nThink you are a professional at beating your friends at Tic-Tac-Toe? Think again! Because this time circles and crosses come to you only if you overcome the hurdles."
+						+ "\n\nType of event: Individual";
+		
+		rules = "01. This is an individual event."
+				+ "\n02. Traditional Tic-Tac-Toe rules apply."
+				+ "\n03. Every player will be asked a question before he fills the grid. If the answer to question is right participant gets to fill the selected grid with his symbol and if he answers wrong, no change in the 3x3 grid, and turn passes over to the other participant. Physics is the domain of the questions."
+				+ "\n04. If both the participants fail to end the game(ie.,win or tie) before the time limit, both of them will be declared DISQUALIFIED."
+				+ "\n05. Only Even Number of participants will qualify to the next round. In case of odd number of participants remaining after a round, the participant with the maximum time to finish the round, will be eliminated. In case of maximum time being same, for two qualifying participants in the Xth round, maximum time of the (X-1)th round will be taken into consideration, for elimination. If in case there is tie in the maximum time, in the first round, the number of questions attempted will be taken into consideration. The winner will qualify to the next round and a FINAL WINNER will be chosen after successive rounds."
+				+ "\n06. Time limit for each round is 7min. ";
+		
+		specification = "";
+		
+		criteria = "01. The winner of the round will be decided upon normal tic tac toe rules. "
+					+ "\nIterating this procedure through consecutive rounds will zero down to the winner."
+					+ "\n02. Judges decision will be final and abiding to all";
+		
+		contact = "Mr. Shahbaz Khan"
+					+ "\nPhone no: 7814380230";
+	}
+	
+	public static techincal_abacus_tic_tac_toe getInstance() {
+		return new techincal_abacus_tic_tac_toe();
+	}
+}
+
+class techincal_presentor_paper_presentation extends EventDetails {
+	
+	public techincal_presentor_paper_presentation() {
+		description = "\"Be So Good....They can't ignore you!!!!\""
+						+ "\n\nLPU welcomes presentations in various fields of Science and Engineering for youth vibe, it is sure to provide you unparalleled an academic experience. The presentation competition at LPU features projects from a variety of scientific research areas. With categories dedicated to both evergreen fields like infrastructure and also new frontiers of technology as simulations, we assure you a platform beyond compare."
+						+ "\n\nType of event: Team"
+						+ "\n\nTeam Size: 3"
+						+ "\n\n\nCategories"
+						+ "The following are descriptions of the 15 categories under which projects can be presented: "
+						+ "\n01.	Automation"
+						+ "\n02.	Communication and Network systems"
+						+ "\n03.	Design appliances"
+						+ "\n04.	Economic modeling and finance"
+						+ "\n05.	Health and Nutrition"
+						+ "\n06.	Energy and environment"
+						+ "\n07.	Infrastructure"
+						+ "\n08.	Industrial processes and applications"
+						+ "\n09.	Material sciences"
+						+ "\n10.	Pure sciences"
+						+ "\n11.	Software design(application development)"
+						+ "\n12.	Software design(adaptive technology)"
+						+ "\n13.	Signal processing"
+						+ "\n14.	Transportation"
+						+ "\n15.	Simulation and mathematical modeling";
+		
+		rules = "01. A team must contain only 3 members."
+				+ "\n02. A team shall be clear in their ideas while presenting."
+				+ "\n03. The presentation should be of 10 minutes and no extra time would be provided."
+				+ "\n04. Abstract must be submitted before the specified date.(date will be published on the website)."
+				+ "\n05. Topic chosen should me mentioned in the abstract as well as at the starting of presentation. ";
+		
+		specification = "";
+		
+		criteria = "01. Marks will be given on the basis of your presentation skills, communication skills, confidence, creativity, display of content, future applications, feasibility, reliability, effect on environment, cost effectiveness etc."
+					+ "\n02. Judges decision shall be abiding and final.";
+		
+		contact = "Mr. Shahbaz Khan"
+					+ "\nPhone no: 7814380230";
+	}
+	
+	public static techincal_presentor_paper_presentation getInstance() {
+		return new techincal_presentor_paper_presentation();
+	}
+}
+
+class techincal_presentor_project_presentation extends EventDetails {
+	
+	public techincal_presentor_project_presentation() {
+		description = "Coming Soon";
+		
+		rules = "";
+		
+		specification = "";
+		
+		criteria = "";
+		
+		contact = "";
+	}
+	
+	public static techincal_presentor_project_presentation getInstance() {
+		return new techincal_presentor_project_presentation();
 	}
 }

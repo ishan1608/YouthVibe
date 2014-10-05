@@ -26,7 +26,10 @@ public class EventsHomeFragment extends Fragment implements ActionBar.TabListene
 	// ActionBar actionBar;
 	private SlidingTabLayout mSlidingTabLayout;
 
-	String mainCategories[] = {"Cultural", "Concerts", "Technical", "Sports", "Management", "Social" };
+	// String mainCategories[] = {"Cultural", "Concerts", "Technical", "Sports", "Management", "Social" };
+	String mainCategories[] = {"Cultural", "Media Events", "Technical", "Life Style", "Literary", "Sports", "Management", "Photography", "Social"};
+	// String mainCategories[] = getActivity().getResources().getStringArray(R.array.event_categories);
+	// String mainCategories[] = getActivity().getApplicationContext().getResources().getStringArray(R.array.event_categories);
 	// Have to make use of the below line instead of the above line.
 	// String[] mainCategories = getResources().getStringArray(R.array.event_categories);
 
@@ -173,14 +176,30 @@ public class EventsHomeFragment extends Fragment implements ActionBar.TabListene
 			case 0:
 				currentFragment = new CulturalFragment();
 				break;
+			case 1:
+				currentFragment = new MediaEventsFragment();
+				break;
 			case 2:
 				currentFragment = new TechnicalFragment();
 				break;
 			case 3:
-				currentFragment = new SportsFragment();
+				currentFragment = new LifeStyleFragment();
 				break;
 			case 4:
+				currentFragment = new LiteraryFragment();
+				break;
+			case 5:
+				currentFragment = new SportsFragment();
+				break;
+			case 6:
 				currentFragment = new ManagementFragment();
+				break;
+			case 7:
+				currentFragment = new PhotographyFragment();
+				break;
+			case 8:
+				// Social Fragment needs to be here
+				currentFragment = PlaceholderFragment.newInstance(position + 1);
 				break;
 			default:
 				currentFragment = PlaceholderFragment.newInstance(position + 1);
