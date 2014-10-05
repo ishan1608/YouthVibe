@@ -31,7 +31,7 @@ public class PhotographyFragment extends Fragment
 	// private int viewId;
 	private int progressId;
 	
-	String[] imageItems = {};
+	String[] imageItems = {"photography_perfect_picture", "photography_directors_cut", "photography_real_to_reel"};
 	//imageItems[12]="folkclass";
 
 	@Override public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
@@ -74,10 +74,11 @@ public class PhotographyFragment extends Fragment
 
 				@Override
 				public void onClick(View arg0) {
+					// We are going to use this
 					Bundle categoryBundle = new Bundle();
-					categoryBundle.putString("categoryPosition", val);
-					
-					TechnicalCategoriesFragment nextFragment = new TechnicalCategoriesFragment();
+					categoryBundle.putString("categoryPosition", "0");
+					categoryBundle.putString("eventPosition", val);
+					PhotographyDetailsFragment nextFragment = new PhotographyDetailsFragment();
 					
 					nextFragment.setArguments(categoryBundle);
 					
