@@ -31,7 +31,7 @@ public class ManagementFragment extends Fragment
 	// private int viewId;
 	private int progressId;
 	
-	String[] imageItems = {"strategy1", "bplan", "victoria", "casedevelopment", "strategy", "simulationgame"};
+	String[] imageItems = {"management_business_strategy", "management_bplan", "management_bizvictoria", "management_casedevelopment", "management_stategic_evaluation", "management_simulation_game"};
 	//imageItems[12]="folkclass";
 
 	@Override public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)

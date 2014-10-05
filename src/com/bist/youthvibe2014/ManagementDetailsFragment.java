@@ -57,10 +57,10 @@ public class ManagementDetailsFragment extends Fragment {
 		
 				switch(eventPosition) {
 					case 0:
-						placeHolderEventDetails = management_businessstratergy.getInstance();
+						placeHolderEventDetails = management_business_stratergy.getInstance();
 					break;
 					case 1:
-						placeHolderEventDetails = management_bplancompetition.getInstance();
+						placeHolderEventDetails = management_bplan.getInstance();
 					break;
 					case 2:
 						placeHolderEventDetails =  management_bizvictoria.getInstance();
@@ -69,10 +69,10 @@ public class ManagementDetailsFragment extends Fragment {
 						placeHolderEventDetails = management_casedevelopment.getInstance();
 					break;
 					case 4:
-						placeHolderEventDetails = management_strategicevaluation.getInstance();
+						placeHolderEventDetails = management_stategic_evaluation.getInstance();
 					break;
 					case 5:
-						placeHolderEventDetails = management_simulationgame.getInstance();
+						placeHolderEventDetails = management_simulation_game.getInstance();
 					break;
 					default:
 						placeHolderEventDetails = event_name.getInstance();
@@ -159,9 +159,9 @@ public class ManagementDetailsFragment extends Fragment {
 	}
 }*/
 
-class management_businessstratergy extends EventDetails {
+class management_business_stratergy extends EventDetails {
 	
-	public management_businessstratergy() {
+	public management_business_stratergy() {
 description = "There's no luck in business. There's only drive, determination, and more drive."
 + "\nA strategy, resource planning and creativity is all you need to impress everyone out there. This event will test your capability to get your company out of the loss and solve the problems that a business usually faces."
 + "\nHere, you get to showcase the quality of leadership in you along with your ability to plan and perform under pressure. So be the front liner, come up with a strategy and help your company in the comeback";
@@ -183,14 +183,14 @@ description = "There's no luck in business. There's only drive, determination, a
 		contact = "";
 	}
 	
-	public static management_businessstratergy getInstance() {
-		return new management_businessstratergy();
+	public static management_business_stratergy getInstance() {
+		return new management_business_stratergy();
 	}
 }
 
-class management_bplancompetition extends EventDetails {
+class management_bplan extends EventDetails {
 	
-	public management_bplancompetition() {
+	public management_bplan() {
 description ="B-PLAN COMPETITION - PLAN YOUR BUSINESS"
 + "\nBusiness is a game, played for fantastic stakes, and you're in a competition with experts. If you want to win, you have to learn to be the master of the game."
 + "\nThis is for those who have a plan to sell their ideas, their practical, rational, viable and master ideas."
@@ -212,8 +212,8 @@ rules = "01. It is a team event and each team should have two members."
 
 	}
 	
-	public static management_bplancompetition getInstance() {
-		return new management_bplancompetition();
+	public static management_bplan getInstance() {
+		return new management_bplan();
 	}
 }
 
@@ -289,9 +289,9 @@ description = "Objectives of Case development"
 	}
 }
 
-class management_strategicevaluation extends EventDetails {
+class management_stategic_evaluation extends EventDetails {
 	
-	public management_strategicevaluation() {
+	public management_stategic_evaluation() {
 description = "Introduction:"
 + "\nParticipants will be given a case study of a business situation. It may be based on real or assumed situation. Participants will suggest the best possible solution for the problem. Participant should be in a position to fully justify their solution to the case.";
 		
@@ -318,14 +318,14 @@ description = "Introduction:"
 		contact = "";
 	}
 	
-	public static management_strategicevaluation getInstance() {
-		return new management_strategicevaluation();
+	public static management_stategic_evaluation getInstance() {
+		return new management_stategic_evaluation();
 	}
 }
 
-class management_simulationgame extends EventDetails {
+class management_simulation_game extends EventDetails {
 	
-	public management_simulationgame() {
+	public management_simulation_game() {
 description = "INTRODUCTION"
 + "\n\"Tell me, I'll forget; show me, I may remember and involve me and I'll understand.\""
 + "\nA simulation game attempts to replicate various activities from \"real life\" in the form of a game for various purposes such as training, analysis, or prediction. "
@@ -351,8 +351,8 @@ description = "INTRODUCTION"
 		contact = "";
 	}
 	
-	public static management_simulationgame getInstance() {
-		return new management_simulationgame();
+	public static management_simulation_game getInstance() {
+		return new management_simulation_game();
 	}
 }
 

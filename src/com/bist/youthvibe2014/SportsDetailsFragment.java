@@ -64,10 +64,16 @@ public class SportsDetailsFragment extends Fragment {
 						placeHolderEventDetails = sports_basketball.getInstance();
 					break;
 					case 2:
-						placeHolderEventDetails = sports_cricket.getInstance();
+						placeHolderEventDetails = sports_chess.getInstance();
 					break;
 					case 3:
 						placeHolderEventDetails = sports_volleyball.getInstance();
+					break;
+					case 4:
+						placeHolderEventDetails = sports_table_tennis.getInstance();
+					break;
+					case 5:
+						placeHolderEventDetails = sports_cricket.getInstance();
 					break;
 					default:
 						placeHolderEventDetails = event_name.getInstance();
@@ -211,33 +217,51 @@ description = "";
 	}
 }
 
-class sports_cricket extends EventDetails {
+class sports_chess extends EventDetails {
 	
-	public sports_cricket() {
-description = "";
+	public sports_chess() {
+		description = "CHESS "
+					+ "\nChess as a sport requires a lot of mental stamina, and this is what that makes it different from a physical sport. Chess players have a unique ability of taking in a lot of information and remembering relevant bits. So, memory and mental stamina are the key attributes."
+					+ "\nViswanathan Anand"
+					+ "\nEvent Type: Group"
+					+ "\nTeam Size: 4"
+					+ "\nOpen for: Both (Male + Female)"
+					+ "\nStages of Tournament:"
+					+ "\n-o-Qualifiers for Host University"
+					+ "\n-o-	League (For all teams)"
+					+ "\n-o-	Semi-final"
+					+ "\n-o-	Final"
+					+ "\nTiming of the matches: 6.30 am – 9.00 pm (any time in between)"
+					+ "\nImportant Instructions:"
+					+ "\n-o-	All matches shall be governed by norms of FIDE"
+					+ "\n-o-	More than one match can be scheduled for a team on a particular day."
+					+ "\n-o-	All teams must bring their own Chess Clock."
+					+ "\n-o-	Teams are requested to report to the venue ground 15 minutes before the scheduled start time."
+					+ "\n-o-	Walkover will be given to a team if the opponent team is not able to reach the ground within 15 minutes of the scheduled time."
+					+ "\n-o-	No team shall argue with Referee/ umpires in any case as it would lead to cancellation of team registration and no refunds will be given. It could also attract proper disciplinary actions against the team."
+					+ "\n-o-	No extra labor will be provided for any team help."
+					+ "\n** RULES & SCHEDULE ARE SUBJECT TO CHANGE IN THE SPIRIT OF THE GAME & FESTIVAL AND THE FINAL DECISION RESTS WITH THE HOST UNIVERSITY.";
 		
-		rules = "01. Each team consists of 15 members."
-+ "\n02. Matches will be played at knock out basis."
-+ "\n03. All matches shall be 15-15 and 20-20 from Semi Final Stages."
-+ "\n04. Walkover will be given to other team in case of not reporting on time."
-+ "\n05. Team should report 30 min before the start of play."
-+ "\n06. Matches will be played by leather ball."
-+ "\n07. Teams should have their own cricketing kit."
-+ "\n08. Organizing committee will not providing any kit to the teams."
-+ "\n09. Decision of ground umpires will be final."
-+ "\n10. Matches will be played as per new cricketing rules of ICC."
-+ "\n11. Decision of organizing committee will be final."
-+ "\n12. Winner and runner up will be awarded with cash prize, trophy and certificates.";
+		
+		rules = "-o-The game is going to be played between 2 players from different teams. "
+				+ "\n-o-The sequence of the matches and which team shall play against which team shall be decided by random lucky draw at the discretion of the organizing University."
+				+ "\n-o-Each team consists of 4 players."
+				+ "\n-o-All the team members must belong to the same Institute."
+				+ "\n-o-If a player from Team A wins against a player from Team B, then he gets 10 point for his team and if they end in a draw, both the players get 5 points for their team, to be added into the round points of the team."
+				+ "\n** RULES & SCHEDULE ARE SUBJECT TO CHANGE IN THE SPIRIT OF THE GAME & FESTIVAL AND THE FINAL DECISION RESTS WITH THE HOST UNIVERSITY.";
 		
 		specification = "";
 		
 		criteria = "";
-		contact = "";
-
+		
+		contact = "Mr. Ajay"
+				+ "\n+91-7837360375"
+				+ "\nMr. Alok Pratap Singh"
+				+ "\n+91-9041592540";
 	}
 	
-	public static sports_cricket getInstance() {
-		return new sports_cricket();
+	public static sports_chess getInstance() {
+		return new sports_chess();
 	}
 }
 
@@ -268,3 +292,127 @@ description = "";
 	}
 }
 
+class sports_table_tennis extends EventDetails {
+	
+	public sports_table_tennis() {
+		description = "TABLE TENNIS "
+				+ "\nTennis is a perfect combination of violent action taking place in an atmosphere of total tranquility."
+				+ "\nEvent Type: Group"
+				+ "\nTeam Size: 3"
+				+ "\nOpen for: Male & Female"
+				+ "\nStages of Tournament: "
+				+ "\n-o-Qualifiers for Host University"
+				+ "\n-o-League (For all teams)"
+				+ "\n-o-	Semi-final"
+				+ "\n-o-	Final"
+				+ "\nTiming of the matches: 6.30 am – 9.00 pm (any time in between)"
+				+ "\nImportant Points: "
+				+ "\n-o-	All matches shall be governed by norms of Table Tennis Federation of India "
+				+ "\n-o-	More than one match can be scheduled for a team on a particular day. "
+				+ "\n-o-	All teams must bring their own kits. No Kits shall be provided by the organizers. "
+				+ "\n-o-	In case of heavy rain, decision taken by umpires will be considered as final."
+				+ "\n-o-	In case of any discrepancy/natural problems during finals or semi-finals, winner will be decided on the basis of point tally of league matches STRICTLY."
+				+ "\n-o-	Teams are requested to report the ground 15 minutes before the scheduled start time."
+				+ "\n-o-	Walkover will be given to a team if the opponent team is not able to reach the ground within 15 minutes of the scheduled time."
+				+ "\n-o-	No team shall argue with Referee/ umpires in any case as it would lead to cancellation of team registration and no refunds will be given. It could also attract proper disciplinary actions against the team."
+				+ "\n-o-	No extra labor will be provided for any team help."
+				+ "\n** RULES & SCHEDULE ARE SUBJECT TO CHANGE IN THE SPIRIT OF THE GAME & FESTIVAL AND THE FINAL DECISION RESTS WITH THE HOST UNIVERSITY.";
+		
+		rules = "-o-A maximum of three players can register for the men's and women's teams respectively."
+				+ "\n-o-Each team match consists of five individual matches: 3 singles & two doubles and shall end when one team has won a majority of the possible individual matches. "
+				+ "\n-o-Firstly, three single matches shall be played followed by double matches. "
+				+ "\n-o-Each of the team captains shall nominate their players as 1, 2 & 3. "
+				+ "\n-o-Players nominated as 1 shall play against each other and so on for 2 & 3. "
+				+ "\n-o-The captain of the teams shall decide the team combination, however all three players must be involved in either of two matches. "
+				+ "\n-o-The referee shall have power to disqualify a player from a match, a team match, an event or a competition for seriously unfair or offensive behavior."
+				+ "\n-o-If a player is disqualified from 2 matches of the team event, he or she shall automatically be disqualified from that team event."
+				+ "\n-o-The team will lose that match by forfeit (the team match by 2-0, each match by 2-0 and each game by 11-0). The opposing team will advance to the next round."
+				+ "\n-o-Any markings or trimming on the front or side of a playing garment and any objects such as jewelry worn by a player shall not be so conspicuous or brightly reflecting as to unsighted an opponent."
+				+ "\n** RULES & SCHEDULE ARE SUBJECT TO CHANGE IN THE SPIRIT OF THE GAME & FESTIVAL AND THE FINAL DECISION RESTS WITH THE HOST UNIVERSITY.";
+		
+		specification = "";
+		
+		criteria = "";
+		
+		contact = "Mr. Ajay"
+				+ "\n+91-7837360375"
+				+ "\nMr. Alok Pratap Singh"
+				+ "\n+91-9041592540";
+	}
+	
+	public static sports_table_tennis getInstance() {
+		return new sports_table_tennis();
+	}
+}
+
+class sports_cricket extends EventDetails {
+	
+	public sports_cricket() {
+		description = "Cricket"
+				+ "\nAny active sportsman has to be very focused; you've got to be in the right frame of mind. If your energy is diverted in various directions, you do not achieve the results. I need to know when to switch on and switch off: and the rest of the things happen around that. Cricket is in the foreground, the rest is in the background."
+				+ "\nSachin Tendulkar"
+				+ "\nEvent Type: Group"
+				+ "\nTeam Size: 14-16 [+ Coaching Staff]"
+				+ "\nOpen For: Male Only"
+				+ "\nStages of Tournament:"
+				+ "\n-o-Qualifiers for Host University: 12-12 Overs a side"
+				+ "\n-o-	League (For all teams): 15-15 Overs a side"
+				+ "\n-o-	Semi-final: 20-20 Overs a Side"
+				+ "\n-o-	Final: 20-20 Overs a Side"
+				+ "\nTiming of the matches: 6.30 am – 5.30 pm (any time in between)"
+				+ "\nImportant Points:"
+				+ "\n-o-	More than one match can be scheduled for a team on a particular day."
+				+ "\n-o-	All matches shall be conducted with red balls."
+				+ "\n-o-	All teams must bring their own kits. No Kits shall be provided by the organizers."
+				+ "\n-o-	New Ball shall be used in each innings."
+				+ "\n-o-	In case of heavy rain, decision taken by umpires will be considered as final."
+				+ "\n-o-	In case of any discrepancy/natural problems during finals or semi-finals, winner will be decided on the basis of point tally of league matches STRICTLY."
+				+ "\n-o-Teams are requested to report the ground 15 minutes before the scheduled start time."
+				+ "\n-o-	Walkover will be given to a team if the opponent team is not able to reach the ground within 15 minutes of the scheduled time."
+				+ "\n-o-If there would be need of applying D/L rules, Umpire's decision will be final."
+				+ "\n-o-	No team shall argue with umpires in any case as it would lead to cancellation of team registration and no refunds will be given. It could also attract proper disciplinary actions against the team."
+				+ "\n-o-	All the matches are to be played on turf or mat wicket. The organizers reserve the right for the same. It is possible that some matches / some team may be played/play on turf pitches while some others on mat wicket."
+				+ "\n-o-	No extra labor will be provided for any team help."
+				+ "\n** RULES & SCHEDULE ARE SUBJECT TO CHANGE IN THE SPIRIT OF THE GAME & FESTIVAL AND THE FINAL DECISION RESTS WITH THE ORGANIZING UNIVERSITY ";
+		
+		rules = "-o-All rules & regulation as governed by ICC including LBW, Free Hit, Field Restrictions. Exceptions if any are mentioned below."
+				+ "\n-o-	If either of the umpires believes that a team is wasting time/using foul language for the opponent team or even in their own team or over sledging, he can award a five-run penalty, at his own discretion. However, if it happens, thrice in the same match by a team, the opponent shall be declared winner. "
+				+ "\n-o-	The interval lasts for 10 minutes & 5 minutes drinks break shall be granted in each innings between 8-10 Overs deepening on the request of either of the team or the decision of the umpires. "
+				+ "\n-o-A match shall be deemed to have been played if and only if, each of the two teams has faced (or had the opportunity to face) five Overs."
+				+ "\n-o-	Each match shall have two points. "
+				+ "\n-o-	In case of tie in points at the league stage, the team having the best run rate shall qualify to the semi-finals. To calculate a team's net run rate, the average runs per over scored by that team is deducted from the average runs per over scored against it."
+				+ "\n-o-	Only short-pitched ball is allowed per over."
+				+ "\nField Restrictions"
+				+ "\n-o-At the most, five fielders can be on the leg side, at any given point of time."
+				+ "\n-o-For 20-20 Overs matches, the following field restriction shall applu"
+				+ "\n-o-In the first 6 Overs, there cannot be more than two fielders outside the 30-Yard Circle "
+				+ "\n-o-There can be a maximum of five fielders outside the fielding circle, after the first six overs end."
+				+ "\n-o-For 15-15 Overs matches, the following field restriction shall applu"
+				+ "\n-o-In the first 4 Overs, there cannot be more than two fielders outside the 30-Yard Circle "
+				+ "\n-o-There can be a maximum of five fielders outside the fielding circle, after the first four overs end."
+				+ "\n-o-For 12-12 Overs, the following field restriction shall apply "
+				+ "\n-o-In the first 3 Overs, there cannot be more than two fielders outside the 30-Yard Circle "
+				+ "\n-o-There can be a maximum of five fielders outside the fielding circle, after the first three overs end."
+				+ "\n-o-The following shall be the time limit for completion of innings:"
+				+ "\n-o-20 overs: 85 Minutes (+5 Minutes extra time) "
+				+ "\n-o-15 Overs: 60 minutes (+5 Minutes extra time) "
+				+ "\n-o-12 Overs: 50 minutes (+5 Minutes extra time) "
+				+ "\n-o-If it fails to do so, extra six runs will be added to the batting team's score, for every whole over bowled after the expected minute-mark. In case the umpire believes that the batting team or some situational issue is wasting time, he may, 5 minutes extra as stated above."
+				+ "\nTie Deciders"
+				+ "\nTie is broken with a one over per side – Eliminator or Super Over. Each of the two teams nominates three batsmen and one bowler, to play a one-over per side, which can be termed as mini-match. If a team loses two wickets before the over is complete, it loses the game. If this does not happen, the team with the higher score from its over wins it. In case there is a tie after the mini-match as well, the team that has higher number of sixes in its full innings, or in the One1, will be declared the winner. If, by any chance, there is still a tie, the winning team is the one with the higher number of fours in both innings. "
+				+ "\n** RULES & SCHEDULE ARE SUBJECT TO CHANGE IN THE SPIRIT OF THE GAME & FESTIVAL AND THE FINAL DECISION RESTS WITH THE HOST UNIVERSITY.";
+		
+		specification = "";
+		
+		criteria = "";
+		
+		contact = "Mr. Ajay"
+				+ "\n+91-7837360375"
+				+ "\nMr. Alok Pratap Singh"
+				+ "\n+91-9041592540";
+	}
+	
+	public static sports_cricket getInstance() {
+		return new sports_cricket();
+	}
+}

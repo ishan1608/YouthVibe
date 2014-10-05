@@ -32,7 +32,7 @@ public class SportsFragment extends Fragment
 	// private int viewId;
 	private int progressId;
 	
-	String[] imageItems = {"football1", "cricket1", "volleyball", "basketball"};
+	String[] imageItems = {"sports_football", "sports_basketball", "sports_chess", "sports_volleyball", "sports_table_tennis", "sports_cricket"};
 	//imageItems[12]="folkclass";
 
 	@Override public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
