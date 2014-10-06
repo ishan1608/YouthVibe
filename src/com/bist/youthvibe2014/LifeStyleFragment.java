@@ -31,7 +31,7 @@ public class LifeStyleFragment extends Fragment
 	// private int viewId;
 	private int progressId;
 	
-	String[] imageItems = {};
+	String[] imageItems = {"lifestyle_paridhaan", "lifestyle_yv_icon_hunt", "lifestyle_mrandmsyouthvibe"};
 	//imageItems[12]="folkclass";
 
 	@Override public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
@@ -74,10 +74,11 @@ public class LifeStyleFragment extends Fragment
 
 				@Override
 				public void onClick(View arg0) {
+					// We are going to use this
 					Bundle categoryBundle = new Bundle();
-					categoryBundle.putString("categoryPosition", val);
-					
-					TechnicalCategoriesFragment nextFragment = new TechnicalCategoriesFragment();
+					categoryBundle.putString("categoryPosition", "0");
+					categoryBundle.putString("eventPosition", val);
+					LifeStyleDetailsFragment nextFragment = new LifeStyleDetailsFragment();
 					
 					nextFragment.setArguments(categoryBundle);
 					
