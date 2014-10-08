@@ -498,7 +498,7 @@ public class MainActivity extends Activity {
 			FragmentManager fragmentManager = getFragmentManager();
 			fragmentManager.beginTransaction().replace(R.id.frame_container, fragment).commit();
 			// Display the title for events, then close the drawer
-			setTitle(menutitles[2]);
+			setTitle(menutitles[3]);
 			mDrawerLayout.closeDrawer(mDrawerList);
 		}
 	}
