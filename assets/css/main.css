@@ -237,12 +237,12 @@ main {
 /* Slide 4 */
 #slide-4 .bcg {background-image:url('http://youthvibe2014server.herokuapp.com/public/bcg_slide-4.png')}
 #slide-4 .hsContent {
-	margin-left: -450px;
+	margin-left: -470px;
     top: auto;
     bottom: 75px;
 }
 	#slide-4 h2 {
-		background: none;
+        background-color: rgba(0,0,0,0.2);
 		padding-left: 0;
 		padding-right: 0;
 	}
